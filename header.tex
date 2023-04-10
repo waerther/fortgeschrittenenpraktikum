@@ -59,6 +59,11 @@
 % \usepackage{amsmath}
 % \numberwithin{equation}{section}
 
+% % !!! for den "token not defined in pdf"-Fehler, wenn man latex in \section{...} verwendet
+% \PassOptionsToPackage{unicode}{hyperref}
+% \PassOptionsToPackage{naturalnames}{hyperref} klappt nicht??
+
+
 \usepackage[
   math-style=ISO,    % ┐
   bold-style=ISO,    % │
@@ -119,11 +124,22 @@
   font=small,          % Schrift etwas kleiner als Dokument
   width=0.9\textwidth, % maximale Breite einer Caption schmaler
 ]{caption}
+
 % subfigure, subtable, subref
 \usepackage{subcaption}
 
-% Grafiken können eingebunden werden
+% Grafiken können eingebunden werden !!! von Jonas
 \usepackage{graphicx}
+%\usepackage{wrapfig}%Textumflossene Graphik
+\usepackage{cancel} %Brüche Kürzen
+\usepackage{tikz} %Fancy Kreisnummern
+\usepackage[a4paper, left=30mm, top=30mm, right=30mm, bottom=40mm]{geometry} %Pagelayout
+%\usepackage{subcaption} %Unterüberschrift
+%\captionsetup[figure]{calcwidth=.85\linewidth} %You dont want to know
+\usepackage{tasks} % Aufgaben
+
+% !!! Für das Einfügen von pdfs wie messdaten etc.
+\usepackage{pdfpages}
 
 % schöne Tabellen
 \usepackage{booktabs}
@@ -150,8 +166,16 @@
 % erweiterte Bookmarks im PDF
 \usepackage{bookmark}
 
+% Hinzugefügt
+\usepackage{wrapfig}
+
 % Trennung von Wörtern mit Strichen
 \usepackage[shortcuts]{extdash}
+
+% % !!! Seitenlayout (Jonas)
+% \usepackage[headsepline=1pt,footsepline=1pt]{scrlayer-scrpage}
+% \pagestyle{scrheadings}
+% \clearpairofpagestyles
 
 \author{%
   Toby Teasdale\\%
@@ -161,3 +185,4 @@
   \href{mailto:erich.wagner@tu-dortmund.de}{erich.wagner@tu-dortmund.de}%
 }
 \publishers{TU Dortmund – Fakultät Physik}
+\setlength\parindent{0pt}

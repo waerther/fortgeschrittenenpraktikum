@@ -1,49 +1,72 @@
-all:
-	make -C v101
-	make -C v103
-	make -C v203
-	make -C v206
-	make -C v302
-	make -C v308
-	make -C v353
-	make -C v355
+make all:
+	make -C us1
+	make -C us2
+	make -C us3
+	make -C v401
+	make -C v407
+	make -C v500
+	make -C v504
+	make -C v601
+	make -C v602
+	make -C v606
+	make -C v703
+	make -C v704
 
 vXXX:
 	make -C vXXX
 
-v206:
-	make -C v206
+v504:
+	make -C v504
 
-v308:
-	make -C v308
+v500:
+	make -C v500
 
-v355:
-	make -C v355	
+v401:
+	make -C v401
 
-v101:
-	make -C v101
+v407:
+	make -C v407
 
-v203:
-	make -C v203
+v400:
+	make -C v400
 
-v103:
-	make -C v103
+v703:
+	make -C v703
 
-v302:
-	make -C v302
+v704:
+	make -C v704
 
-v353:
-	make -C v353
+us3:
+	make -C us3
+
+us1:
+	make -C us1
+
+v606:
+	make -C v606
+
+v601:
+	make -C v601
+
+us2:
+	make -C us2
+
+v602:
+	make -C v602
+
 
 clean:
-	make -C vXXX clean
-	make -C v101 clean
-	make -C v103 clean
-	make -C v203 clean
-	make -C v206 clean
-	make -C v302 clean
-	make -C v308 clean
-	make -C v353 clean
-	make -C v355 clean
+	make -C us1  clean
+	make -C us2  clean
+	make -C us3  clean
+	make -C v401 clean
+	make -C v407 clean
+	make -C v500 clean
+	make -C v504 clean
+	make -C v601 clean
+	make -C v602 clean
+	make -C v606 clean
+	make -C v703 clean
+	make -C v704 clean
 
-.PHONY: clean vXXX clean v206 clean v308 clean v355 clean v101 clean v203 clean v103 clean v302 clean v353
+.PHONY: clean vXXX clean v504 clean v500 clean v401 clean v407 clean v400 clean v703 clean v704 clean us3 clean us1 clean v606 clean v601 clean us2 clean v602
