@@ -30,7 +30,23 @@ Auch diese Ergebnisse sind in \autoref{tab:glas} zu finden.
 \input{build/n_glas.txt}
 
 \subsection{Brechungsindex Luft}
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7 \linewidth]{build/Luft.pdf}
+    \caption{Lineare Regression an die Maxima.}
+    \label{fig:plot2}
+\end{figure}
 Die Messdaten der drei Messreihen sind in \autoref{tab:luft} zu finden.
 \input{build/n_luft.txt}
-Hier sind auch die berechneten Brechungsindizes zu finden.
-Diese wurden nach \autoref{eq:n_Glas} berechnet.
+Nun wird ein Fit an die Maxima angesetzt.
+Dabei wird von einem linearen Zusammenhang ausgegangen, also
+\begin{equation*}
+    M(p) = a + p \cdot m \, .
+\end{equation*}
+Der entsprechende Plot ist in \autoref{fig:plot2} zu sehen.
+Daraus ergibt sich dann für die Variablen $a = -0.68 \pm 0.17$ und $43.02 \pm 0.31$.
+Als beste Schätzung der Maxima bis Atmosphärendruck ergibt sich $M = 40.2 \pm 0.34$, woraus sich mit \autoref{eq:nluft2} der Brechungsindex für Luft zu
+\begin{equation}
+    n_\text{Luft} = 1.0001338 \pm 0.0000011
+\end{equation}
+berechnen lässt.

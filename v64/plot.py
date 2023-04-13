@@ -46,13 +46,13 @@ def func(maxima):
 hea = list(['Maxima', 'Brechungsindex'])
 md = np.c_[md, func(md)]
 
-mittelwert_n = np.mean(md[:,1])
+mittelwert_n = ufloat(np.mean(md[:,1]), np.std(md[:,1]))
 pandas_md = pd.DataFrame(md, columns=hea)
 pandas_md = pandas_md.append({
     'Maxima' : 'Median',
     'Brechungsindex' : mittelwert_n
 }, ignore_index=True)
-pandas_md = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft")
+pandas_md = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:glas', caption="Messwerte zum Brechungsindex von Glas")
 with open('build/n_glas.txt', 'w') as f:
     f.write(pandas_md)
 ####################################
@@ -62,6 +62,27 @@ hea = list(['Maxima', 'Versuch 1', 'Versuch 2', 'Versuch 3'])
 md = md.to_latex(index = False, column_format= "c c c c", decimal=',', header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft")
 with open('build/n_luft.txt', 'w') as f:
     f.write(md)
+
+md = pd.read_csv('tables/n_luft.csv')
+md = md.to_numpy()
+T = const.convert_temperature(21.5, 'Celsius', 'Kelvin')
+
+def func(p, a, m):
+    return a + p * m
+
+p = md[:,0]
+maxima1 = md[:,1]; maxima2  = md[:,2]; maxima3 = md[:,3]
+p_c = np.concatenate((p[:-1],p,p),axis=None)
+max_c = np.concatenate((maxima1[:-1],maxima2,maxima3),axis=None)
+params, cov = curve_fit(func, p_c, max_c)
+plt.plot(p_c, max_c, 'r+', label="Daten")
+plt.plot(p, func(p, *params), 'b', label="Regression")
+plt.ylabel('Kontrast')
+plt.tight_layout()
+plt.grid(':')
+plt.legend(loc="best")
+plt.savefig("build/Luft.pdf")
+plt.clf()
 
 ####################
 md = pd.read_csv('tables/kontrast.csv')
