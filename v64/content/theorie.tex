@@ -1,19 +1,39 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-Zunächst wird der prinzipielle Aufbau eines Sagnac-Interferometers erklärt.
-Danach wird die Bedeutung von einigen wichtigen Variablen (Kontrast) erklärt.
+Zunächst wird allgemein auf das Phänomen der Interferenz und Polarisation von Wellen eingegangen.
+Danach wird der grundlegende Aufbau eines Sagnac-Interferometers erklärt.
+Außerdem wird auf den Kontrast und den Brechungsindex eingegangen.
+
+\subsection{Polarisation, Interferenz und Kohärenz} \label{sec:polarisation}
+Seit der Elektrodynamik ist bekannt, dass Licht als eine elektromagnetische Welle beschrieben werden kann.
+Bereits aus der Wellendynamik, beispielsweise von Wasserwellen, ist bekannt, dass diese sich überlagern können und so auch auslöschen können.
+Damit können prinzipiell auch Lichtwellen miteinander interferieren und sich auslöschen.
+Dafür muss das Licht aber einige Eigenschaften erfüllen.
+Dazu zählt die \textbf{Kohärenz}.
+Kohärentes Licht beschreibt Licht mit fester Frequenz, Phase und Ausbreitungsrichtung.
+So ein Licht wird beispielsweise von Lasern hergestellt.
+Nun ist bei verschiedenen physikalischen Prozessen auch die sogenannte \textbf{Polarisation} wichtig.
+Eine polarisierte Welle ist in \autoref{fig:polarisation1} dargestellt.
+Sind zwei polarisierte Wellen überlagert, interferieren diese nur dann, wenn sie auch in der selben Ebene polarisiert sind.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7 \linewidth]{pictures/polarisation1.pdf}
+    \caption{Eine linear polarisierte Welle \cite{demtroeder2}.}
+    \label{fig:polarisation1}
+\end{figure}
 
 \subsection{Das Sagnac-Interferometer} \label{sec:aufbau}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width = 0.7 \linewidth]{pictures/aufbau1.pdf}
-    \caption{Schematischer Aufbau eines Sagnac-Interferometers.\cite{v64}}
-    \label{aufbau1}
+    \caption{Schematischer Aufbau eines Sagnac-Interferometers\cite{v64}.}
+    \label{fig:aufbau1}
 \end{figure}
 
-In \autoref{aufbau1} ist der grundlegende Aufbau eines Sagnac-Interferometers schematisch abgebildet.
+In \autoref{fig:aufbau1} ist der grundlegende Aufbau eines Sagnac-Interferometers schematisch abgebildet.
 Dieser besteht aus insgesamt 6 Spiegeln.
 Dabei sind die Spiegel zur Strahljustierung vorgesehen.
 M2 wird auch genutzt, um die beiden Strahlen voneinander zu trennen.
@@ -38,10 +58,10 @@ Für die Intensitätsmaxima/- und minima gilt die Beziehung \cite{v64}
     I_\text{max/min} \propto I_\text{Laser} \left[ 1 \pm 2 \cos(\Phi) \sin (\Phi) \right] \, ,
 \end{equation*}
 aus der sich wiederrum mit \autoref{eq:kontrast} die Gleichung
-\begin{equation*}
-    K = K(\Phi) \propto \frac{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] - \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] + \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}
-    = 2 \cos(\Phi) \sin(\Phi)
-\end{equation*}
+\begin{align*}
+    K = K(\Phi) &\propto \left|\frac{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] - \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] + \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}\right| \\
+    &= \left|2 \cos(\Phi) \sin(\Phi) \right| = \left| \sin (2 \Phi) \right|
+\end{align*}
 ergibt. Hieraus ist auch sofort ersichtlich, dass der Kontrast bei ungefähr $45°$ am höchsten sein dürfte, wenn alle anderen Einflüsse optimiert sind.
 
 \subsection{Brechungsindizes} \label{sec:n}
