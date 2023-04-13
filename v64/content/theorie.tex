@@ -58,10 +58,10 @@ Für die Intensitätsmaxima/- und minima gilt die Beziehung \cite{v64}
     I_\text{max/min} \propto I_\text{Laser} \left[ 1 \pm 2 \cos(\Phi) \sin (\Phi) \right] \, ,
 \end{equation*}
 aus der sich wiederrum mit \autoref{eq:kontrast} die Gleichung
-\begin{align*}
+\begin{align}\label{eq:kontrast2}
     K = K(\Phi) &\propto \left|\frac{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] - \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}{\left[ 1 + 2 \cos(\Phi) \sin (\Phi) \right] + \left[ 1 - 2 \cos(\Phi) \sin (\Phi) \right]}\right| \\
     &= \left|2 \cos(\Phi) \sin(\Phi) \right| = \left| \sin (2 \Phi) \right|
-\end{align*}
+\end{align}
 ergibt. Hieraus ist auch sofort ersichtlich, dass der Kontrast bei ungefähr $45°$ am höchsten sein dürfte, wenn alle anderen Einflüsse optimiert sind.
 
 \subsection{Brechungsindizes} \label{sec:n}
@@ -103,10 +103,10 @@ Damit wird aus \autoref{eq:phiglas} die Gleichung in führender Ordnung
 \end{equation}
 was mit \autoref{eq:maxima} auf die Gleichung
 \begin{equation*}
-    M = \frac{n - 1}{\lambda \cdot n} \cdot \theta \cdot |\theta_0|
+    M = \frac{n - 1}{\lambda \cdot n} \cdot 2 \theta \cdot |\theta_0|
 \end{equation*}
 und somit auf
 \begin{equation} \label{eq:n_Glas}
-    n = \frac{1}{1- \frac{\lambda M}{ \theta \cdot |\theta_0| T}}
+    n = \frac{1}{1- \frac{\lambda M}{ 2 \theta \cdot |\theta_0| T}}
 \end{equation}
 führt.
