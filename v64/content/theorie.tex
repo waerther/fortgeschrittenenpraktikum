@@ -7,12 +7,10 @@ Außerdem wird auf den Kontrast und den Brechungsindex eingegangen.
 
 \subsection{Polarisation, Interferenz und Kohärenz} \label{sec:polarisation}
 Seit der Elektrodynamik ist bekannt, dass Licht als eine elektromagnetische Welle beschrieben werden kann.
-Bereits aus der Wellendynamik, beispielsweise von Wasserwellen, ist bekannt, dass diese sich überlagern können und so auch auslöschen können.
+Die Wellendynamik beschreibt, wie beispielsweise im Fall von Wasserwellen, dass diese sich überlagern und so auch auslöschen können.
 Damit können prinzipiell auch Lichtwellen miteinander interferieren und sich auslöschen.
-Dafür muss das Licht aber einige Eigenschaften erfüllen.
-Dazu zählt die \textbf{Kohärenz}.
-Kohärentes Licht beschreibt Licht mit fester Frequenz, Phase und Ausbreitungsrichtung.
-So ein Licht wird beispielsweise von Lasern hergestellt.
+Dafür muss das Licht aber einige Eigenschaften erfüllen, wie in etwa die \textbf{Kohärenz}.
+Kohärentes Licht beschreibt Licht mit fester Frequenz, Phase und Ausbreitungsrichtung und kann mithilfe von Lasern erzeugt werden.
 Nun ist bei verschiedenen physikalischen Prozessen auch die sogenannte \textbf{Polarisation} wichtig.
 Eine polarisierte Welle ist in \autoref{fig:polarisation1} dargestellt.
 Sind zwei polarisierte Wellen überlagert, interferieren diese nur dann, wenn sie auch in der selben Ebene polarisiert sind.
@@ -37,11 +35,15 @@ In \autoref{fig:aufbau1} ist der grundlegende Aufbau eines Sagnac-Interferometer
 Dieser besteht aus insgesamt 6 Spiegeln.
 Dabei sind die Spiegel zur Strahljustierung vorgesehen.
 M2 wird auch genutzt, um die beiden Strahlen voneinander zu trennen.
-Dies geschieht dadurch, dass das Licht aus dem Helium-Neon-Laser so auf den PBSC (Polarizing-Beam-Splitter-Cube) gelenkt wird, dass der Strahl nicht mittig auftrifft.
-Durch diese Verschiebung laufen die Strahlen zwar am Ende wieder (bei justierten Spiegeln) ineinander zusammen, lassen sich jedoch getrennt voneinander manipulieren, beispielsweise durch ein Glasplättchen.
-Nachdem die Strahlen wieder zusammengeführt wurden, werden sie schließlich durch ein um 45°  gedrehten PBSC wieder getrennt und polarisiert und auf zwei verschiedene Photodioden gelenkt.
+Dies geschieht dadurch, dass das Licht aus dem Helium-Neon-Laser so auf den PBSC (Polarizing-Beam-Splitter-Cube) gelenkt wird, 
+dass der Strahl nicht mittig auftrifft.
+Durch diese Verschiebung laufen die Strahlen zwar am Ende wieder (bei justierten Spiegeln) ineinander zusammen, 
+lassen sich jedoch getrennt voneinander manipulieren, beispielsweise durch ein Glasplättchen.
+Nachdem die Strahlen wieder zusammengeführt wurden, 
+werden sie schließlich durch ein um 45° gedrehten PBSC wieder getrennt, polarisiert und auf zwei verschiedene Photodioden gelenkt.
 Dies passiert zu Gunsten der sogenannten Differenzspannungsmethode.
-Bei Anwendung dieser Methode liegt der Vorteil darin, dass hinterher die beiden Signale voneinander abgezogen werden und somit äußere Störfaktoren wie Restlicht im Laborraum systematisch herausgerechnet werden können.
+Bei Anwendung dieser Methode liegt der Vorteil darin, 
+dass hinterher die beiden Signale voneinander abgezogen werden und somit äußere Störfaktoren wie Restlicht im Laborraum systematisch herausgerechnet werden können.
 Unter anderem durch diese Methode ist das Sagnac-Interferometer nicht so störungsempfindlich wie andere Interferometer. 
 
 \subsection{Kontrast} \label{sec:kontrast}
@@ -50,8 +52,7 @@ Als Kontrast (oder Sichtbarkeit) eines Interferometers wird die Beziehung
     K = \frac{I_\text{max} - I_\text{min}}{I_\text{max} + I_\text{min}}
 \end{equation}
 bezeichnet. Offensichtlich gilt also für den Kontrast: $K \in [0,1]$.
-Anschaulich beschreibt $K$ wie klar das Interferenzbild ist.
-Bei einem Kontrast von $0$ wäre beispielsweise kein Interferenzbild messbar.
+Anschaulich beschreibt $K$ wie klar das Interferenzbild ist, bei einem Kontrast von $0$ wäre beispielsweise kein Interferenzbild messbar.
 
 Für die Intensitätsmaxima/- und minima gilt die Beziehung \cite{v64}
 \begin{equation*}
@@ -68,12 +69,14 @@ ergibt. Hieraus ist auch sofort ersichtlich, dass der Kontrast bei ungefähr $45
 
 Der Brechungsindex eines Mediums ist eine intrinsische Eigenschaft eines Materials.
 Diese sind auch mit einem Interferometer bestimmbar.
-Es ist bekannt, dass ein Medium mit $n_\text{Medium} > 1$ die Geschwindigkeit von Licht verringert.
+Es ist bekannt, dass ein Medium mit $n_\text{Medium} > 1$ die Geschwindigkeit von eitretendem Licht verringert.
 Dies lässt sich durch die Gleichung
 \begin{equation*}
     v_\text{Medium} = \frac{c}{n}
 \end{equation*}
-beschreiben. Wird also ein Lichtstrahl durch ein Medium gelenkt, dabei reicht bereits eine geringe Strecke aus, erfährt dieser Lichtstrahl im Gegensatz zu einem anderen Lichtstrahl der selben Quelle eine Phasenverschiebung.
+beschreiben. Wird also ein Lichtstrahl durch ein Medium gelenkt, 
+dabei reicht bereits eine geringe Strecke aus, 
+erfährt dieser Lichtstrahl im Gegensatz zu einem anderen Lichtstrahl der selben Quelle eine Phasenverschiebung.
 Dies lässt sich in Interferometern ausnutzen, um den Brechungsindex eines Mediums zu bestimmen.
 Für die Phasenverschiebung in Luft gilt die Beziehung \cite{v64}
 \begin{equation} \label{eq:nluft}
