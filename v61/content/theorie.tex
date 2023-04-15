@@ -3,7 +3,8 @@
 
 Zunächst wird allgemein auf Polarisation von Wellen eingegangen.
 Dann wird sich mit dem prinzipiellen Aufbau eines Lasers beschäftigt und wie dieser kohärentes Licht produziert.
-Anschließend \textit{tbd}.
+Außerdem wird behandelt, was unter TEM-Moden verstanden wird.
+Schließlich wird konkret der klassische Aufbau eines Helium-Neon-Lasers und dessen Eigenschaften behandelt.
 
 \subsection{Polarisation und Kohärenz} \label{sec:polarisation}
 Seit der Elektrodynamik ist bekannt, dass Licht als eine elektromagnetische Welle beschrieben werden kann.
@@ -58,10 +59,33 @@ Weiterhin lässt sich die Resonatorstabilität mit den sogenannten g-Faktoren
     g_i = 1 - \frac{L}{r_i}
 \end{equation}
 beschreiben. Dabei ist $r_i$ der Krümmungsradius und $L$ die Länge des Resonators.
-Für $0 \leq g_1 g_2 < 1$ ist der Resonator stabil.
+Für $0 < g_1 g_2 < 1$ ist der Resonator stabil.
 Daraus lässt sich auch der maximale Abstand zwischen den Spiegeln berechnen.
 Bei zwei gleichen Spiegeln wird dieser immer dann kleiner null, wenn er größer als der Krümmungsradius ist.
 
+\begin{wrapfigure}{r}{0.4\linewidth}
+    \includegraphics[width=\linewidth]{pictures/moden1.pdf}
+    \caption{$TEM_{xy}$ \cite{HeNe_levels}.}
+    \label{fig:moden1}
+\end{wrapfigure}
+Der Name Resonator lässt bereits darauf schließen, dass sich stehende Wellen innerhalb des Resonators ausbilden.
+Dabei können longitudinale und transversale Moden entstehen.
+Die longitudinalen Moden sind bei Aufbauten wie in \autoref{fig:aufbau2} nicht relevant, da die Wellenlänge der emittierten Strahlung deutlich geringer ist als die Länge des Resonators.
+Die transversalen elektromagnetischen Moden ($TEM_{xy}$) sind jedoch deutlich relevanter.
+Die $TEM_{xy}$ bezeichnen die Anzahl der Knoten auf der entsprechenden Achse.
+Beispielhaft wurden einige in \autoref{fig:moden1} aufgezeichnet.
+Es gibt auch den Fall, dass die Moden zylindrisch sind.
+In diesem Fall gilt $TEM = TEM_{\phi r}$.
+Hier nimmt die Intensität der Moden nach außen hin immer weiter ab.
+Ohne weitere Herleitung sei angegeben \cite{demtroeder_laser}, dass die Intensität bei einer $TEM_{00}$ Mode durch
+\begin{equation} \label{eq:tem00}
+    I  =I_0 e^{- \frac{2 r^2}{\omega^2}}
+\end{equation}
+gegeben ist. Dabei ist $\omega$ der Strahlradius.
+Für die $TEM_{01}$ Mode ergibt sich eine Intensität von
+\begin{equation} \label{eq:tem01}
+    I  =I_0 \cdot \left( \frac{r}{\omega} \right)^2 \cdot e^{- \frac{2 r^2}{\omega^2}} \, .
+\end{equation}
 
 \subsubsection*{Pumpquelle}
 Die Pumpquelle ist in erster Linie dafür verantwortlich, Energie in das aktive Medium zu bringen.
@@ -85,3 +109,7 @@ Als weiteres Bauteil sind die Brewster-Fenster verbaut.
 Die Brewster-Fenster zeichnen sich dadurch aus, dass sie parallel zur Einfallsebene polarisiertes Licht verlustfrei hindurchlassen.
 Das Licht trifft im Brewster-Winkel auf.
 Für senkrecht polarisiertes Licht ist das Reflexionsvermögen allerdings sehr hoch, weshalb dieses Licht im Laser unterdrückt wird.
+Die Intensität in Abhängigkeit von dem Winkel wird beschrieben durch das Gesetz von Malus, also
+\begin{equation} \label{eq:malus}
+    I(\alpha) = I_0 \cdot \cos^2(\alpha) \, .
+\end{equation}
