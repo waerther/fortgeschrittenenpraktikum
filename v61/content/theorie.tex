@@ -39,15 +39,28 @@ Diese Komponenten sind ein sogenanntes \textbf{aktives Medium}, ein \textbf{Reso
     \label{fig:HeNe_levels}
 \end{wrapfigure}
 Unter einem aktiven Medium wird verstanden, dass es durch \textbf{Besetzungsinversion} und \textbf{stimulierter Emission} kohärentes Licht abgibt \cite{demtroeder_laser}.
-Eingeleitet wird dies dadurch, dass Photonen durch spontane Emission freigesetzt werden und dann verstärkt werden.
-In einem Laser wird dies dann so angeordnet, dass es immer weiter verstärkt wird (Resonator).
-Ein Material ist dann ein geeigneter Kandidat für ein aktives Medium, wenn es über ein 3-Niveau-System\footnote{Aufgrund der Notwendigkeit eines metastabilen Zwischenzustandes, ist ein 2-Niveau-System nicht möglich.} verfügt.
-Dann lässt sich mit der stimulierten Emission die Abstrahlung des Photons bei Anregung verstärken.
-Dies geschieht dadurch, dass das angeregte Photon mit einem weiteren Photon angestrahlt wird und dann durch quantenmechanische Effekte beim Abstrahlen quasi kopiert wird (kohärent).
-Durch die stimulierte Emission und den Resonator kommt es dann zu der Besetzungsinversion.
+Eingeleitet wird dies durch die Pumpquelle.
+Diese regt das aktive Medium so an, dass Besetzungsinversion vorliegt.
 Dabei befinden sich dann mehr Elektronen in einem höheren Energiezustand als im Grundzustand.
+Nun kann das Medium durch stimulierte Emission kohärentes Licht erzeugen.
+Dafür werden durch den Resonator die emittierten Photonen immer wieder durch das Medium hindurchgeschickt und können sich dadurch verstärken.
+Dabei sind die neu gewonnenen Photonen kohärent, da sie über stimulierte Emission gewonnen werden.
+Bei diesem Prozess werden die Photonen, die die Elektronen anregen, quasi kopiert.
+Somit sind dann auch die neuen Photonen in Phase mit den \enquote{alten Photonen}.
+Ein Material ist dann ein geeigneter Kandidat für ein aktives Medium, wenn es mindestens über ein 3-Niveau-System\footnote{Aufgrund der Notwendigkeit eines metastabilen Zwischenzustandes, ist ein 2-Niveau-System nicht möglich.} verfügt.
 Das Medium kann dabei fest, flüssig oder auch gasförmig sein.
 Weiterhin legt das aktive Medium auch die Wellenlänge des Lasers fest, da es sich dabei um das charakteristische Spektrum des Mediums handelt.
+
+
+% Eingeleitet wird dies dadurch, dass Photonen durch spontane Emission freigesetzt werden und dann verstärkt werden.
+% In einem Laser wird dies dann so angeordnet, dass es immer weiter verstärkt wird (Resonator).
+% Ein Material ist dann ein geeigneter Kandidat für ein aktives Medium, wenn es mindestens über ein 3-Niveau-System\footnote{Aufgrund der Notwendigkeit eines metastabilen Zwischenzustandes, ist ein 2-Niveau-System nicht möglich.} verfügt.
+% Dann lässt sich mit der stimulierten Emission die Abstrahlung des Photons bei Anregung verstärken.
+% Dies geschieht dadurch, dass das angeregte Photon mit einem weiteren Photon angestrahlt wird und dann durch quantenmechanische Effekte beim Abstrahlen quasi kopiert wird (kohärent).
+% Durch die stimulierte Emission und den Resonator kommt es dann zu der Besetzungsinversion.
+% Dabei befinden sich dann mehr Elektronen in einem höheren Energiezustand als im Grundzustand.
+% Das Medium kann dabei fest, flüssig oder auch gasförmig sein.
+% Weiterhin legt das aktive Medium auch die Wellenlänge des Lasers fest, da es sich dabei um das charakteristische Spektrum des Mediums handelt.
 
 \subsubsection*{Resonator}
 Der Resonator besteht im Grunde aus zwei Spiegeln.
@@ -77,20 +90,20 @@ Beispielhaft wurden einige in \autoref{fig:moden1} aufgezeichnet.
 Es gibt auch den Fall, dass die Moden zylindrisch sind.
 In diesem Fall gilt $TEM = TEM_{\phi r}$.
 Hier nimmt die Intensität der Moden nach außen hin immer weiter ab.
-Ohne weitere Herleitung sei angegeben \cite{demtroeder_laser}, dass die Intensität bei einer $TEM_{00}$ Mode durch
+Ohne weitere Herleitung sei angegeben \cite{demtroeder_laser}, dass die Intensität bei einer $TEM_{x=0,y=0}$ Mode durch
 \begin{equation} \label{eq:tem00}
-    I  =I_0 e^{- \frac{2 r^2}{\omega^2}}
+    I (x) =I_0 e^{- \frac{2 x^2}{\omega^2}}
 \end{equation}
 gegeben ist. Dabei ist $\omega$ der Strahlradius.
 Für die $TEM_{01}$ Mode ergibt sich eine Intensität von
 \begin{equation} \label{eq:tem01}
-    I  =I_0 \cdot \left( \frac{r}{\omega} \right)^2 \cdot e^{- \frac{2 r^2}{\omega^2}} \, .
+    I (x) = I_0 \cdot \left( \frac{x}{\omega} \right)^2 \cdot e^{- \frac{2 x^2}{\omega^2}} \, .
 \end{equation}
 
 \subsubsection*{Pumpquelle}
-Die Pumpquelle ist in erster Linie dafür verantwortlich, Energie in das aktive Medium zu bringen.
+Die Pumpquelle ist in erster Linie dafür verantwortlich, Energie in das aktive Medium zu bringen und das aktive Medium zur Besetzungsinversion zu bringen.
 Dies kann durch Licht, aber auch durch andere Prozesse geschehen.
-Ohne dieses Pumpen, kann keine Besetzungsinversion vorliegen.
+Ohne dieses Pumpen, kann keine Besetzungsinversion vorliegen und sich somit kein Laserstrahl ausbilden.
 
 \subsection{Der HeNe-Laser}
 \begin{figure}
@@ -101,7 +114,7 @@ Ohne dieses Pumpen, kann keine Besetzungsinversion vorliegen.
 \end{figure}
 Der Aufbau eines HeNe-Lasers ist in \autoref{fig:aufbau2} zu sehen.
 Die Niveaus, die in einem HeNe Laser durchlaufen werden, sind in \autoref{fig:HeNe_levels} dargestellt.
-Bei einem Helium-Neon Laser (HeNe) liegt diese Wellenlänge bei $632.8 \unit{\nano\meter}$.
+Bei einem Helium-Neon Laser (HeNe) liegt die Wellenlänge bei $632.8 \unit{\nano\meter}$.
 Dies lässt sich aber auch verändern, je nachdem welche Art von selektiven Spiegeln verbaut werden.
 Diese lassen dann im Resonator einige Wellen ungehindert durch.
 Durch diese Art von Spiegeln lässt sich bei HeNe-Laser auch orange, gelbe und grüne Strahlen erzeugen. 
