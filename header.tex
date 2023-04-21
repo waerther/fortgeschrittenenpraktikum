@@ -5,6 +5,8 @@
   parskip=half, % !!! halbzeiliger vertikaler Abstand (siehe Latex-Skript S.125)
 ]{scrartcl}
 
+
+
 % !!! Python in Latex
 \usepackage{pythontex}
 
@@ -54,6 +56,11 @@
   \mathinner{\symup{d} #1}
 }
 \ExplSyntaxOff
+
+% !!! für abs, norm
+\usepackage{mleftright}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
 
 % !!! Nummerierung von Gleichungen nach Sections: Bei langen Dokumenten empfohlen (Chiristan)
 % \usepackage{amsmath}
