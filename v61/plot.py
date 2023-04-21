@@ -60,7 +60,7 @@ def g00(x,a,x0,b):
     return a*np.exp(-(x-x0)**2/(b))     # b = 2*sigma**2
 
 def g01(x,a,x0,b):
-    return a*(x**2)*np.exp(-(x-x0)**2/(b))     # b = 2*sigma**2
+    return a*((x-x0)**2)*np.exp(-(x-x0)**2/(b))     # b = 2*sigma**2
 
 
 para, pcov = curve_fit(g00, x, tem00, p0=[1,mean00,sigma00])
@@ -117,7 +117,7 @@ phi, I = np.genfromtxt('tables/pol.txt', unpack=True, skip_header=1)
 
 # Daten generieren
 theta = np.linspace(0, 2*np.pi, 100)
-r = 3 + np.cos(5*theta)
+phi *= 2 *np.pi/360
 
 def f(phi, I0, phi0):
     return I0 * np.cos(phi + phi0)**2
