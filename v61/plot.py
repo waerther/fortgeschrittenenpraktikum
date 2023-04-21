@@ -18,17 +18,19 @@ l, P = np.genfromtxt('tables/leistung.txt', unpack=True, skip_header=1)
 P /= 8
 
 def f(L,r):
-    return 1 - L / r
+    return (1 - L / r)*(1 - L / r)
 
 r_2 = 140
 L_2 = np.linspace(0,2 * 140,1000)
+# xx = np.linspace(100, 150000, 100)
 
 para, pcov = curve_fit(f, l, P)
 pcov = np.sqrt(np.diag(pcov))
 a = para
 fa = pcov 
+# print(f(L_2,r_2) * f(L_2,r_2))
 
-plt.plot(L_2, f(L_2,a) * f(L_2,a), label='r = 1.4 m')
+plt.plot(L_2, f(L_2,a), label='r = 1.4 m')
 plt.plot(l, P, 'xr', label='Messdaten')
 
 plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
@@ -130,10 +132,10 @@ ub = ufloat(b, fb)
 xx = np.linspace(0, 360, 10**4)   
 
 # Polarplot erstellen
-fig = plt.figure()
+fig = plt.figure(figsize=(9, 6))
 ax = fig.add_subplot(111, projection='polar')
 ax.plot(phi, I, 'xr', label = 'Messdaten')
-ax.plot(xx, f(xx, *para), '-b', label = 'Fit', alpha = 0.5)
+ax.plot(xx, f(xx, *para), '-b', label = 'Fit', linewidth = 0.5, alpha = 0.5)
 
 plt.savefig('build/plot3.pdf', bbox_inches = "tight")
 plt.clf() 

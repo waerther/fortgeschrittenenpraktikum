@@ -20,24 +20,29 @@ Zur Untersuchung der $\text{TEM}_{00}$- und $\text{TEM}_{01}$-Mode wird mithiilf
 der Laser auf die messende Photodiode gestreut und die Intensität entlang der optischen Achse vermessen.
 Die Messdaten und die dazugehörige Regression mittels den Formel
 \begin{align}\label{eq:gauss}
-    & I_{00} \: \sim \: {\abs{E_{00}}}^2 \: \sim \: a \cdot           \exp{\left(-\frac{{(x-x_0)^2}}{b}\right)} \quad \text{und} \\
-    & I_{01} \: \sim \: {\abs{E_{01}}}^2 \: \sim \: a \cdot x^2 \cdot \exp{\left(-\frac{{(x-x_0)^2}}{b}\right)} \, .
+    & I_{00} \: \sim \: {\abs{E_{00}}}^2 \: \sim \: a_{00} \cdot           \exp{\left(-\frac{{(x-x_{0_{00}})^2}}{b_{00}}\right)} \quad \text{und} \\
+    & I_{01} \: \sim \: {\abs{E_{01}}}^2 \: \sim \: a_{01} \cdot x^2 \cdot \exp{\left(-\frac{{(x-x_{0_{01}})^2}}{b_{01}}\right)} \, .
 \end{align}
-ergeben die in \autoref{fig:moden} stehenden Plots.
+ergeben mit den Parametern
+\begin{align}
+    & a_{00} = \qty{7.76(7)}{\micro\ampere} \, , \, b_{00} = \qty{14.7(8)}{} \, , \, x_{0_{00}} = \qty{60.3(1.8)}{} \, , \\
+    & a_{01} = \qty{0.031(0.007)}{\micro\ampere} \, , \, b_{01} = \qty{2.1(7)}{} \, , \, x_{0_{01}} = \qty{86(14.0)}{} \, ,
+\end{align}
+die in \autoref{fig:moden} stehenden Plots.
 \begin{figure}[H]
     \centering
     
-    \begin{subfigure}{0.8\columnwidth}
+    \begin{subfigure}{0.7\columnwidth}
         \centering
         \includegraphics[width=\textwidth]{plot2_00.pdf}
-        \caption{Intensitätsverteilung für die $\text{TEM}_00$-Mode.}
+        \caption{Intensitätsverteilung für die $\text{TEM}_{00}$-Mode.}
         \label{fig:tem00}
     \end{subfigure}\hfill
 
-    \begin{subfigure}{0.8\columnwidth}
+    \begin{subfigure}{0.7\columnwidth}
         \centering
         \includegraphics[width=\textwidth]{plot2_01.pdf}
-        \caption{Intensitätsverteilung für die $\text{TEM}_01$-Mode.}
+        \caption{Intensitätsverteilung für die $\text{TEM}_{01}$-Mode.}
         \label{fig:tem01}
     \end{subfigure}
   
@@ -85,8 +90,8 @@ diese sind in \autoref{tab:spektren} dargestellt.
 
 
 \subsection{Bestimmung der Wellenlänge} \label{sec:lambda}
-Die aufgenommenen Abstände der Maxima $n$ zum Hauptmaximum $n = 0$ der Gitter mit den Gitterkonstanten $g_1 = 80 Linien/\mathrm{cm}$ (Abstand $d = \qty{41,5}{cm}$) und
-$g_1 = 100 Linien/\mathrm{cm}$ (Abstand $d = \qty{30}{cm}$) sind in \autoref{tab:abstaende} dargestellt.
+Die aufgenommenen Abstände der Maxima $n$ zum Hauptmaximum $n = 0$ der Gitter mit den Gitterkonstanten $g_1 = 80 \text{Linien}/\mathrm{cm}$ (Abstand $d_1 = \qty{41,5}{cm}$) und
+$g_2 = 100 \text{Linien}/\mathrm{cm}$ (Abstand $d_2 = \qty{30}{cm}$) sind in \autoref{tab:abstaende} dargestellt.
 \begin{table}
     \centering
     \caption{Abstände der Maxima zum Hauptmaximum für die zwei verwendeten Gitter.}
@@ -105,14 +110,16 @@ $g_1 = 100 Linien/\mathrm{cm}$ (Abstand $d = \qty{30}{cm}$) sind in \autoref{tab
         \bottomrule
     \end{tabular}
 \end{table}
-
-Mithilfe der Formel \ref{eqn:welle} wurden die Wellenlängenberechnungen an den
-einzelnen Intensitätsmaxima durchgeführt. Die daraus resultierenden Werte für
-$\lambda$ sind in Tabelle \ref{tab:welle} nachzulesen.
-
 Dabei beschreibt die Ordnung $n>0$ die auftretenden Maxima zur rechten Seite
 senkrecht zur optischen Achse und $n<0$ die Maxima zur linken Seite.
-Eine Mittelung über alle berechneten Wellenlängen ergab
+
+Mithilfe der Formel
+\begin{equation}
+    \lambda=\frac{g \cdot \sin \alpha_n}{n} = \frac{x_n \cdot g}{n \cdot \sqrt{d^2+x_n^2}}
+\end{equation} 
+werden die Wellenlängenberechnungen an den einzelnen Intensitätsmaxima durchgeführt. 
+Die daraus resultierenden Werte für $\lambda$ ergeben nach einer Mittelung
 \begin{align*}
-  \bar{\lambda} = \SI{375.99(10489)}{\nano\meter}.
+    \bar{\lambda_{80}} = \qty{655.06}{\nano\meter} \quad \text{und} \\
+    \bar{\lambda_{100}} = \qty{666.57}{\nano\meter} \, .
 \end{align*}
