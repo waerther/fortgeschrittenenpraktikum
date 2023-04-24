@@ -57,8 +57,41 @@ with open('build/n_glas.txt', 'w') as f:
     f.write(pandas_md)
 ####################################
 
+# md = pd.read_csv('tables/n_luft.csv')
+# hea = list(['Maxima', 'Versuch 1', 'Versuch 2', 'Versuch 3'])
+# md = md.to_latex(index = False, column_format= "c c c c", decimal=',', header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft")
+# with open('build/n_luft.txt', 'w') as f:
+#     f.write(md)
+
+# md = pd.read_csv('tables/n_luft.csv')
+# md = md.to_numpy()
+# T = const.convert_temperature(21.5, 'Celsius', 'Kelvin')
+
+# def func(p, a, m):
+#     return a + p * m
+
+# L = 0.1 # in meter
+
+# def n_mit_druck(p, M): 
+#     return M * 632.8 * 10**(-9) / L
+
+# n_mit_druck_gemessen = n_mit_druck()
+# p = md[:,0]
+# maxima1 = md[:,1]; maxima2  = md[:,2]; maxima3 = md[:,3]
+# p_c = np.concatenate((p[:-1],p,p),axis=None)
+# max_c = np.concatenate((maxima1[:-1],maxima2,maxima3),axis=None)
+# params, cov = curve_fit(func, p_c, max_c)
+# plt.plot(p_c, max_c, 'r+', label="Daten")
+# plt.plot(p, func(p, *params), 'b', label="Regression")
+# plt.ylabel('Kontrast')
+# plt.tight_layout()
+# plt.grid(':')
+# plt.legend(loc="best")
+# plt.savefig("build/Luft.pdf")
+# plt.clf()
+
 md = pd.read_csv('tables/n_luft.csv')
-hea = list(['Maxima', 'Versuch 1', 'Versuch 2', 'Versuch 3'])
+hea = list(['p \ Maxima:', 'Versuch 1', 'Versuch 2', 'Versuch 3'])
 md = md.to_latex(index = False, column_format= "c c c c", decimal=',', header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft")
 with open('build/n_luft.txt', 'w') as f:
     f.write(md)
@@ -67,22 +100,39 @@ md = pd.read_csv('tables/n_luft.csv')
 md = md.to_numpy()
 T = const.convert_temperature(21.5, 'Celsius', 'Kelvin')
 
-def func(p, a, m):
-    return a + p * m
+def func1(p, m):     # Lorentz-Lorenz
+    return p * m / T + 1
+
+L = 0.1 # in meter
+
+def n_mit_druck(M): 
+    return M * 632.8 * 10**(-9) / L + 1
+
 
 p = md[:,0]
 maxima1 = md[:,1]; maxima2  = md[:,2]; maxima3 = md[:,3]
 p_c = np.concatenate((p[:-1],p,p),axis=None)
 max_c = np.concatenate((maxima1[:-1],maxima2,maxima3),axis=None)
-params, cov = curve_fit(func, p_c, max_c)
-plt.plot(p_c, max_c, 'r+', label="Daten")
-plt.plot(p, func(p, *params), 'b', label="Regression")
-plt.ylabel('Kontrast')
+
+
+n_mit_druck_gemessen = n_mit_druck(max_c)
+params, cov = curve_fit(func1, p_c, n_mit_druck_gemessen)
+print('Parameter: ', params, '\nFehler: ', np.sqrt(np.diag(cov)))
+
+plt.plot(p_c, n_mit_druck_gemessen, 'r+', label="Daten")
+plt.plot(p, func1(p, *params), 'b', label="Regression")
+plt.ylabel('n(p, T = 21,5°)')
+plt.xlabel('p')
 plt.tight_layout()
 plt.grid(':')
 plt.legend(loc="best")
 plt.savefig("build/Luft.pdf")
 plt.clf()
+
+# def func2(p, T2, m):
+#     return p * m / T2 + 1
+
+# print(func2(1.013, 15, params))
 
 ####################
 md = pd.read_csv('tables/kontrast.csv')

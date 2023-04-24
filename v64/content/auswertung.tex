@@ -29,6 +29,30 @@ Mithilfe von Formel \autoref{eq:nluft} lässt sich nun der Brechungsindex bestim
 Auch diese Ergebnisse sind in \autoref{tab:glas} zu finden.
 \input{build/n_glas.txt}
 
+% \subsection{Brechungsindex Luft}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = 0.7 \linewidth]{build/Luft.pdf}
+%     \caption{Lineare Regression an die Maxima.}
+%     \label{fig:plot2}
+% \end{figure}
+% Die Messdaten der drei Messreihen sind in \autoref{tab:luft} zu finden.
+% Zum Zeitpunkt der Messung betrug der Atmosphärendruck $950 \unit{\milli\bar}$ und die Raumtemperatur $T = 21.5 \unit\degree$.
+% \input{build/n_luft.txt}
+% Nun wird ein Fit an die Maxima angesetzt.
+% Dabei wird von einem linearen Zusammenhang ausgegangen, also
+% \begin{equation*}
+%     M(p) = a + p \cdot m \, .
+% \end{equation*}
+% Der entsprechende Plot ist in \autoref{fig:plot2} zu sehen.
+% Daraus ergibt sich dann für die Variablen $a = -0.68 \pm 0.17$ und $43.02 \pm 0.31$.
+% Als beste Schätzung der Maxima bis Atmosphärendruck ergibt sich $M = 40.2 \pm 0.34$, woraus sich mit \autoref{eq:nluft2} der Brechungsindex für Luft zu
+% \begin{equation}
+%     n_\text{Luft} = 1.0001338 \pm 0.0000011
+% \end{equation}
+% berechnen lässt.
+
+
 \subsection{Brechungsindex Luft}
 \begin{figure}
     \centering
@@ -37,16 +61,15 @@ Auch diese Ergebnisse sind in \autoref{tab:glas} zu finden.
     \label{fig:plot2}
 \end{figure}
 Die Messdaten der drei Messreihen sind in \autoref{tab:luft} zu finden.
+Zum Zeitpunkt der Messung betrug der Atmosphärendruck $950 \unit{\milli\bar}$ und die Raumtemperatur $T = 21.5 \unit\degree$.
 \input{build/n_luft.txt}
-Nun wird ein Fit an die Maxima angesetzt.
-Dabei wird von einem linearen Zusammenhang ausgegangen, also
-\begin{equation*}
-    M(p) = a + p \cdot m \, .
-\end{equation*}
-Der entsprechende Plot ist in \autoref{fig:plot2} zu sehen.
-Daraus ergibt sich dann für die Variablen $a = -0.68 \pm 0.17$ und $43.02 \pm 0.31$.
-Als beste Schätzung der Maxima bis Atmosphärendruck ergibt sich $M = 40.2 \pm 0.34$, woraus sich mit \autoref{eq:nluft2} der Brechungsindex für Luft zu
-\begin{equation}
-    n_\text{Luft} = 1.0001338 \pm 0.0000011
+Aus den Maxima wird nun der Brechungsindex berechnet.
+Nun wird mithilfe des Lorentz-Lorenz-Gesetzes ein Fit durchgeführt.
+Diese wird durch \autoref{eq:lorentz} beschrieben und hier mit der Funktion
+\begin{equation} \label{eq:lorentz2}
+    n(p) = 1 + \frac{p \cdot m}{T}
 \end{equation}
-berechnen lässt.
+gefittet. Dabei wird für T zunächst $21.5°$ eingesetzt.
+Es ergibt sich der Plot in \autoref{fig:plot2}.
+Dafür wurde $m = 0.07825 \pm 0.00034$ eingesetzt.
+Nun lässt sich mithilfe von \autoref{eq:lorentz2} der Brechungsindex bei Normalbedingungen ($T = 15°$, $p = 1,013 \unit{\bar}$) zu $n_{\text{norm}} = 1.005285 \pm 0.000023$ berechnen.
