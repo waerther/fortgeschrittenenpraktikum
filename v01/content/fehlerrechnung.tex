@@ -1,0 +1,26 @@
+\section{Fehlerrechnung}
+\label{sec:Fehlerrechnung}
+
+Im Folgenden wird die allgemeine Fehlerrechnung und alle wichtigen Größen der entsprechenden Rechnung erklärt.
+Die wichtigsten Werte dabei sind der 
+\begin{align}
+    \text{Mittelwert} \quad & \bar{x}  = \frac{1}{N} \sum_{i=0}^{n} x_i \quad \text{und die} \label{eq:mittelwert} \\
+    \text{Standartabweichung} \quad & \sigma  = \sqrt{\frac{1}{N - 1 } \sum_{i=0}^{N} (x_i -  \bar{x})^2} \, . \label{eq:standartabweichung}
+\end{align}
+
+Dabei entspricht $N$ der Anzahl an Werten und $x_i$ ist jeweils ein mit einem Fehler gemessener Wert.
+Es ergibt sich ebenfalls die statistische Messunsicherheit
+\begin{equation}
+    \increment \bar{x} = \frac{\sigma}{\sqrt{N}} = 
+    \sqrt{\frac{1}{N(N - 1)} \sum_{i=0}^{N} (x_i -  \bar{x})^2} \, . \label{eq:messunsicherheit}
+\end{equation} 
+
+Entstehen mehrere Unbekannte in einer Messung, folgen daraus auch mehrere Messunischerheiten,
+die in dem weiteren Verlauf der Rechnung berücksichtigt werden müssen.
+Es gilt die \textit{Gaußsche Fehlerfortplanzung}
+\begin{equation}
+    \increment f(y_1 ,y_2 ,...,y_N ) = \sqrt{\left(\frac{\dif{f}}{\dif{y_{1}}} \increment y_{1}\right)^2
+    + \left(\frac{\dif{f}}{\dif{y_{2}}} \increment y_{2}\right)^2 + ... + 
+    \left(\frac{\dif{f}}{\dif{y_{N}}} \increment y_{N}\right)^2
+    } \, . \label{eq:fehlerfortplanzung}
+\end{equation}

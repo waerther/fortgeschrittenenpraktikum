@@ -29,7 +29,7 @@ U_min = md[:,2]
 K = (U_max - U_min) / (U_max + U_min)
 K = np.round(K,3)
 mdK = np.c_[md,K]
-hea = list(['Winkel in °', 'U_{max}', 'U_{min}', 'Kontrast'])
+hea = list(['Winkel in °', 'U_max', 'U_min', 'Kontrast'])
 pandas_mdK = pd.DataFrame(mdK, columns=['Winkel', 'Umax', 'Umin', 'Kontrast'])
 mdK = pandas_mdK.to_latex(index = False, column_format= "c c c | c", decimal=',', header=hea, label='tab:kontrast', caption='Messwerte zum Kontrast.')
 with open('build/kontrast.txt', 'w') as f:
