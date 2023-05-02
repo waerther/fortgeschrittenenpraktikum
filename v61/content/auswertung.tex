@@ -62,7 +62,7 @@ Der in \autoref{fig:plot3} abgebildete Fit an die gemessenen Intensitäten in Ab
     I_0 = \qty{4.1(9)}{\micro\ampere} \quad \text{und} \quad \varphi_0 = \qty{2.23(17)}{\degree} \, .
 \end{align*}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{plot3.pdf}
     \caption{Der Polarplot der Intensitäten und deren Regression.}
@@ -79,11 +79,35 @@ diese sind in \autoref{tab:spektren} dargestellt.
     \label{tab:spektren}
     \begin{tabular}{c c c c c c c c}
         \toprule
-        $L \, / \, cm$ & $\nu_1$ & $\nu_2$ & $\nu_3$ & $\nu_4$ & $\nu_5$ & $\nu_6$ & $\nu_7$ \\
+        $L \, / \, cm$ & $\nu_1$ & $\nu_2$ & $\nu_3$ & $\nu_4$ & $\nu_5$ & $\nu_6$ & $\nu_7  \, / \, \unit{\mega\hertz}$\\
         \midrule
            65 &  248 &  493 &  738 &  983 &       &        &        \\
            80 &  191 &  383 &  570 &  761 & 953 & 1140 &        \\
            95 &  101 &  318 &  980 &  638 & 795 &  956 & 1140 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Um die gemessenen Eigenmoden der Spektren mit der Verbreitung des Neon-Übergangs bei einer Wellenlänge von $\lambda_0 = \qty{632.8}{nm}$ von etwa $\qty{1.5}{GHz}$ vergleichen zu können,
+werden die Abstände dieser Frequenzen für die Resonatorlängen gemittelt und deren mittlere Schwebungsfrequenz mithilfe der Gleichung
+\begin{equation*}
+    \nu_{\text{schwebung}} = \frac{c}{2L} 
+\end{equation*}
+berechnet. Die somit berechneten Werte und deren Abweichungen voneinander sind in \autoref{tab:nus} zu finden.
+\begin{table}
+    \centering
+    \caption{Die empirischen Abstände der Multimoden sowie die theoretischen Schwebungsfrequenzen.}
+    \label{tab:nus}
+    \begin{tabular}{c c c c}
+        \toprule
+        $L \, / \, \mathrm{cm}$ & 
+        $\bar{\nu}_\text{Differenz} \, / \, \unit{\mega\hertz}$ & 
+        $\bar{\nu}_{\text{Schwebung}} \, / \, \unit{\mega\hertz}$ &
+        $\increment \nu  \, / \, \unit{\percent}$ \\
+        \midrule
+           65 & 224.4 &  230.6 & 2.72 \\
+           80 & 174.6 &  187.4 & 6.81 \\ 
+           95 & 143.5 &  157.8 & 9.05 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -120,6 +144,6 @@ Mithilfe der Formel
 werden die Wellenlängenberechnungen an den einzelnen Intensitätsmaxima durchgeführt. 
 Die daraus resultierenden Werte für $\lambda$ ergeben nach einer Mittelung
 \begin{align*}
-    \bar{\lambda_{80}} = \qty{655.06}{\nano\meter} \quad \text{und} \\
-    \bar{\lambda_{100}} = \qty{666.57}{\nano\meter} \, .
+    \bar{\lambda}_{80} = \qty{655.06}{\nano\meter} \quad \text{und} \\
+    \bar{\lambda}_{100} = \qty{666.57}{\nano\meter} \, .
 \end{align*}
