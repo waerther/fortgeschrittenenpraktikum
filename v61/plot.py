@@ -30,13 +30,15 @@ a = para
 fa = pcov 
 # print(f(L_2,r_2) * f(L_2,r_2))
 
-plt.plot(L_2, f(L_2,a), label='r = 1.4 m')
-plt.plot(l, P, 'xr', label='Messdaten')
+plt.plot(L_2, f(L_2,a), '-b', linewidth = 1, label='Theorie: konkav-konkav')
+plt.plot(l, P, 'xr', label='Messdaten: konkav-konkav')
 
 plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
 plt.ylabel(r'Leistung $P \, / \, \mathrm{mW}$')
 plt.grid(True)                          # grid style
 plt.legend(loc='best')
+plt.xlim(0, 280)
+# plt.ylim(-0.05, 1.05)
 
 plt.savefig('build/plot1.pdf', bbox_inches = "tight")
 plt.clf() 
@@ -76,7 +78,7 @@ xx = np.linspace(-22, 22, 10**4)         # Definitionsbereich
 plt.plot(x, tem00, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
 plt.plot(xx, g00(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
-plt.ylabel(r'$I \, / \, \mathrm{μA}$')
+plt.ylabel(r'$I \, / \, \unit{\micro \ampere}$')
 plt.legend(loc="best")                  # legend position
 plt.grid(True)                          # grid style
 plt.xlim(-22, 22)
@@ -100,7 +102,7 @@ xx = np.linspace(-22, 22, 10**4)         # Definitionsbereich
 plt.plot(x, tem01, 'xr', markersize=6 , label = 'Messdaten', alpha=0.5)
 plt.plot(xx, g01(xx, *para), '-b', linewidth = 1, label = 'Ausgleichsfunktion', alpha=0.5)
 plt.xlabel(r'$x \, / \, \mathrm{mm}$')
-plt.ylabel(r'$I \, / \, \mathrm{μA}$')
+plt.ylabel(r'$I \, / \, \unit{\micro \ampere}$')
 plt.legend(loc="best")                  # legend position
 plt.grid(True)                          # grid style
 plt.xlim(-22, 22)

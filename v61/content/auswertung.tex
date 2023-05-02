@@ -21,12 +21,12 @@ der Laser auf die messende Photodiode gestreut und die Intensität entlang der o
 Die Messdaten und die dazugehörige Regression mittels den Formeln
 \begin{align}\label{eq:gauss}
     & I_{00} \: \sim \: {\abs{E_{00}}}^2 \: \sim \: a_{00} \cdot           \exp{\left(-\frac{{(x-x_{0_{00}})^2}}{b_{00}}\right)} \quad \text{und} \\
-    & I_{01} \: \sim \: {\abs{E_{01}}}^2 \: \sim \: a_{01} \cdot x^2 \cdot \exp{\left(-\frac{{(x-x_{0_{01}})^2}}{b_{01}}\right)} \, .
+    & I_{01} \: \sim \: {\abs{E_{01}}}^2 \: \sim \: a_{01} \cdot (x-x_{0_{01}})^2 \cdot \exp{\left(-\frac{{(x-x_{0_{01}})^2}}{b_{01}}\right)} \, .
 \end{align}
 ergeben mit den Parametern
 \begin{align}
-    & a_{00} = \qty{7.76(7)}{\micro\ampere} \, , \, b_{00} = \qty{14.7(8)}{} \, , \, x_{0_{00}} = \qty{60.3(1.8)}{} \, , \\
-    & a_{01} = \qty{0.031(0.007)}{\micro\ampere} \, , \, b_{01} = \qty{2.1(7)}{} \, , \, x_{0_{01}} = \qty{86(14.0)}{} \, ,
+    & a_{00} = \qty{7.76(7)}{\micro\ampere} \, , \. b_{00} = \qty{14.7(8)}{} \, , \. x_{0_{00}} = \qty{60.3(1.8)}{} \, , \\
+    & a_{01} = \qty{0.031(0.007)}{\micro\ampere} \, , \. b_{01} = \qty{2.1(7)}{} \, , \. x_{0_{01}} = \qty{86(14.0)}{} \, ,
 \end{align}
 die in \autoref{fig:moden} stehenden Plots.
 \begin{figure}[H]
