@@ -15,30 +15,28 @@ md = pd.read_csv('tables/leistung.csv')
 np.savetxt('tables/leistung.txt', md.values, header='l/cm P/mW', fmt='%.1f')
 
 l, P = np.genfromtxt('tables/leistung.txt', unpack=True, skip_header=1)
-P /= 8
+# P /= 8
 
 def f(L,r):
     return (1 - L / r)*(1 - L / r)
 
 r_2 = 140
-L_2 = np.linspace(0,2 * 140,1000)
-# xx = np.linspace(100, 150000, 100)
+L_2 = np.linspace(0, 2*140,1000)
 
 para, pcov = curve_fit(f, l, P)
 pcov = np.sqrt(np.diag(pcov))
 a = para
 fa = pcov 
-# print(f(L_2,r_2) * f(L_2,r_2))
 
-plt.plot(L_2, f(L_2,a), '-b', linewidth = 1, label='Theorie: konkav-konkav')
-plt.plot(l, P, 'xr', label='Messdaten: konkav-konkav')
+plt.plot(L_2, f(L_2-117,a), '-b', linewidth = 1, label='konkav-konkav Regression')
+plt.plot(l, P, 'xr', label='Messdaten')
 
 plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
 plt.ylabel(r'Leistung $P \, / \, \mathrm{mW}$')
 plt.grid(True)                          # grid style
 plt.legend(loc='best')
-plt.xlim(0, 280)
-# plt.ylim(-0.05, 1.05)
+plt.xlim(0, 2*140)
+plt.ylim(-1.5, 10)
 
 plt.savefig('build/plot1.pdf', bbox_inches = "tight")
 plt.clf() 
