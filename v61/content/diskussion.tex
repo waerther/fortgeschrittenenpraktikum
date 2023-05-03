@@ -1,8 +1,9 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-Die bei der Überprüfung der Stabilitätsbedingung resultierenden Messdaten entsprechen in etwa der theoretischen Erwartung
-einer quadrationen Kurve, bei dem ein Mininum bei $ x = \frac{R_1 + R_2}{2} = \frac{\qty{140}{cm} + \qty{140}{cm}}{2} = \qty{140}{cm}$ vorliegt.
+Die bei der Überprüfung der Stabilitätsbedingung resultierenden Messdaten entsprechen nur näherungsweise der theoretischen Erwartung
+einer quadrationen Kurve, bei dem ein Mininum bei 
+$ x = \frac{R_1 + R_2}{2} = \frac{\qty{140}{cm} + \qty{140}{cm}}{2} = \qty{140}{cm}$ vorliegen soll.
 Wobei hierbei mehr Daten für eine bessere Überprüfung notwendig gewesen wären.
 Dabei ergab sich die Schwierigkeit, 
 dass das Nachjustieren der Resonatorspiegel und des Laserrohrs äußerst empfindlich
@@ -12,15 +13,23 @@ obwohl der Laser theoretisch auf einer maximalen Distanz von $R_1 + R_2 =  \qty{
 Hierbei ist zunächst auf einen instabilen Aufbau zu deuten. 
 
 Die experimentellen Beobeachtungen der $\text{TEM}_{00}$- und $\text{TEM}_{01}$-Moden treffen ausgesprochen genau die
-theoretische Voraussage von einer beziehungsweise zwei Gaußverteilungen.
+theoretische Voraussage von einer beziehungsweise zwei Gaußverteilungen. 
+Auch hier ist wichtig zu beachten, dass bei der Messung die Streulinse zur Erfassung der Moden verwendet wird,
+da sonst der Strahldurchmesser nicht breit genug für die Photodiode ist.
 
 Die Messdaten der winkelabhägnigen Polarisationswinkel ergeben auch hier eine $\pi$-Periodizität der Intensität
 mit den ungefähren Maxima bei $\phi = \qty{90}{\degree}$ und $\phi = \qty{270}{\degree}$.
+Das Brewster-Endfenster ermöglicht es, dass der reflektierte Strahl keine Komponente der Polarisation parallel zur reflektierten Oberfläche hat.
+Dies führt schließlich zur senkrechten Polarisation und minimiert zusätzlich unerwünschte Reflexion von Licht der Resonatorspiegel.
 
-Der Multimoden-Betrieb
+Aus der Fourierspektroskopie geht hervor, dass der Laser sich im Multimodenbetrieb befindet.
+Und wie bereits in der Gleichung für die Schwebungsfrequenz ersichtlich, 
+nehmen die Daten der Frequenzabstände mit höheren Resonatorlänge asymptotisch ab.
+Die maximale Breite des gemessenen Übergangs ist ebenfalls bei $\qty{1140}{MHz}$ zu erkennen, 
+was eine Abweichung von $\qty{24}{\percent}$ vom Nennwert des Neon-Übergangs $\qty{1500}{GHz}$ darstellt.
 
 Die Bestimmung der Wellenlängen für die zwei Gitter ergibt sich als relativ präzise mit den Abweichungen von
-\begin{align*}
-    \Delta \bar{\lambda_{80}} = \qty{3.52}{\percent} \quad \text{und} \\
-    \Delta \bar{\lambda_{100}} = \qty{5.34}{\percent} \, .
-\end{align*}
+\begin{equation*}
+    \Delta \bar{\lambda}_{80} = \qty{3.52}{\percent} \quad \text{und} \quad 
+    \Delta \bar{\lambda}_{100} = \qty{5.34}{\percent} \, .
+\end{equation*}

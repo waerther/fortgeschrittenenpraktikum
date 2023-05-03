@@ -28,8 +28,8 @@ pcov = np.sqrt(np.diag(pcov))
 a = para
 fa = pcov 
 
-plt.plot(L_2, f(L_2-117,a), '-b', linewidth = 1, label='konkav-konkav Regression')
-plt.plot(l, P, 'xr', label='Messdaten')
+plt.plot(L_2, f(L_2-117,a), '-b', linewidth = 1, label='Theoriekurve konkav-konkav')
+plt.plot(l, P, 'xr', label='Messdaten konkav-konkav')
 
 plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
 plt.ylabel(r'Leistung $P \, / \, \mathrm{mW}$')
