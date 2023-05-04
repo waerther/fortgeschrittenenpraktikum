@@ -49,7 +49,7 @@ md = np.c_[md, func(md)]
 mittelwert_n = ufloat(np.mean(md[:,1]), np.std(md[:,1]))
 pandas_md = pd.DataFrame(md, columns=hea)
 pandas_md = pandas_md.append({
-    'Maxima' : 'Median',
+    'Maxima' : 'Mittelwert',
     'Brechungsindex' : mittelwert_n
 }, ignore_index=True)
 pandas_md = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:glas', caption="Messwerte zum Brechungsindex von Glas")
@@ -90,13 +90,18 @@ with open('build/n_glas.txt', 'w') as f:
 # plt.savefig("build/Luft.pdf")
 # plt.clf()
 
-md = pd.read_csv('tables/n_luft.csv')
-hea = list(['p \ Maxima:', 'Versuch 1', 'Versuch 2', 'Versuch 3'])
-md = md.to_latex(index = False, column_format= "c c c c", decimal=',', header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft")
+def f1(x):
+    return  '%.3f' % x
+def f2(x):
+    return '%.f' % x
+
+md = pd.read_csv('tables/n_luft.csv',na_values='-')
+hea = list(['p / bar', 'Maxima: Versuch 1', 'Versuch 2', 'Versuch 3'])
+md = md.to_latex(index = False, column_format= "c c c c", header=hea, label='tab:luft', caption="Messwerte zum Brechungsindex von Luft", na_rep='-', formatters=[f1,f2,f2,f2]) # , decimal=','
 with open('build/n_luft.txt', 'w') as f:
     f.write(md)
 
-md = pd.read_csv('tables/n_luft.csv')
+md = pd.read_csv('tables/n_luft.csv',na_values='-')
 md = md.to_numpy()
 T = const.convert_temperature(21.5, 'Celsius', 'Kelvin')
 
@@ -119,8 +124,11 @@ n_mit_druck_gemessen = n_mit_druck(max_c)
 params, cov = curve_fit(func1, p_c, n_mit_druck_gemessen)
 print('Parameter: ', params, '\nFehler: ', np.sqrt(np.diag(cov)))
 
-plt.plot(p_c, n_mit_druck_gemessen, 'r+', label="Daten")
-plt.plot(p, func1(p, *params), 'b', label="Regression")
+# plt.plot(p_c, n_mit_druck_gemessen, 'r+', label="Daten")
+plt.plot(p[:-1], n_mit_druck(maxima1[:-1]), 'r+', label="Messreihe 1", zorder=3)
+plt.plot(p[:], n_mit_druck(maxima2), 'b+', label="Messreihe 2", zorder=2)
+plt.plot(p[:], n_mit_druck(maxima3), 'g+', label="Messreihe 3", zorder=1)
+plt.plot(p, func1(p, *params), 'b', label="Regression", zorder=0)
 plt.ylabel('n(p, T = 21,5°)')
 plt.xlabel('p')
 plt.tight_layout()
@@ -128,6 +136,18 @@ plt.grid(':')
 plt.legend(loc="best")
 plt.savefig("build/Luft.pdf")
 plt.clf()
+
+arr = np.zeros((20,3))
+arr[:19,0] = n_mit_druck_gemessen[:len(p[:-1])]
+arr[:20,1] = n_mit_druck_gemessen[len(p[:-1]):(2 * len(p) -1)]
+arr[:20,2] = n_mit_druck_gemessen[(2 * len(p) -1): (3 * len(p) -1)]
+
+df = pd.DataFrame(arr,)
+# df = df.replace(0,'-')
+hea = list(['Versuch 1', 'Versuch 2', 'Versuch 3'])
+df = df.to_latex(index = False, column_format= "c c c", decimal=',', header=hea, label='tab:n_berechnet', caption="Berechnete Brechungsindizes aus den Maxima.")
+with open('build/n_berechnet_tabelle.txt', 'w') as f:
+    f.write(df)
 
 # def func2(p, T2, m):
 #     return p * m / T2 + 1
