@@ -2,7 +2,8 @@
 \label{sec:Theorie}
 
 Zunächst wird erklärt, wie grundsätzlich Röntgenstrahlung in einer Röntgenröhre entsteht.
-tbd
+Dann werden die grundlegenden Eigenschaften der Brechung an einer Oberfläche erklärt.
+Schließlich wird die Reflexion an einer Multischicht erklärt und auch Bezug auf die Rauigkeit und den Geometriefaktor genommen.
 
 \subsection{Entstehung von Röntgenstrahlung} \label{sec:Röntgenstrahlung}
 
@@ -86,9 +87,72 @@ Dieser ist bei $\alpha_i > 3 \alpha_C$ näherungsweise gegeben als \cite{tolan_x
 \end{equation}
 
 \subsection{Reflektivität an Multischichtsystemen}
+
+\begin{figure}
+    \begin{subfigure}{0.38\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pictures/multischicht.pdf}
+        \caption{Darstellung einer Mehrfachreflexion an einer Multischicht \cite{tolan_xray}.}
+        \label{fig:multischicht}
+    \end{subfigure}
+    \begin{subfigure}{0.58\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pictures/kiessig.pdf}
+        \caption{Schematische Darstellung von Kiessig-Osz. . \cite{kiessig}}
+        \label{fig:kiessig}
+    \end{subfigure}
+    \caption{Abbildungen zu einer Multischichtreflexion.
+    \label{fig:subkiessig}}
+\end{figure}
+
+Liegt ein Multischichtsystem vor, so kommt es zu den sogenannten \enquote{Kiessig-Oszillationen}.
+Die Kiessig-Oszillationen sind in \autoref{fig:kiessig} abgebildet.
+Die Kiessig-Oszillationen entstehen aufgrund von Interferenzeffekten an der Oberfläche.
+Diese Interferenzen entstehen durch die Überlagerung der Reflexion an verschiedenen Schichten.
+Bei einer destruktiven Interferenz liegt ein Phasenunterschied von $\frac{\lambda}{2}$ oder einem ungeraden vielfachen davon vor.
+Aus der Gleichung
+\begin{equation}
+    d = \frac{\lambda}{2 \Delta \alpha_i}
+\end{equation}
+lässt sich dann der Abstand der Ebenen bestimmen.
+Dabei beschreibt $\Delta \alpha_i$ die Periodenlänge einer Oszillation. 
+Lässt sich das System durch N+1 Schichten wie in \autoref{fig:multischicht} beschreiben, lässt sich der Parratt-Algorithmus anwenden \cite{tolan_xray}.
+Dabei handelt es sich um einen rekursiven Ansatz, der bei der Berechnung der untersten Schicht beginnt.
+Der Ansatz ist dabei, dass bei einer \enquote{unendlich tiefen} Schicht die Strahlung nicht mehr reflektiert wird.
+Die Rekursionsformel lautet
+\begin{equation}
+    X_j=\frac{R_j}{T_j}=\exp \left(-2 \mathrm{i} k_{z, j} z_j\right) \frac{r_{j, j+1}+X_{j+1} \exp \left(2 \mathrm{i} k_{z, j+1} z_j\right)}{1+r_{j, j+1} X_{j+1} \exp \left(2 \mathrm{i} k_{z, j+1} z_j\right)} \, .
+\end{equation}
+In der Formel bezeichnet $r_{j,j+1}$ die Fresnelreflektivität an der $j$-ten Grenzfläche.
+
+Als nötige Modifikation des Parratt-Algorithmus gilt die Rauigkeit.
+Denn im Algorithmus wurde angenommen, dass die Oberflächen perfekt glatt sind.
+Dies ist bei realen Objekten nicht der Fall.
+Diese Rauigkeit kann durch eine Anpassung der Fresnelkoeffizienten ausgeglichen werden.
+Diese lauten
+\begin{align}
+    & \tilde{r}_{j, j+1}=r_{j, j+1} \exp \left(-2 k_{z, j}^2 \sigma_j^2\right) \, ,\\
+    & \tilde{t}_{j, j+1}=t_{j, j+1} \exp \left\{-\left(k_{z, j}-k_{z, j+1}\right)^2 \sigma_j^2 / 2\right\} \, .
+\end{align}
+Das $\sigma_j^2$ beschreibt die sogenannte \enquote{root-mean-squre roughness}.
+Diese wiederum ist definiert als
+\begin{equation*}
+    \sigma_j^2 = \int (z - \mu_j)^2 P_j (z) dz \, .
+\end{equation*}
+
+\subsection{Der Geometriefaktor/- und Winkel}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{pictures/multischicht.pdf}
-    \caption{Darstellung einer mehrfachreflexion an einer Multischicht \cite{tolan_xray}.}
-    \label{fig:multischicht}
+    \includegraphics[width=0.6\textwidth]{pictures/geometriefaktor.pdf}
+    \caption{Geometrie des Strahlenverlaufs \cite{v44}.}
+    \label{fig:geometriefaktor}
 \end{figure}
+Fällt der Strahl auf die Probe, so ist er größer als die Probe selbst.
+Dies ist in \autoref{fig:geometriefaktor} zu erkennen.
+Durch einführen des Geometriefaktors $G$ kann die Differenz der Strahlungsintensität nach der Reflexion berücksichtigt werden. 
+Er lautet
+\begin{equation}
+    G= \begin{cases}\frac{D \sin \alpha_{\mathrm{i}}}{d_0} & \text { für } \alpha_{\mathrm{i}}<\alpha_{\mathrm{g}} \\ 1 & \text { für } \alpha_{\mathrm{i}} \geq \alpha_{\mathrm{g}}\end{cases} \, .
+\end{equation}
+Dabei ist $D$ der Durchmesser der Probenoberfläche, $d_0$ die Höhe des Strahls, $\alpha_i$ der Einfallswinkel und $\alpha_G$ ist der Winkel, unter dem keine Intensität mehr
+durch geometrische Eigenschaften verloren geht.
