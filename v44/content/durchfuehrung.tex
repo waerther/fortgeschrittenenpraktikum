@@ -1,2 +1,36 @@
 \section{Durchführung}
 \label{sec:Durchführung}
+
+In dem hier vorhandenen Aufbau liegt ein \enquote{D8-Labordiffraktometer} der Firma Bruker-AXS vor.
+Dabei entsteht die Röntgenstrahlung gemäß \autoref{sec:Röntgenstrahlung} in einer Kupferanodenröhre, die mit einem Strom von $I=35\unit{\milli\ampere}$ 
+und einer Spannung von $U = 40 \unit{\kilo\volt}$ betrieben wird.
+Der Strahl wird mithilfe eines Göbelspiegels gebündelt und monochromatisiert.
+Die Wellenlänge des Röntgenstrahls beträgt dann $\lambda = 1,55 \unit{\angstrom}$, da es sich um die $K_\alpha$-Linie von Kupfer handelt.
+
+\subsection{Justage} \label{sec:Justage}
+
+Bei der Justage kommen insgesamt drei verschiedene Arten von Scans zum Einsatz.
+Begonnen wird dabei mit dem \textbf{Detektorscan}.
+Diese Messung dient dazu, die Nulllage des Detektors zu finden und damit die Intensität des Strahles zu maximieren.
+Die Probe wird aus dem Strahlengang entfernt, damit der Strahl ungehindert durch den Raum propagieren kann.
+Dann wird die Position gesucht, in der die Intensität des Strahles maximal ist und als neue Nulllage definiert.
+
+Im Anschluss wird ein sogenannter \textbf{Z-Scan} durchgeführt.
+Wie der Name bereits andeutet, handelt es sich um einen Scan zur Justage der z-Achse.
+Dafür wird zunächst die Probe wieder in den Strahlengang geschoben.
+Die z-Position der Probe wird so lange variiert, bis die Intensität mit Probe auf die halbe Intensität ohne Probe abgesunken ist, also $I_{z,\text{Probe}} = \frac{I_\text{max}}{2}$.
+Auf dieser $z$ Position wird dann der Probentisch gehalten.
+
+Nun wird zu dem \textbf{Rockingscan} übergegangen.
+Dabei handelt es sich um einen Scan, bei dem die Röhre und Detektor in einer festen Achse um die Probe rotiert werden.
+Durch diesen Scan kann eine Mögliche Verkippung der Probe detektiert werden.
+Außerdem kann durch ihn die Probe (durch mögliche Fehlpositionierung auf dem Tisch) in den Drehpunkt des Diffraktometers gebracht werden.
+Zwischen Detektor und Probe wird dabei ein Winkel von $2 \Theta = 0$ beibehalten.
+Die Messung wird durch kleine Schritte im Bereich $[-1°,1°]$ durchgeführt.
+ist das Maximum in der Intensität gefunden, wird der entsprechende Winkel notiert.
+
+Nun kommt es zur Feinjustage der Probe.
+tbd
+
+\subsection{Tatsächliche Messung}
+tbd
