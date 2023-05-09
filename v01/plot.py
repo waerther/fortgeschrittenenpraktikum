@@ -107,7 +107,7 @@ plt.clf()
 
 # Plot Histogramm Daten
 
-counts=np.genfromtxt('tables/myon_stefan.txt', unpack=True)
+counts=np.genfromtxt('tables/myon.txt', unpack=True)
 bins = np.linspace(1, 512, 512)
 bin_heights = counts
 plt.hist(bins, bins=bins, weights=bin_heights, log=True, color='grey')
@@ -126,8 +126,8 @@ def func3(bin):                 # Converts bins to time
     return (m.nominal_value * bin + b.nominal_value) * 10**(-6)
 
 # print(m.nominal_value)
-
-params, cov = curve_fit(func2, func3(bins), counts)
+bounds = ([0, 0, 0], [np.inf, np.inf, np.inf])
+params, cov = curve_fit(func2, func3(bins), counts, bounds=bounds)
 N_0 = ufloat(params[0], np.sqrt(np.diag(cov))[0])
 lam = ufloat(params[1], np.sqrt(np.diag(cov))[1])
 U = ufloat(params[2], np.sqrt(np.diag(cov))[2])
