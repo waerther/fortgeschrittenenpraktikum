@@ -3,17 +3,20 @@
 
 \subsection{Überprüfung der Stabilitätsbedingung} \label{sec:stabilitaet}
 Wie in \autoref{sec:Durchführung} beschrieben, 
-wird für zum Vermessen der Stabilität eine Resonator-Konfiguration verwendet,
+wird zum Vermessen der Stabilität eine Resonator-Konfiguration verwendet,
 anhand derer die Stabilitätsbedingung überprüft werden kann.
 Hierbei wird in \autoref{fig:plot1} für eine konkav-konkav-Konfiguration mit einem Krümmungsradius von $r = \qty{1400}{mm}$ der Photostrom in Abhängigkeit von drei Resonatorlängen gemessen
-und mit dem theoretischen Verlauf verglichen.
-\begin{figure}
+und mit dem theoretischen Verlauf des Produkts 
+\begin{align*}
+    g_1 g_2 = \left(1 - \frac{L}{r_1}\right)\left(1 - \frac{L}{r_2}\right)
+\end{align*}
+nach \autoref{eq:gfaktor} verglichen. Wobei hier aufgrund der Konfiguration $r = r_1 = r_2$ ist.
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{plot1.pdf}
     \caption{Die Messdaten sowie die Ausgleichsrechnung.}
     \label{fig:plot1}
 \end{figure}
-
 
 \subsection{Beobeachten der TEM-Moden} \label{sec:moden}
 Zur Untersuchung der $\text{TEM}_{00}$- und $\text{TEM}_{01}$-Mode wird mithiilfe einer Streulinse
@@ -88,26 +91,53 @@ diese sind in \autoref{tab:spektren} dargestellt.
     \end{tabular}
 \end{table}
 
-Um die gemessenen Eigenmoden der Spektren mit der Verbreitung des Neon-Übergangs bei einer Wellenlänge von $\lambda_0 = \qty{632.8}{nm}$ von etwa $\qty{1.5}{GHz}$ vergleichen zu können,
-werden die Abstände dieser Frequenzen für die Resonatorlängen gemittelt und deren mittlere Schwebungsfrequenz mithilfe der Gleichung
+Um die gemessenen Eigenmoden der Spektren mit der Verbreitung des Neon-Übergangs bei einer Wellenlänge von $\lambda_0 = \qty{632.8}{nm}$ 
+von etwa $\qty{1}{GHz}$ vergleichen zu können,
+werden die Abstände dieser Frequenzen für die Resonatorlängen gemittelt, 
+die Standardabweichung bestimmt
+und deren mittlere Schwebungsfrequenz mithilfe der Gleichung
 \begin{equation*}
     \nu_{\text{schwebung}} = \frac{c}{2L} 
 \end{equation*}
-berechnet. Die somit berechneten Werte und deren Abweichungen voneinander sind in \autoref{tab:nus} zu finden.
+berechnet. 
+Die somit berechneten Werte und deren Abweichungen voneinander sind in \autoref{tab:nus} zu finden.
 \begin{table}
     \centering
     \caption{Die empirischen Abstände der Multimoden sowie die theoretischen Schwebungsfrequenzen.}
     \label{tab:nus}
-    \begin{tabular}{c c c c}
+    \begin{tabular}{c c c c c}
         \toprule
         $L \, / \, \mathrm{cm}$ & 
         $\bar{\nu}_\text{Differenz} \, / \, \unit{\mega\hertz}$ & 
-        $\bar{\nu}_{\text{Schwebung}} \, / \, \unit{\mega\hertz}$ &
-        $\increment \nu  \, / \, \unit{\percent}$ \\
+        $\nu_{\text{Schwebung}} \, / \, \unit{\mega\hertz}$ &
+        $\increment \nu  \, / \, \unit{\percent}$ &
+        $\sigma_\text{Differenz} \, / \, \unit{\mega\hertz}$ \\
         \midrule
-           65 & 224,4 &  230,6 & 2,72 \\
-           80 & 174,6 &  187,4 & 6,81 \\ 
-           95 & 143,5 &  157,8 & 9,05 \\
+           65 & 224,4 &  230,6 & 2,72 & 273.92 \\
+           80 & 174,6 &  187,4 & 6,81 & 324.29 \\ 
+           95 & 143,5 &  157,8 & 9,05 & 349.49 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Daraus lasst sich nun die die Verbreitungung bzw. die Halbwertsbreite mithilfe der Gleichung
+\begin{equation*}
+    \delta \nu = 2 \sqrt{2 \ln 2} \cdot \sigma_\text{Differenz}
+\end{equation*}
+abschätzen. 
+Die Verbreitungen für die drei Resonatorlängen sind in \autoref{tab:breite} zu finden.
+\begin{table}
+    \centering
+    \caption{Die abgeschätzen Verbreitungen für die drei Resonatorlängen.}
+    \label{tab:breite}
+    \begin{tabular}{c c}
+        \toprule
+        $L \, / \, \mathrm{cm}$ & 
+        $\delta \nu \, / \, \unit{\mega\hertz}$ \\
+        \midrule
+           65 & 645.03 \\
+           80 & 763.65 \\ 
+           95 & 822.99 \\
         \bottomrule
     \end{tabular}
 \end{table}

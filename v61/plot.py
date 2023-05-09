@@ -28,15 +28,25 @@ pcov = np.sqrt(np.diag(pcov))
 a = para
 fa = pcov 
 
-plt.plot(L_2, f(L_2-117,a), '-b', linewidth = 1, label='Theoriekurve konkav-konkav')
-plt.plot(l, P, 'xr', label='Messdaten konkav-konkav')
+trick17 = 0#117
 
-plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
-plt.ylabel(r'Leistung $P \, / \, \mathrm{mW}$')
-plt.grid(True)                          # grid style
-plt.legend(loc='best')
+fig, ax1 = plt.subplots()
+
+ax2 = ax1.twinx()
+
+ax2.plot(L_2, f(L_2-trick17,r_2), '-b', linewidth = 1, label='Theoriekurve konkav-konkav')
+ax1.plot(l, P, 'xr', label='Messdaten')
+
+ax1.set_xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
+ax1.set_ylabel(r'Leistung $P \, / \, \mathrm{mW}$', color = 'r')
+ax2.set_ylabel(r'$g_1 g_2$', color = 'b')
+
+# plt.xlabel(r'Resonatorlänge $L \, / \, \mathrm{cm}$')
+# plt.ylabel(r'Leistung $P \, / \, \mathrm{mW}$')
+ax1.grid(True)                          # grid style
+ax1.legend(loc='best')
 plt.xlim(0, 2*140)
-plt.ylim(-1.5, 10)
+# plt.ylim(-1.5, 10)
 
 plt.savefig('build/plot1.pdf', bbox_inches = "tight")
 plt.clf() 
