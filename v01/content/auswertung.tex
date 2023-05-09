@@ -103,6 +103,7 @@ $m = (0.02257 \pm 0.00005)\unit\second$ und $c = (0.148 \pm 0.006)\unit\second$.
 Die Messdaten zu diesem Versuch sind im Anhang in \autoref{tab:messdaten_myonen1}, \autoref{tab:messdaten_myonen2} und \autoref{tab:messdaten_myonen3} zu finden.
 Die Daten wurden außerdem histogrammiert in \autoref{fig:histogramm} aufgetragen.
 Die gezählten Ereignisse und Ereignisse, die verworfen wurden, sind in \autoref{fig:untergrund} zu sehen.
+Dabei muss beachtet werden, dass der Counter einmal durchgelaufen ist.
 Als Fit wird nach Vorgabe des Zerfallsgesetzes plus Untergrund die Funktion
 \begin{equation*}
     N(t) = N_0 \cdot e^{- \lambda t} + U
@@ -124,5 +125,5 @@ Es ergibt sich
 Nachdem bereits der Untergrund gefittet wurde, soll dieser auch nach der theoretischen Formel \autoref{eq:tbd} berechnet werden.
 Damit ergibt sich
 \begin{equation*}
-    U = \frac{N_\text{Verworfen}}{N_\text{Gemessen}} = \frac{21135}{595280} = 0,0355 \, .
+    U = \frac{N_\text{Verworfen}}{N_\text{Gemessen}} = \frac{21135}{595280 + 9999999} = 0,001994 \, .
 \end{equation*} 
