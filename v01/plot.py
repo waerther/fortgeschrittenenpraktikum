@@ -127,18 +127,18 @@ def func3(bin):                 # Converts bins to time
 
 # print(m.nominal_value)
 bounds = ([0, 0, 0], [np.inf, np.inf, np.inf])
-params, cov = curve_fit(func2, func3(bins), counts, bounds=bounds)
+params, cov = curve_fit(func2, func3(bins[3:]), counts[3:], bounds=bounds)
 N_0 = ufloat(params[0], np.sqrt(np.diag(cov))[0])
 lam = ufloat(params[1], np.sqrt(np.diag(cov))[1])
 U = ufloat(params[2], np.sqrt(np.diag(cov))[2])
 
-print((1 / lam ) * 10**6)
+print('Lambda = ' + str((1 / lam ) * 10**6))
 
 # print('Parameter: ', params, '\nFehler: ', np.sqrt(np.diag(cov)))
 
 x = np.arange(-0.5 *  10**(-6),10 * 10**(-6),0.1* 10**(-6))
 plt.plot(x, func2(x, *params), ls='-', c='b', zorder=1, label='Fit')
-plt.plot(func3(bins),counts, 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
+plt.plot(func3(bins[3:]),counts[3:], 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
 # plt.yscale('log')
 plt.xlabel('t / s')
 plt.ylabel('counts')

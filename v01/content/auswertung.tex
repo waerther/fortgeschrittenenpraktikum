@@ -103,20 +103,22 @@ $m = (0.02257 \pm 0.00005)\unit\second$ und $c = (0.148 \pm 0.006)\unit\second$.
 Die Messdaten zu diesem Versuch sind im Anhang in \autoref{tab:messdaten_myonen1}, \autoref{tab:messdaten_myonen2} und \autoref{tab:messdaten_myonen3} zu finden.
 Die Daten wurden außerdem histogrammiert in \autoref{fig:histogramm} aufgetragen.
 Die gezählten Ereignisse und Ereignisse, die verworfen wurden, sind in \autoref{fig:untergrund} zu sehen.
+Dabei muss beachtet werden, dass der Counter einmal durchgelaufen ist.
 Als Fit wird nach Vorgabe des Zerfallsgesetzes plus Untergrund die Funktion
 \begin{equation*}
     N(t) = N_0 \cdot e^{- \lambda t} + U
 \end{equation*} 
 angesetzt.
 Dabei wird stets beachtet, dass die Konstanten größer null sein müssen.
-Der Fit ergibt $N_0 = 78,5 \pm 1,75$, $\lambda = (4,154 \pm 0,193) \cdot 10^5 \frac{1}{\unit{\second}}$ und $U = 6,28 \cdot 10^{-18} \pm 0,71 \approx \pm 0,71$.
+Außerdem werden die ersten vier Bins nicht beachtet, da diese mit null gefüllt sind und dies einen systematischen Fehler andeutet, siehe \autoref{sec:Diskussion}.
+Der Fit ergibt $N_0 = 88.4 \pm 1.3$, $\lambda = (4.60 \pm 0.13) \cdot 10^5 \frac{1}{\unit{\second}}$ und $U = 0.0 \pm 0.4$.
 Auch hier gilt dann $U \in [0 \, , \, 0,71]$, da der Untergrund nur positiv sein kann.
 Der entsprechende Plot ist in \autoref{fig:myonenfit} abgebildet.
 Hier wurde auch bereits mit der Formel für die Zeit aus \autoref{sec:zeiteinteilung} dem jeweiligen Bin eine Zeit zugeordnet.
 Aus $\lambda$ lässt sich nun mithilfe \autoref{eq:tbd} die Lebenszeit bestimmen.
 Es ergibt sich
 \begin{equation}
-    \tau = \frac{1}{\lambda} = (2.41 \pm 0.11) \unit{\micro\second} \, .
+    \tau = \frac{1}{\lambda} = (2.17 \pm 0.06) \unit{\micro\second} \, .
 \end{equation}
 
 \subsection{Bestimmung des Untergrundes} \label{sec:untergrund_ausw}
@@ -124,5 +126,5 @@ Es ergibt sich
 Nachdem bereits der Untergrund gefittet wurde, soll dieser auch nach der theoretischen Formel \autoref{eq:tbd} berechnet werden.
 Damit ergibt sich
 \begin{equation*}
-    U = \frac{N_\text{Verworfen}}{N_\text{Gemessen}} = \frac{21135}{595280} = 0,0355 \, .
+    U = \frac{N_\text{Verworfen}}{N_\text{Gemessen}} = \frac{21135}{595280 + 9999999} = 0,001994 \, .
 \end{equation*} 
