@@ -61,6 +61,7 @@ plt.xlabel('Relative Verzögerung / ns')
 plt.tight_layout()
 plt.grid(':')
 plt.legend(loc="best")
+
 plt.savefig("build/30ns_plot.pdf")
 plt.clf()
 
@@ -68,7 +69,7 @@ plt.clf()
 
 md = pd.read_csv('tables/monoflop.csv')
 md = md.to_numpy()
-hea = list(['Zeit', 'Bins'])
+hea = list([r't / (\mu s)', 'Bins'])
 pandas_md = pd.DataFrame(md, columns=hea)
 # md_table = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:zeiteinteilung', caption='Messreihe zur Bestimmung der Zeiteinteilung der Bins.')
 md_table = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:zeiteinteilung', caption='Messreihe zur Bestimmung der Zeiteinteilung der Bins.')
@@ -87,14 +88,14 @@ y = md[:,0]
 bins = md[:,1]
 
 params, cov = curve_fit(func, bins, y)
-print('Parameter: ', params, '\nFehler: ', np.sqrt(np.diag(cov)))
+# print('Parameter: ', params, '\nFehler: ', np.sqrt(np.diag(cov)))
 
 m = ufloat(params[0], np.sqrt(np.diag(cov))[0])
 b = ufloat(params[1], np.sqrt(np.diag(cov))[1])
 
 plt.plot(bins, y, 'r+', label="Messwerte",)
 plt.plot(bins, func(bins, *params), 'b', label="Regression", zorder=0)
-plt.ylabel('t / ns')
+plt.ylabel(r't / (\mu s)')
 plt.xlabel('Bins')
 plt.tight_layout()
 plt.grid(':')
@@ -112,8 +113,9 @@ bins = np.linspace(1, 512, 512)
 bin_heights = counts
 plt.hist(bins, bins=bins, weights=bin_heights, log=True, color='grey')
 plt.xlabel('Bins')
-plt.ylabel('Zählungen')
-plt.title('Histogram für die Zerfälle pro Bin')
+plt.ylabel('Counts')
+plt.title('Histogram der Zerfälle pro Bin')
+plt.tight_layout()
 plt.savefig('build/myonenhist.pdf')
 plt.clf()
 
@@ -140,10 +142,11 @@ x = np.arange(-0.5 *  10**(-6),10 * 10**(-6),0.1* 10**(-6))
 plt.plot(x, func2(x, *params), ls='-', c='b', zorder=1, label='Fit')
 plt.plot(func3(bins[3:]),counts[3:], 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
 # plt.yscale('log')
-plt.xlabel('t / s')
+plt.xlabel(r't / s')
 plt.ylabel('counts')
 plt.grid('::', alpha=0.3)
 plt.legend()
+plt.tight_layout()
 plt.savefig('build/myonenfit.pdf')
 plt.clf()
 
