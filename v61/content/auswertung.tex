@@ -91,10 +91,9 @@ diese sind in \autoref{tab:spektren} dargestellt.
     \end{tabular}
 \end{table}
 
-Um die gemessenen Eigenmoden der Spektren mit der Verbreitung des Neon-Übergangs bei einer Wellenlänge von $\lambda_0 = \qty{632.8}{nm}$ 
-von etwa $\qty{1}{GHz}$ vergleichen zu können,
-werden die Abstände dieser Frequenzen für die Resonatorlängen gemittelt, 
-die Standardabweichung bestimmt
+Um die gemessenen Eigenmoden der Spektren mit der Verbreitung des Neon-Übergangs
+bei einer Wellenlänge von $\lambda_0 = \qty{632.8}{nm}$ vergleichen zu können,
+werden die Abstände dieser Frequenzen für die Resonatorlängen gemittelt
 und deren mittlere Schwebungsfrequenz mithilfe der Gleichung
 \begin{equation*}
     \nu_{\text{schwebung}} = \frac{c}{2L} 
@@ -105,42 +104,30 @@ Die somit berechneten Werte und deren Abweichungen voneinander sind in \autoref{
     \centering
     \caption{Die empirischen Abstände der Multimoden sowie die theoretischen Schwebungsfrequenzen.}
     \label{tab:nus}
-    \begin{tabular}{c c c c c}
+    \begin{tabular}{c c c c}
         \toprule
         $L \, / \, \mathrm{cm}$ & 
         $\bar{\nu}_\text{Differenz} \, / \, \unit{\mega\hertz}$ & 
         $\nu_{\text{Schwebung}} \, / \, \unit{\mega\hertz}$ &
-        $\increment \nu  \, / \, \unit{\percent}$ &
-        $\sigma_\text{Differenz} \, / \, \unit{\mega\hertz}$ \\
+        $\increment \nu  \, / \, \unit{\percent}$ \\
         \midrule
-           65 & 224,4 &  230,6 & 2,72 & 273.92 \\
-           80 & 174,6 &  187,4 & 6,81 & 324.29 \\ 
-           95 & 143,5 &  157,8 & 9,05 & 349.49 \\
+           65 & 224,4 &  230,6 & 2,72 \\
+           80 & 174,6 &  187,4 & 6,81 \\ 
+           95 & 143,5 &  157,8 & 9,05 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Daraus lasst sich nun die die Verbreitungung bzw. die Halbwertsbreite mithilfe der Gleichung
+Die Breite der Frequenzverteilung liegt dabei als gaußverteilt vor und kann mithilfe der folgenden Gleichung zu
 \begin{equation*}
-    \delta \nu = 2 \sqrt{2 \ln 2} \cdot \sigma_\text{Differenz}
+    \sigma_\nu = \frac{\nu_0}{c} \sqrt{\frac{k_{\mathrm{B}} T}{m}} = \frac{1}{\lambda_0} \sqrt{\frac{k_{\mathrm{B}} T}{m_\text{Neon}}} \approx \qty{549,21}{MHz}
 \end{equation*}
-abschätzen. 
-Die Verbreitungen für die drei Resonatorlängen sind in \autoref{tab:breite} zu finden.
-\begin{table}
-    \centering
-    \caption{Die abgeschätzen Verbreitungen für die drei Resonatorlängen.}
-    \label{tab:breite}
-    \begin{tabular}{c c}
-        \toprule
-        $L \, / \, \mathrm{cm}$ & 
-        $\delta \nu \, / \, \unit{\mega\hertz}$ \\
-        \midrule
-           65 & 645.03 \\
-           80 & 763.65 \\ 
-           95 & 822.99 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+berechnet werden, wobei für Raumtemperatur $T = \qty{293.15}{K}$ und $m_\text{Neon} = \qty{20.1797}{u}$ ist.
+Damit lässt sich schließlich die Linienverbreiterung auf
+\begin{equation*}
+    \delta_\nu =2 \sqrt{2 \ln 2} \cdot \sigma_\nu \approx \qty{1.29}{GHz}
+\end{equation*}
+abschätzen.
 
 \subsection{Bestimmung der Wellenlänge} \label{sec:lambda}
 Die aufgenommenen Abstände der Maxima $n$ zum Hauptmaximum $n = 0$ der Gitter mit den Gitterkonstanten $g_1 = 80 \frac{\text{Linien}}{\unit{\centi\meter}}$ (Abstand $d_1 = \qty{41,5}{cm}$) und
