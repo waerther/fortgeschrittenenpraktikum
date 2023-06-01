@@ -1,4 +1,36 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Im nun Folgenden werden die aufgenommenen Messdaten der verschiedenen Scans ausgewertet. 
+
+
+\subsection{Detektorscan}
+\label{sec:Detektorscan}
+
+Zu Beginn wird anhand des Detektorscans die Halbwertsbreite und die maximale Intensität bestimmt.
+Hierfür wird eine Gaußfunktion der Form
+\begin{equation}
+    I(\theta)=\frac{a}{\sqrt{2 \pi \sigma^2}} \cdot \exp \left(-\frac{(\theta-\mu)^2}{2 \sigma^2}\right)+b
+\end{equation}
+als Regression an die Messdaten verwendet,
+die in \autoref{fig:Detektorscan} zu sehen ist.
+
+
+Die daraus resultierenden Parameter ergeben sich zu 
+\begin{align*}
+    a & = \qty{4.34(6)e4}{} \, , \\
+    b & = \qty{9.5(1.9)e3}{} \, , \\
+    \sigma & = \qty{-0.0361(5)}{} \, \text{und} \\
+    \mu & = \qty{0.0011(5)}{\degree} \, .
+\end{align*}
+
+Mittels der Phyton-Bibliothek \textit{SciPy} \cite{scipy} ergeben sich die Halbwertsbreite FWHM
+und die maximale Intensität $I_\text{max}$ Zu
+\begin{align*}
+    \text{FWHM} & = \qty{0.0849}{\degree} \, \text{und} \\
+    I_\text{max} & = \num{4.89e5} \, \# \, / \, \unit{\second} \, .
+\end{align*}
+
+
+\subsection{Z-Scan}
 

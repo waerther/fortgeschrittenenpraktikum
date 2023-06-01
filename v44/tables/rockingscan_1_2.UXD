@@ -1,0 +1,107 @@
+; C:\DIFFDAT1\Praktikum\Teasdale Wagner\rockingscan_1_2.raw(Diffrac Plus V1.01 file) converted by XCH V1.0
+_FILEVERSION=2
+_SITE='Deutschland'
+_USER='Administrator'
+_GONIOMETER_CODE=4885
+; D8 Theta/Theta; Special
+_SAMPLE_CHANGER_CODE=0
+_ATTACHMENTS_CODE=0
+_GONIOMETER_RADIUS=350.000000
+_FIXED_DIVSLIT=0.600000
+_FIXED_SAMPLESLIT=0.000000
+_FIXED_DETSLIT=11.660000
+_MONOCHROMATOR=0
+; None
+_THIN_FILM='N'
+_BETA_FILTER='Y'
+_FIXED_ANTISLIT=8.340000
+_ANALYZER_CODE=0
+; None
+_DATEMEASURED='15-May-2023 09:44:39'
+_WL_UNIT='A'
+_WL1=1.540600
+_WL2=1.544390
+_WL3=1.392220
+_WLRATIO=0.500000
+_ANODE='Cu'
+; (Data for Range number 1)
+_DRIVE='THETA'
+_STEPTIME=1.000000
+_STEPSIZE=0.040000
+_STEPMODE='C'
+_START=-1.000000
+_THETA=-1.000000
+_2THETA=0.000000
+_KHI=0.000000
+_PHI=92.459999
+_X=3.061000
+_Y=0.000000
+_Z=0.326000
+_DIVERGENCE=0.000000
+_ANTISCATTER=0.000000
+_DETECTOR=5
+_DETECTORSLIT='unkn'
+_AUX1=0.000000
+_AUX2=0.000000
+_AUX3=0.000000
+_TIMESTARTED=3.000000
+_TEMP_RATE=-1.000000
+_TEMP_DELAY=-1.000000
+_KV=40
+_MA=35
+_RANGE_WL=1.540600
+_3DPLANE=0
+_GONIOMETER=0.000000
+_PSDCHANNEL0=0
+_2THETACOUNTS
+  -1.0000         0
+  -0.9600         0
+  -0.9200         0
+  -0.8800         2
+  -0.8400         0
+  -0.8000         2
+  -0.7600         2
+  -0.7200         2
+  -0.6800         5
+  -0.6400        12
+  -0.6000         9
+  -0.5600        14
+  -0.5200        16
+  -0.4800        27
+  -0.4400        31
+  -0.4000        35
+  -0.3600        89
+  -0.3200       149
+  -0.2800      1567
+  -0.2400     10606
+  -0.2000     28527
+  -0.1600     53696
+  -0.1200     85485
+  -0.0800    124381
+  -0.0400    165717
+   0.0000    207604
+   0.0400    235641
+   0.0800    196931
+   0.1200    159438
+   0.1600    129173
+   0.2000     95386
+   0.2400     67257
+   0.2800     44144
+   0.3200     24915
+   0.3600     10524
+   0.4000      2550
+   0.4400       248
+   0.4800        83
+   0.5200        48
+   0.5600        41
+   0.6000        40
+   0.6400        28
+   0.6800        16
+   0.7200        18
+   0.7600        17
+   0.8000        15
+   0.8400         7
+   0.8800         9
+   0.9200         5
+   0.9600         2
+   1.0000         5
