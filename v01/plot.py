@@ -154,6 +154,7 @@ plt.clf()
 
 # Tabelle Myon
 
+
 data1 = np.c_[bins[:40], counts[:40], bins[40:80], counts[40:80], bins[80:120], counts[80:120], bins[120:160],counts[120:160]]
 
 data2 = np.c_[bins[160:200], counts[160:200], bins[200:240], counts[200:240], bins[240:280], counts[240:280], bins[280:320],counts[280:320]]
