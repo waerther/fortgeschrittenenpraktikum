@@ -125,11 +125,6 @@ plt.clf()
 
 # Messung
 
-theta, Intensity = np.genfromtxt('tables/Messung1.txt', unpack=True)
-theta, Intensity1 = np.genfromtxt('tables/Messung2.txt', unpack=True)
-
-fig, ax = plt.subplots()
-
 def geometriefaktor(theta):
     mask = theta > 0.223
     result = np.zeros_like(theta, dtype=float)
@@ -138,24 +133,46 @@ def geometriefaktor(theta):
     result[~mask] = 20 * np.sin(theta[~mask]) / d0
     return result
 
-R = (Intensity - Intensity1)[1:] / (5 * np.max((Intensity - Intensity1)[1:]))
-R_korrektur =  R * geometriefaktor(theta[1:])
-ax.plot(theta[1:], R, ls='-', c='r', label='Messdaten zur Reflexivität', lw = 0.9, zorder=3)
-ax.plot(theta[1:], R_korrektur, ls='--', c='b', label='Korrigiert durch Geometriefaktor',lw=2)
-ax.grid('::', alpha=0.5)
-ax.legend(loc='best')
-ax.set(
-    yscale='log',
-    xlabel=r'$\theta$ / °',
-    ylabel='R',
-)
+theta, I  = np.genfromtxt('tables/Messung1.txt', unpack=True)
+theta_diff, I_diff  = np.genfromtxt('tables/Messung2.txt', unpack=True)
 
-x0, x1 = 10, 30  # Define the interval [x0, x1]
+I_0 = np.max(I - I_diff) * 5         
+R_exp = (I - I_diff) / I_0
+    
+def fresnelreflectivity2(theta):
+    alpha_c = 0.223
+    return (alpha_c / (2 * theta))**4
+
+fig, ax = plt.subplots(layout='constrained')
+ax.plot(theta,
+        R_exp,
+        linestyle='-',
+        linewidth=1,
+        label = r'Messwerte $R$',
+        )
+ax.plot(theta[theta > 0.1],
+        fresnelreflectivity2(theta[theta > 0.1]),
+        linestyle=':',
+        linewidth=1,
+        c='r',
+        label = r'Näherung des Fresnelkoeffizienten',
+        )
+R_korrektur =  R_exp * geometriefaktor(theta)
+ax.plot(theta[1:], R_korrektur[1:], ls='--', c='lightblue', label='Korrigiert durch Geometriefaktor',lw=1)
+
 minima_indices = argrelextrema(R_korrektur, np.less, order=5)
 minima_theta = theta[1:][minima_indices]
 minima_R = R_korrektur[minima_indices]
 
 ax.scatter(minima_theta, minima_R, c='black', label='Minima', s=20, marker='x', zorder=5)
-ax.legend(loc='best')
+
+ax.axvline(3 * 0.223, color='g', linestyle='--', label=r'$\alpha_i > 3 \cdot \alpha_C$')
+ax.set(
+    xlabel = r'$\theta \, / \, °$',
+    ylabel = r'$R$',
+    yscale = 'log',
+)
+ax.legend(loc = 'best')
+ax.grid('::')
 plt.savefig('build/messung1.pdf')
 plt.clf()
