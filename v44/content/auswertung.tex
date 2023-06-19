@@ -10,27 +10,32 @@ Im nun Folgenden werden die aufgenommenen Messdaten der verschiedenen Scans ausg
 Zu Beginn wird anhand des Detektorscans die Halbwertsbreite und die maximale Intensität bestimmt.
 Hierfür wird eine Gaußfunktion der Form
 \begin{equation}
-    I(\theta)=\frac{a}{\sqrt{2 \pi \sigma^2}} \cdot \exp \left(-\frac{(\theta-\mu)^2}{2 \sigma^2}\right)+b
+    I(\theta)= a \cdot \exp \left(-\frac{(\theta-\mu)^2}{b}\right)
 \end{equation}
 als Regression an die Messdaten verwendet,
 die in \autoref{fig:Detektorscan} zu sehen ist.
-
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{build/plot1.pdf}
+    \caption{Messdaten des Detektorscans mit Regression und FWHM.}
+    \label{fig:plot1}
+\end{figure}
 
 Die daraus resultierenden Parameter ergeben sich zu 
 \begin{align*}
-    a & = \qty{4.34(6)e4}{} \, , \\
-    b & = \qty{9.5(1.9)e3}{} \, , \\
-    \sigma & = \qty{-0.0361(5)}{} \, \text{und} \\
-    \mu & = \qty{0.0011(5)}{\degree} \, .
+    a & = \qty{0.95784(9)}{} \, , \\
+    b & = \qty{0.0028(6)}{} \, , \\
+    \mu & = \qty{0.001(14)}{\degree} \, .
 \end{align*}
 
 Mittels der Phyton-Bibliothek \textit{SciPy} \cite{scipy} ergeben sich die Halbwertsbreite FWHM
-und die maximale Intensität $I_\text{max}$ Zu
+und die maximale Intensität $I_\text{max}$ zu
 \begin{align*}
-    \text{FWHM} & = \qty{0.0849}{\degree} \, \text{und} \\
-    I_\text{max} & = \num{4.89e5} \, \# \, / \, \unit{\second} \, .
+    \text{FWHM} & = \qty{0.0879}{\degree} \quad \text{und} \\
+    I_\text{max} & = \num{4.85e5} \, \# \, / \, \unit{\second} \, .
 \end{align*}
 
 
 \subsection{Z-Scan}
 
+Mithilfe des ersten 
