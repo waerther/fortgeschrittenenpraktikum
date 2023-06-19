@@ -29,7 +29,8 @@ with open('build/20ns_table.txt', 'w') as f:
 # Plot 1
 
 plt.hlines(md[25,1], md[0,0], md[25,0], label='Halbwertsbreite', )
-plt.plot(x, counts, 'r+', label="Daten", marker='x')
+plt.errorbar(x=x, y=counts,xerr=0, yerr=np.sqrt(counts), label="Daten", color='darkred',elinewidth=1, fmt=' ')
+plt.scatter(x=x, y=counts, color='darkred', s=3)
 plt.ylabel('Counts')
 plt.xlabel('Relative Verzögerung / ns')
 plt.tight_layout()
@@ -55,7 +56,8 @@ with open('build/30ns_table.txt', 'w') as f:
 # Plot 2
 
 plt.hlines(md[40,1], md[4,0], md[40,0], label='Halbwertsbreite')
-plt.plot(x, counts, 'r+', label="Daten", marker='x')
+plt.errorbar(x=x, y=counts,xerr=0, yerr=np.sqrt(counts), label="Daten", color='darkred',elinewidth=1, fmt=' ')
+plt.scatter(x=x, y=counts, color='darkred', s=3)
 plt.ylabel('Counts')
 plt.xlabel('Relative Verzögerung / ns')
 plt.tight_layout()
@@ -69,10 +71,10 @@ plt.clf()
 
 md = pd.read_csv('tables/monoflop.csv')
 md = md.to_numpy()
-hea = list([r't / (\mu s)', 'Bins'])
+hea = list([r't / (\mu s)', 'Binssss'])
 pandas_md = pd.DataFrame(md, columns=hea)
-# md_table = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:zeiteinteilung', caption='Messreihe zur Bestimmung der Zeiteinteilung der Bins.')
-md_table = pandas_md.to_latex(index = False, column_format= "c c", decimal=',', header=hea, label='tab:zeiteinteilung', caption='Messreihe zur Bestimmung der Zeiteinteilung der Bins.')
+formatters = {'Bins': lambda x: f'{int(x)}'}
+md_table = pandas_md.to_latex(index = False, column_format= "c c", decimal='.', header=hea, label='tab:zeiteinteilung', caption='Messreihe zur Bestimmung der Zeiteinteilung der Bins.', formatters=formatters)
 with open('build/zeiteinteilung.txt', 'w') as f:
     f.write(md_table)
 
@@ -95,7 +97,7 @@ b = ufloat(params[1], np.sqrt(np.diag(cov))[1])
 
 plt.plot(bins, y, 'r+', label="Messwerte",)
 plt.plot(bins, func(bins, *params), 'b', label="Regression", zorder=0)
-plt.ylabel(r't / (\mu s)')
+plt.ylabel(r't / ($\mu$ s)')
 plt.xlabel('Bins')
 plt.tight_layout()
 plt.grid(':')
@@ -114,7 +116,7 @@ bin_heights = counts
 plt.hist(bins, bins=bins, weights=bin_heights, log=True, color='grey')
 plt.xlabel('Bins')
 plt.ylabel('Counts')
-plt.title('Histogram der Zerfälle pro Bin')
+# plt.title('Histogram der Zerfälle pro Bin')
 plt.tight_layout()
 plt.savefig('build/myonenhist.pdf')
 plt.clf()
@@ -143,7 +145,9 @@ print('U = ', U)
 
 x = np.arange(-0.5 *  10**(-6),10 * 10**(-6),0.1* 10**(-6))
 plt.plot(x, func2(x, *params), ls='-', c='b', zorder=1, label='Fit')
-plt.plot(t[4:],counts[4:], 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
+# plt.plot(t[4:],counts[4:], 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
+plt.errorbar(x=t[4:], y=counts[4:],xerr=0, yerr=np.sqrt(counts[4:]), label="Messdaten", color='darkred',elinewidth=0.5, fmt=' ')
+plt.scatter(x=t[4:], y=counts[4:], color='darkred', s=2)
 plt.plot(t[:4],counts[:4], 'o', alpha=0.3, c='b', zorder=0, label='Ignorierte Messdaten')
 plt.xlabel('t / s')
 plt.ylabel('counts')
