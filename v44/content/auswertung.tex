@@ -20,7 +20,7 @@ Die daraus resultierenden Parameter ergeben sich zu
     \sigma & = \qty{3.614(0.054)e-2}{} \, \text{und} \\
     \mu & = \qty{1.07(0.51)e-3}{\degree} \, .
 \end{align*}
-Die Halbwertbreite und die maximale Intensität ergeben sich zu
+Die Halbwertbreite und die maximale Intensität ergiben sich zu
 \begin{align*}
     I_\text{max} &= \qty{4.89e5}{} \\
     &\text{und} \\
@@ -45,7 +45,7 @@ Die Regression ist in \autoref{fig:Detektorscan} zu sehen.
 
 Mithilfe des Z-Scans kann die Strahlbreite des Röntgenstrahls abgeschätzt werden.
 Die Messdaten zum Versuch und die Analyse sind in \autoref{fig:z_scan} zu finden.
-Die Strahlbreite ergibt sich zur $d_0 = 0{,}14 \unit{\milli\meter}$.
+Die Strahlbreite ergibt sich zur $d_0 = 0.14 \unit{\milli\meter}$.
 
 \subsection{X-Scan}
 
@@ -72,18 +72,18 @@ Im Anschluss der Messung wurde eine beliebige Position innerhalb des Intervalls 
 Wie in \autoref{sec:Durchführung} beschrieben, wird jetzt ein Rockingscan durchgeführt, um die Verkippung der Probe zu korrigieren.
 Diese Analyse wird auch genutzt um den Geometriewinkel abzuschätzen.
 Diese Abschätzung und die Messdaten sind in \autoref{fig:rockingscan} zu sehen.
-Der Geometriewinkel ergibt sich dabei zu $\theta_\text{Geom} \approx 0{,}35 °$.
+Der Geometriewinkel ergibt sich dabei zu $\theta_\text{Geom} \approx 0.35 °$.
 Der theoretische Geometriewinkel ergibt sich durch 
 \begin{equation*}
-    \theta_\text{Geom, Theo} = arcsin\left(\frac{d_0}{D}\right) = 0{,}401 \, \unit\degree \, .
+    \theta_\text{Geom, Theo} = arcsin\left(\frac{d_0}{D}\right) = 0.401 \unit\degree \, .
 \end{equation*}
-Dabei ist $D = 20 \, \unit{\milli\meter}$ und beschreibt die Ausmaße der Probe.
+Dabei ist $D = 20 \unit{\milli\meter}$ und beschreibt die Ausmaße der Probe.
 
 \subsection{Messung}
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.8 \linewidth]{build/messung1.pdf}
+    \includegraphics[width = 0.5 \linewidth]{build/messung1.pdf}
     \caption{Reflektivität aufgetragen gegen den Winkel.}
     \label{fig:messreihe1}
 \end{figure}
@@ -99,31 +99,31 @@ Dabei wurden nur Minima führender Ordnung angegeben, da in einem größeren Win
 Nun müssen die Abstände dieser Minima berechnet werden und gemittelt werden.
 Diese Rechnung ergibt
 \begin{equation*}
-    \Delta \alpha = (9{,}5 \pm 2{,}2) \cdot 10^{-4} \unit\radian \, .
+    \Delta \alpha = (0.059 \pm 0.022) \unit\degree \, .
 \end{equation*}
 Mit diesen Größen kann nun die Schichtdicke $d$ bestimmt werden.
-Dafür wird die allgemein bekannte Wellenlänge der $K_\alpha$ Linie von $\lambda = 1{,}541 \cdot 10^{-10}$ in \autoref{eq:schichtdicke} eingesetzt.
+Dafür wird die allgemein bekannte Wellenlänge der $K_\alpha$ Linie von $\lambda = 1, 541 \cdot 10^-10$ in \autoref{eq:schichtdicke} eingesetzt.
 Die Rechnung ergibt
 \begin{equation*}
-    d = (8{,}1 \pm 1{,}8) \cdot 10^{-8} \, \unit\meter \, .
+    d = (1.3 \pm 0.49) \cdot 10^{-9} \, .
 \end{equation*}
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.8 \linewidth]{build/messung2.pdf}
+    \includegraphics[width = 0.5 \linewidth]{build/messung2.pdf}
     \caption{Gemessene Reflektivität verglichen mit dem Fit des Parratt Algorithmus.}
     \label{fig:messreihe2}
 \end{figure}
 
-Nun wird mithilfe des Parratt-Algorithmus eine Theoriekurve an die vorhandenen Messdaten gefittet.
+Nun wird mithilfe des Parrat-Algorithmus eine Theoriekurve an die vorhandenen Messdaten gefittet.
 Der entsprechende Fit ist in \autoref{fig:messreihe2} zu sehen.
 Der Fit ergibt die Parameter
 \begin{align*}
-    d & = \qty{8.495(0.0279)e-08}{\unit\meter} \, , \\
+    d & = \qty{8.495(0.0279)e-08}{} \, , \\
     \delta_2 & = \qty{1(0.01)e-08}{} \, , \\
     \delta_3 & = \qty{4.67(0.017)e-8}{} \, , \\
-    \sigma_1 & = \qty{9.23(1.338)e-10}{\unit\meter} \, \text{und} \\
-    \sigma_2 & = \qty{8.16(0.45)e-10}{\unit\meter} \, . \\
+    \sigma_1 & = \qty{9.23(1.338)e-10}{} \, \text{und} \\
+    \sigma_2 & = \qty{8.16(0.45)e-10}{} \, . \\
 \end{align*}
 Der verwendete Code ist im Anhang beigefügt.
 Die Annahmen sind hierbei, dass das System aus einer Schicht Polysterol und einer Schicht Silizium besteht.
@@ -133,7 +133,7 @@ Dies ist durch Startbedingungen und Grenzwerten bei der verwendeten Fitmethode g
 Auch die kritischen Winkel konnten so ermittelt werden.
 Diese ergaben sich nach $\alpha_{\text{c}, i} \approx \sqrt{2 \delta_i}$ zu
 \begin{align*}
-    \alpha_{\text{c, PS}} &= 0{,}092 \, ° \\
+    \alpha_{\text{c, PS}} &= 0.092 \\
     &\text{und} \\
-    \alpha_{\text{c, Si}} &= 0{,}197 \, ° \, .
+    \alpha_{\text{c, Si}} &= 0.197 \, .
 \end{align*}

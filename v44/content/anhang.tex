@@ -1,5 +1,5 @@
 \begin{lstlisting}
-    # Plot 1
+# Plot 1
 
     def geometriefaktor(theta):
         mask = theta > 0.223
@@ -59,10 +59,11 @@
     diff = np.zeros(len(minima_theta) -1)
     for i in np.arange(len(minima_theta) - 1):
         diff[i] = minima_theta[i+1] - minima_theta[i]
-        diff[i] = np.deg2rad(diff[i])
     
-    diff = diff[diff < np.quantile(diff, 0.95)]
     diff = ufloat(np.mean(diff), np.std(diff))
+    
+    d = lam / (2 * diff)
+    print('Schichtdicke: {:.4e}'.format(d))
     
     d = 8.62*10**(-8)
     delta_2 = 1.3 * 10**(-6)
