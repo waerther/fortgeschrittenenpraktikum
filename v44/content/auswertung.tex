@@ -1,0 +1,139 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Im nun Folgenden werden die aufgenommenen Messdaten der verschiedenen Scans ausgewertet. 
+
+
+\subsection{Detektorscan}
+\label{sec:Detektorscan}
+
+Zu Beginn wird anhand des Detektorscans die Halbwertsbreite und die maximale Intensität bestimmt.
+Hierfür wird eine Gaußfunktion der Form
+\begin{equation}
+    I(\theta)= A \cdot \exp \left(-\frac{(\theta-\mu)^2}{2 \sigma^2}\right)+b
+\end{equation}
+an die Messdaten gefittet.
+Die daraus resultierenden Parameter ergeben sich zu 
+\begin{align*}
+    a & = \qty{4.34(64)e4}{} \, , \\
+    b & = \qty{9.48(1.87)e3}{} \, , \\
+    \sigma & = \qty{3.614(0.054)e-2}{} \, \text{und} \\
+    \mu & = \qty{1.07(0.51)e-3}{\degree} \, .
+\end{align*}
+Die Halbwertbreite und die maximale Intensität ergeben sich zu
+\begin{align*}
+    I_\text{max} &= \qty{4.89e5}{} \\
+    &\text{und} \\
+    \text{FWHM} &= \qty{8.63e-2}{\degree} \, .
+\end{align*}
+Die Regression ist in \autoref{fig:Detektorscan} zu sehen.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5 \linewidth]{build/Detektorscan.pdf}
+    \caption{Fit der Gaußfunktion an die Messdaten.}
+    \label{fig:Detektorscan}
+\end{figure}
+
+\subsection{Z-Scan}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5 \linewidth]{build/z_scan.pdf}
+    \caption{Messdaten des Z-Scans und Analyse zur Strahlbreite.}
+    \label{fig:z_scan}
+\end{figure}
+
+Mithilfe des Z-Scans kann die Strahlbreite des Röntgenstrahls abgeschätzt werden.
+Die Messdaten zum Versuch und die Analyse sind in \autoref{fig:z_scan} zu finden.
+Die Strahlbreite ergibt sich zur $d_0 = 0{,}14 \unit{\milli\meter}$.
+
+\subsection{X-Scan}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5 \linewidth]{build/x_scan.pdf}
+    \caption{Messdaten des X-Scans.}
+    \label{fig:x_scan}
+\end{figure}
+
+Desweiteren wird der X-Scan zur Bestimmung der Position der Probe durchgeführt.
+Die Messdaten finden sich in \autoref{fig:x_scan} wieder.
+Im Anschluss der Messung wurde eine beliebige Position innerhalb des Intervalls der Probe gewählt.
+
+\subsection{Rockingscan}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5 \linewidth]{build/rockingscan.pdf}
+    \caption{Rockingscan zur Analyse des Auflagewinkels der Probe.}
+    \label{fig:rockingscan}
+\end{figure}
+
+Wie in \autoref{sec:Durchführung} beschrieben, wird jetzt ein Rockingscan durchgeführt, um die Verkippung der Probe zu korrigieren.
+Diese Analyse wird auch genutzt um den Geometriewinkel abzuschätzen.
+Diese Abschätzung und die Messdaten sind in \autoref{fig:rockingscan} zu sehen.
+Der Geometriewinkel ergibt sich dabei zu $\theta_\text{Geom} \approx 0{,}35 °$.
+Der theoretische Geometriewinkel ergibt sich durch 
+\begin{equation*}
+    \theta_\text{Geom, Theo} = arcsin\left(\frac{d_0}{D}\right) = 0{,}401 \, \unit\degree \, .
+\end{equation*}
+Dabei ist $D = 20 \, \unit{\milli\meter}$ und beschreibt die Ausmaße der Probe.
+
+\subsection{Messung}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8 \linewidth]{build/messung1.pdf}
+    \caption{Reflektivität aufgetragen gegen den Winkel.}
+    \label{fig:messreihe1}
+\end{figure}
+
+Nachdem die Apperatur nach \autoref{sec:Durchführung} justiert wurde, wird nun die tatsächliche Messung durchgeführt.
+Die Messdaten sind in \autoref{fig:messreihe1} zu sehen.
+Hier ist die normale, \enquote{direkte} Messung abzüglich der diffusen Messung aufgetragen.
+Es sei angemerkt, dass hier bereits die Intensität in die Reflektivität umgewandelt wurde.
+Diese berechnet sich durch $R = \frac{I}{ 5 \cdot I_\text{max}}$.
+Die Minima der Kiessig Oszillationen sind ebenfalls eingezeichet.
+Berechnet wurden sie durch die Python Bibliothek \textit{SciPy}, beziehungsweise durch \textit{scipy.signal.argrelextrema}.
+Dabei wurden nur Minima führender Ordnung angegeben, da in einem größeren Winkelbereich die Messung zu ungenau wird.
+Nun müssen die Abstände dieser Minima berechnet werden und gemittelt werden.
+Diese Rechnung ergibt
+\begin{equation*}
+    \Delta \alpha = (9{,}5 \pm 2{,}2) \cdot 10^{-4} \unit\radian \, .
+\end{equation*}
+Mit diesen Größen kann nun die Schichtdicke $d$ bestimmt werden.
+Dafür wird die allgemein bekannte Wellenlänge der $K_\alpha$ Linie von $\lambda = 1{,}541 \cdot 10^{-10}$ in \autoref{eq:schichtdicke} eingesetzt.
+Die Rechnung ergibt
+\begin{equation*}
+    d = (8{,}1 \pm 1{,}8) \cdot 10^{-8} \, \unit\meter \, .
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8 \linewidth]{build/messung2.pdf}
+    \caption{Gemessene Reflektivität verglichen mit dem Fit des Parratt Algorithmus.}
+    \label{fig:messreihe2}
+\end{figure}
+
+Nun wird mithilfe des Parratt-Algorithmus eine Theoriekurve an die vorhandenen Messdaten gefittet.
+Der entsprechende Fit ist in \autoref{fig:messreihe2} zu sehen.
+Der Fit ergibt die Parameter
+\begin{align*}
+    d & = \qty{8.495(0.0279)e-08}{\unit\meter} \, , \\
+    \delta_2 & = \qty{1(0.01)e-08}{} \, , \\
+    \delta_3 & = \qty{4.67(0.017)e-8}{} \, , \\
+    \sigma_1 & = \qty{9.23(1.338)e-10}{\unit\meter} \, \text{und} \\
+    \sigma_2 & = \qty{8.16(0.45)e-10}{\unit\meter} \, . \\
+\end{align*}
+Der verwendete Code ist im Anhang beigefügt.
+Die Annahmen sind hierbei, dass das System aus einer Schicht Polysterol und einer Schicht Silizium besteht.
+Beide haben dadurch verschiedene Brechungsindizes.
+Desweiteren müssen einige heuristische Annahmen bei dem verwendeten Ansatz genutzt werden, um einen guten Fit zu erreichen.
+Dies ist durch Startbedingungen und Grenzwerten bei der verwendeten Fitmethode geschehen.
+Auch die kritischen Winkel konnten so ermittelt werden.
+Diese ergaben sich nach $\alpha_{\text{c}, i} \approx \sqrt{2 \delta_i}$ zu
+\begin{align*}
+    \alpha_{\text{c, PS}} &= 0{,}092 \, ° \\
+    &\text{und} \\
+    \alpha_{\text{c, Si}} &= 0{,}197 \, ° \, .
+\end{align*}
