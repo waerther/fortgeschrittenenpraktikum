@@ -182,10 +182,17 @@
 % Trennung von Wörtern mit Strichen
 \usepackage[shortcuts]{extdash}
 
-% % !!! Seitenlayout (Jonas)
-% \usepackage[headsepline=1pt,footsepline=1pt]{scrlayer-scrpage}
-% \pagestyle{scrheadings}
-% \clearpairofpagestyles
+\usepackage{listings}
+\lstset{
+    language=Python,        % The programming language
+    basicstyle=\ttfamily,   % The font style for the code
+    numbers=left,           % Line numbers on the left
+    numberstyle=\tiny,      % Style of the line numbers
+    frame=single,           % A frame around the code
+    breaklines=true,        % Automatic line breaking
+    captionpos=b,           % Caption position: bottom
+    showstringspaces=false, % Don't show spaces in strings
+}
 
 \author{%
   Toby Teasdale\\%

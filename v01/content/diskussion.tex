@@ -2,26 +2,28 @@
 \label{sec:Diskussion}
 
 In der Kalibrierung der Messgeräte ergaben sich einige Schwierigkeiten.
-Zum einen ließ sich mithilfe des Schraubendrehers keine Pulsdauer von $10 \unit{\nano\second}$ einstellen, weshalb auf eine Messung bei $30 \unit{\nano\second}$ zurückgegriffen wurde.
-Allerdings ist auch die $20 \unit{\nano\second}$ Messung nicht gut verlaufen, da hier große Schwankungen erkennbar sind, obwohl sich hier theoretisch eine Art Maximum ausbilden sollte.
+Zum einen ließ sich mithilfe des Schraubendrehers keine Pulsdauer von $10 \, \unit{\nano\second}$ einstellen, weshalb auf eine Messung bei $30 \, \unit{\nano\second}$ zurückgegriffen wurde.
+Allerdings ist auch die $20 \, \unit{\nano\second}$ Messung nicht gut verlaufen, da hier große Schwankungen erkennbar sind, obwohl sich hier theoretisch eine Art Maximum ausbilden sollte.
 Dies konnte nicht beobachtet werden.
 Zudem wurde die Messung nicht mit einer genügend großen Verzögerung gestartet.
-Dies wollten die Experimentatoren dann nachholen, jedoch kam es dann zu Schwierigkeiten bei der Apparatur, die die Messung verhinderte.
+Die fehlenden Messwerte wollten die Experimentatoren dann im Anschluss messen, jedoch kam es dann zu Schwierigkeiten bei der Apparatur, die die Messung verhinderte.
 Mit Hilfe des Betreuers des Versuchs gelang es die Messungen wieder aufzunehmen.
-Allerdings konnte die Messung bei $20 \unit{\nano\second}$ nicht beendet werden.
+Allerdings die Messung bei $20 \, \unit{\nano\second}$ konnte nicht beendet werden und somit fehlen entscheidende Messwerte zur exakten Bestimmung der Halbwertsbreite.
 Aus diesem Grunde ist die Halbwertsbreite nur grob abschätzbar, da es sich nur erahnen lässt, wie breit diese tatsächlich ist.
-Bei der Messung zu $30 \unit{\nano\second}$ kam es auch zu massiven Schwankungen, jedoch trat ein weiteres Problem auf.
+Bei der Messung zu $30 \, \unit{\nano\second}$ kam es auch zu massiven Schwankungen, jedoch trat ein weiteres Problem auf.
 Die Messdaten flachten kaum ab, so dass nach einer angemessenen Anzahl an Messwerten die Experimentatoren die Messung als abgeschlossen ansahen.
 Auch dies ist in \autoref{fig:30ns_plot} zu erkennen.
-Dadurch ist auch die Abschätzung der Halbwertsbreite bei $30 \unit{\nano\second}$ mit Vorsicht anzusehen.
-Schlussendlich wurde dann eine Pulsdauer von $20 \unit{\nano\second}$ und eine Verzögerung von $\Delta t = -3$ eingestellt, da die Experimentatoren hier bei der Interpretation der Messwerte einen Fehler machten.
+Dadurch ist auch die Abschätzung der Halbwertsbreite bei $30 \, \unit{\nano\second}$ mit Vorsicht anzusehen.
+Schlussendlich wurde dann eine Pulsdauer von $20 \, \unit{\nano\second}$ und eine Verzögerung von $\Delta t = -3$ eingestellt, da die Experimentatoren hier bei der Interpretation der Messwerte einen Fehler machten.
 
-Bei der Auswertung der Messdaten der Lebenszeit wurden wie in \autoref{sec:Auswertung} erklärt die ersten vier leeren Bins wegelassen.
+Bei der Auswertung der Messdaten der Lebenszeit wurden wie in \autoref{sec:Auswertung} erklärt die ersten vier leeren Bins weggelassen.
 Dies deutet auf einen systematischen Fehler in der Messung hin, da nach der Zerfallsstatistik ein Maximum, oder mindestens kein leerer Bin zu erwarten ist.
 Deshalb ist es gerechtfertigt, den Fit ohne diese Werte vorzunehmen.
-Die Lebenszeit wurde zu $\tau = (2.09\pm 0.04) \unit{\micro\second}$ bestimmt.
-Als Literaturwert wird $\tau_\text{Lit} = 2,2 \unit{\micro\second}$ angegeben.
+Die Lebenszeit wurde zu $\tau = (2.09\pm 0.04) \, \unit{\micro\second}$ bestimmt.
+Als Literaturwert wird $\tau_\text{Lit} = 2,2 \, \unit{\micro\second}$ angegeben.
 Damit ergibt sich eine Abweichung von $5,26 \, \% $.
 
-Der Untergrund durch den Fit ergab $U \approx 0.0 \pm 0.4$ und aus der theoretischen Überlegung $U_\text{theo} = 0.001994$.
-Der Untergrund liegt somit innerhalb der Fehlertoleranz und ist gut durch den Fit repräsentiert.
+Der Untergrund durch den Fit ergab $U \approx 0.0 \pm 0.4$ und aus der theoretischen Überlegung $U_\text{theo} = 5.4008 \pm 0.0033$.
+Dieser Wert ist weit über dem Wert des Fits.
+Dies ist darauf zurückzuführen, dass der Fit auf alle Messpunkte nach den leeren Bins zu Beginn gemacht wurden.
+Dies liefert jedoch einen hohen Bias in Anbetracht dessen, dass die letzten Bins nicht mehr gefüllt sind.

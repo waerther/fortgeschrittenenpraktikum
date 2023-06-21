@@ -1,38 +1,44 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Im folgenden werden die Daten analysiert, die während einer Messzeit von ungefähr $T_{Messung} = 4,7  \unit\day$ aufgenommen wurden.
-
+Im folgenden werden die Daten analysiert, die während einer Messzeit von ungefähr $T_\text{Messung} = 4,7  \, \unit\day$ aufgenommen wurden.
+Die Plots und Fits sind alle mit den Python-Bibliotheken \cite{matplotlib},\cite{numpy},\cite{scipy},\cite{uncertainties},\cite{reback2020pandas} erstellt worden.
 \subsection{Kalibrierung der Messgeräte}
 
 Bei der Kalibrierung der Geräte trat ein Problem bei der Einstellung der Pulsdauer auf.
-Aus diesem Grund wurde die Pulsdauer statt auf $10 \unit{\nano\second}$ und $20 \unit{\nano\second}$ auf $20 \unit{\nano\second}$ und $30 \unit{\nano\second}$ eingestellt.
+Aus diesem Grund wurde die Pulsdauer statt auf $10 \, \unit{\nano\second}$ und $20 \, \unit{\nano\second}$ auf $20 \, \unit{\nano\second}$ und $30 \, \unit{\nano\second}$ eingestellt.
 Die Messdaten dazu sind im Anhang in \autoref{tab:20ns_table} und \autoref{tab:30ns_table} zu finden.
 Die Plots der Daten und der entsprechenden Halbwertsbreiten sind in \autoref{fig:20ns_plot} und \autoref{fig:30ns_plot} abgebildet.
 Auch bei der Aufnahme der Daten kam es zu Problemen, siehe dafür \autoref{sec:Diskussion}.
 Hier sei allerdings angemerkt, dass die Halbwertsbreiten deshalb nur abgeschätzt werden können.
-Für eine Pulsdauer von $20 \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \unit{\nano\second}$, woraus sich dann eine Verzögerung von
+Nun soll aus dieser Abschätzung die optimale Verzögerung ermittelt werden.
+Hierfür wird die Formel
 \begin{equation*}
-    (2 \cdot 20 - 25) \unit{\nano\second} = 15 \unit{\nano\second}  
+    t_\text{Verzögerung} = 2 \cdot \Delta_\text{Pulsdauer} - \Delta_\text{Breite}
+\end{equation*}
+genutzt. Sie berechnet die Verschiebung des Maximums und liefert somit die optimale Verzögerungszeit.
+Für eine Pulsdauer von $20 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
+\begin{equation*}
+    (2 \cdot 20 - 25) \, \unit{\nano\second} = 15 \, \unit{\nano\second}
 \end{equation*}
 ergibt.
-Für eine Pulsdauer von $30 \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \unit{\nano\second}$, woraus sich dann eine Verzögerung von
+Für eine Pulsdauer von $30 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
 \begin{equation*}
-    (2 \cdot 30 - 37) \unit{\nano\second} = 23 \unit{\nano\second}  
+    (2 \cdot 30 - 37) \, \unit{\nano\second} = 23 \, \unit{\nano\second}
 \end{equation*}
 ergibt.
 
 \begin{figure}
     \centering
     \includegraphics[width = 0.7 \linewidth]{build/20ns_plot.pdf}
-    \caption{Plot zur Messung bei einer Pulsdauer von $20$ns.}
+    \caption{Plot der Messung der Zählrate in Abhängigkeit der relativen Verzögerung bei einer Pulsdauer von $20$ ns.}
     \label{fig:20ns_plot}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width = 0.7 \linewidth]{build/30ns_plot.pdf}
-    \caption{Plot zur Messung bei einer Pulsdauer von $30$ns.}
+    \caption{Plot der Messung der Zählrate in Abhängigkeit der relativen Verzögerung bei einer Pulsdauer von $30$ ns.}
     \label{fig:30ns_plot}
 \end{figure}
 
@@ -47,14 +53,14 @@ Dafür wird der Ansatz
 gewählt.
 Der entsprechende Plot ist in \autoref{fig:zeiteinteilung} abgebildet.
 Der Fit ergibt 
-$m = (0.02257 \pm 0.00005)\unit{\nano\second}$ und $c = (0.148 \pm 0.006)\unit{\nano\second}$.
+$m = (0.02257 \pm 0.00005) \, \unit{\micro\second}$ und $c = (0.148 \pm 0.006) \, \unit{\micro\second}$.
 
 
 \begin{figure}%
     \begin{subfigure}{0.68\textwidth}%
     \centering%
     \includegraphics[width=\textwidth]{build/zeiteinteilung.pdf}%
-    \caption{Fit an die Daten.}%
+    \caption{Abbildung der Messdaten zur Bestimmung der Zeiteinteilung der Kanäle. Die Gerade zeigt den linearen Fit zur Zuordnung der Kanäle.}%
     \label{fig:zeiteinteilung}%
     \end{subfigure}%
     \hfill% Fills available space in the center -> space between figures
@@ -64,16 +70,16 @@ $m = (0.02257 \pm 0.00005)\unit{\nano\second}$ und $c = (0.148 \pm 0.006)\unit{\
         \toprule
         t / $(\unit{\micro\second})$ &  Bins \\
         \midrule
-         5,4 & 233,0 \\
-         4,4 & 188,0 \\
-         3,4 & 144,0 \\
-         2,4 & 100,0 \\
-         1,4 &  55,0 \\
-         0,7 &  25,0 \\
-         0,4 &  11,0 \\
+         5.4 & 233 \\
+         4.4 & 188 \\
+         3.4 & 144 \\
+         2.4 & 100 \\
+         1.4 &  55 \\
+         0.7 &  25 \\
+         0.4 &  11 \\
         \bottomrule
         \end{tabular}
-        \caption{Messdaten.}
+        \caption{Messdaten zur Bestimmung der Zeiteinteilung der Kanäle.}
         \label{tab:zeiteinteilung}
     \end{subtable}%
     \caption{Bestimmung der Zeiteinteilung der Bins.}
@@ -83,27 +89,29 @@ $m = (0.02257 \pm 0.00005)\unit{\nano\second}$ und $c = (0.148 \pm 0.006)\unit{\
 \subsection{Bestimmung der Lebenszeit von Myonen}
 
 \begin{figure}%
-    \begin{subfigure}{0.48\textwidth}%
+    \begin{subfigure}{0.5\textwidth}%
     \centering%
     \includegraphics[width=\textwidth]{build/myonenhist.pdf}%
     \caption{Histogramm der Messdaten.}%
     \label{fig:histogramm}%
     \end{subfigure}%
     \hfill% Fills available space in the center -> space between figures
-    \begin{subfigure}{0.48\textwidth}%
+    \begin{subfigure}{0.5\textwidth}%
         \centering%
         \includegraphics[width=\textwidth]{build/myonenfit.pdf}%
-        \caption{Fit an die Daten.}%
+        \caption{Das Resultat des Fits an die Messdaten}%
         \label{fig:myonenfit}%
         \end{subfigure}%
-    \caption{Abbildungen zur Ermittlung der Lebenszeit eines Myons.}
+    \caption{Abbildungen zur Ermittlung der Lebenszeit eines Myons.
+    Links sind die Messwerte histogrammiert auf einer logarithmischen Skala abgebildet.
+    Rechts ist der entsprechende Fit abgebildet.}
     \label{subfig:myonen}    
 \end{figure}%
 
 Die Messdaten zu diesem Versuch sind im Anhang in \autoref{tab:messdaten_myonen1}, \autoref{tab:messdaten_myonen2} und \autoref{tab:messdaten_myonen3} zu finden.
 Die Daten wurden außerdem histogrammiert in \autoref{fig:histogramm} aufgetragen.
 Die gezählten Ereignisse und Ereignisse, die verworfen wurden, sind in \autoref{fig:myonenfit} abgebildet.
-Dabei muss beachtet werden, dass der Counter einmal durchgelaufen ist.
+Dabei muss beachtet werden, dass der Counter, der die Events zählt, einmal durchgelaufen ist.
 Als Fit wird nach Vorgabe des Zerfallsgesetzes plus Untergrund die Funktion
 \begin{equation*}
     N(t) = N_0 \cdot e^{- \lambda t} + U
@@ -118,13 +126,21 @@ Hier wurde auch bereits mit der Formel für die Zeit aus \autoref{sec:zeiteintei
 Aus $\lambda$ lässt sich nun mithilfe \autoref{eq:tau} die Lebenszeit bestimmen.
 Es ergibt sich
 \begin{equation}
-    \tau = \frac{1}{\lambda} = (2.09\pm 0.04) \unit{\micro\second} \, .
+    \tau = \frac{1}{\lambda} = (2.09\pm 0.04) \, \unit{\micro\second} \, .
 \end{equation}
 
 \subsection{Bestimmung des Untergrundes} \label{sec:untergrund_ausw}
 
 Nachdem bereits der Untergrund gefittet wurde, soll dieser auch nach der theoretischen Formel \autoref{eq:untergrundrate} berechnet werden.
-Damit ergibt sich
+Es ergibt sich mit
 \begin{equation*}
-    U = \frac{N_\text{Verworfen}}{N_\text{Gemessen}} = \frac{21135}{595280 + 9999999} = 0,001994 \, .
-\end{equation*} 
+    n = (26.092\pm0.008) \frac{1}{\unit\second}
+\end{equation*}
+und
+\begin{equation*}
+    P(1) = (2.6098 \pm 0.0008) \cdot 10^{-4}
+\end{equation*}
+der theoretische Untergrund von
+\begin{equation*}
+    U_\text{theo} = 5.4008 \pm 0.0033 \, .
+\end{equation*}
