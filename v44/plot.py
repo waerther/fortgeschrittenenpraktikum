@@ -56,8 +56,8 @@ for root in roots:
     ax.axvline(root, color='g', linestyle='--')
 ax.grid('::', alpha=0.5)
 ax.set(
-    xlabel=r'$\omega$ / °',
-    ylabel=r'Intensity / $\unit\second$',
+    xlabel=r'$\Theta$ / °',
+    ylabel=r'Intensität$',
 )
 ax.legend(loc='best')
 plt.savefig('build/Detektorscan.pdf')
@@ -77,7 +77,7 @@ d0 = z[20] - z[13]
 
 ax.set(
     xlabel=r'z / $\unit{\milli\meter}$',
-    ylabel=r'Intensity / $\unit\second$',
+    ylabel=r'Intensität$',
 )
 ax.grid('::', alpha=0.5)
 ax.legend(loc='best')
@@ -92,6 +92,10 @@ fig, ax = plt.subplots()
 ax.scatter(x, Intensity, marker='x', c='r', label='Messdaten')
 ax.grid('::', alpha=0.5)
 ax.legend(loc='best')
+ax.set(
+    xlabel=r'x / $\unit{\milli\meter}$',
+    ylabel=r'Intensität$',
+)
 plt.savefig('build/x_scan.pdf')
 plt.clf()
 
@@ -105,6 +109,8 @@ ax = np.ravel(ax)
 ax[0].scatter(theta, Intensity, marker='x', c='r', label='Messdaten')
 ax[0].set(
     title='Erster Rockingscan',
+    xlabel=r'\Theta / $\unit{\degree}$',
+    ylabel=r'Intensität$',
 )
 
 ax[0].axvline(theta[np.argmax(Intensity)] + 0.35, color='g', linestyle='--')
@@ -114,6 +120,7 @@ theta, Intensity = np.genfromtxt('tables/rockingscan_1_4.txt', unpack=True)
 ax[1].scatter(theta, Intensity, marker='x', c='r', label='Messdaten')
 ax[1].set(
     title='Zweiter Rockingscan zur Feinjustage',
+    xlabel=r'\Theta / $\unit{\degree}$',
 )
 
 for i, axis in enumerate(ax):
@@ -134,7 +141,7 @@ def geometriefaktor(theta):
     result = np.zeros_like(theta, dtype=float)
 
     result[mask] = 1
-    result[~mask] = 20 * np.sin(theta[~mask]) / d0
+    result[~mask] = 20 * np.sin(np.deg2rad(theta[~mask])) / d0
     return result
 
 theta, Intensity  = np.genfromtxt('tables/Messung1.txt', unpack=True)
@@ -172,7 +179,7 @@ ax.scatter(minima_theta, minima_R, c='black', label='Minima', s=20, marker='x', 
 
 ax.axvline(3 * 0.223, color='g', linestyle='--', label=r'$\alpha_i > 3 \cdot \alpha_C$')
 ax.set(
-    xlabel = r'$\theta \, / \, °$',
+    xlabel = r'$2 \theta \, / \, °$',
     ylabel = r'$R$',
     yscale = 'log',
 )
@@ -187,11 +194,13 @@ lam = 1.541* 10**-10
 diff = np.zeros(len(minima_theta) -1)
 for i in np.arange(len(minima_theta) - 1):
     diff[i] = minima_theta[i+1] - minima_theta[i]
+    diff[i] = np.deg2rad(diff[i])
 
+diff = diff[diff < np.quantile(diff, 0.95)]
 diff = ufloat(np.mean(diff), np.std(diff))
 
 d = lam / (2 * diff)
-print('Schichtdicke: {:.4e}'.format(d))
+print(f'{d=:}')
 
 d = 8.62*10**(-8)
 delta_2 = 1.3 * 10**(-6)
@@ -238,25 +247,25 @@ ax.plot(theta,
         R_korrektur,
         linestyle='-',
         linewidth=1,
-        label = r'Messwerte $R_{\mathrm{exp,korr}}$',
+        label = r'Messwerte $R_\text{korrigiert}$',
         )
 ax.plot(theta,
         parratt_algorithm(theta, *params_parratt),
         linestyle='--',
         linewidth=1,
-        label = r'Messwerte $R$',
+        label = r'Parratt Alg. Fit',
         )
 ax.axvline(alpha_c_PS,
             color='gray',
             linestyle='--',
             linewidth=1,
-            label=r'$\alpha_{\mathrm{c,PS}} = $' + f'{alpha_c_PS:=.3f}°',
+            label=r'$\alpha_{\text{c,PS}} = $' + f'{alpha_c_PS:=.3f}°',
             )
 ax.axvline(alpha_c_Si,
             color='gray',
             linestyle='--',
             linewidth=1,
-            label=r'$\alpha_{\mathrm{c,Si}} = $' + f'{alpha_c_Si:=.3f}°',
+            label=r'$\alpha_{\text{c,Si}} = $' + f'{alpha_c_Si:=.3f}°',
             )
 ax.set(
     xlabel = r'$\theta \, / \, °$',

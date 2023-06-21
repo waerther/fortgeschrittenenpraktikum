@@ -11,13 +11,15 @@ Schließlich wird die Reflexion an einer Multischicht erklärt und auch Bezug au
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{pictures/Aufbau_Rröhre.pdf}
-        \caption{Schematische Darstellung einer Röntgenröhre. \cite{demtroeder2}}
+        \caption{Schematische Darstellung einer Röntgenröhre\cite{demtroeder2}.
+        Dabei ist K die Heizkathode, $e^-$ ein Elektron und A die Anode, an der die Elektronen beschleunigt werden.}
         \label{fig:aufbau}
     \end{subfigure}
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{pictures/bremsspektrum.pdf}
-        \caption{Das aufgrund von Energieabgabe kontinuierliche Bremsspektrum des Elektrons. \cite{v602}}
+        \caption{Das aufgrund von Energieabgabe kontinuierliche Bremsspektrum des Elektrons\cite{v602}.
+        $\lambda$ ist die entsprechende Wellenlänge.}
         \label{fig:bremsspektrum}
     \end{subfigure}
     \caption{Aufbau und kontinuierliches Spektrum einer Röntgenröhre.}
@@ -48,7 +50,8 @@ Der griechische Buchstabe indexiert die Schale, aus der das Elektron stammt.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/Einfall.pdf}
-    \caption{Einfall einer elektromagnetischen Welle auf eine Grenzfläche \cite{demtroeder2}.}
+    \caption{Einfall einer elektromagnetischen Welle auf eine Grenzfläche \cite{demtroeder2}.
+    $\alpha$ ist der Einfallswinkel und $\omega$ der Brechungswinkel. $\vec{k}_i$ ist der entsprechende Wellenvektor.}
     \label{fig:einfall}
 \end{figure}
 Propagiert eine elektromagnetische Welle in ein anderes Medium, so kommt es zur Brechung.
@@ -73,12 +76,12 @@ Dabei beschreibt $\rho$ die Elektronendichte im Medium und $r_e$ den klassischen
 Des weiteren lässt sich mithilfe der Fresnelschen Formeln die Transmission und Reflexion von elektromagnetischen Wellen beschreiben.
 Dabei lauten die Gleichungen
 \begin{align*}
-    r_s & =\frac{k_{i,z} - k_{t,z}}{k_{i,z} + k_{t,z}} \, ,\\
-    r_p & =\frac{n^2 k_{i,z} - k_{t,z}}{n^2 k_{i,z} + k_{t,z}} \, ,\\
-    t_s & =\frac{2 k_{i,z}}{k_{i,z} + k_{t,z}} \, ,\\
-    t_p & =\frac{2 k_{i,z}}{n^2 k_{i,z} + k_{t,z}} \, .
+    r_s & =\frac{k_{e} - k_{g}}{k_{e} + k_{g}} \, ,\\
+    r_p & =\frac{n^2 k_{e} - k_{g}}{n^2 k_{e} + k_{g}} \, ,\\
+    t_s & =\frac{2 k_{e}}{k_{e} + k_{g}} \, ,\\
+    t_p & =\frac{2 k_{e}}{n^2 k_{e} + k_{g}} \, .
 \end{align*}
-Dabei gilt $k_{i,z} = |k| \sin \alpha_i$ und $k_{t,z} = n |k| \sin \alpha_t$.
+Dabei gilt $k_{e} = |k| \sin \alpha$ und $k_{g} = n |k| \sin \omega$.
 Da bei Röntgenstrahlung $n \approx 1$ ist, gilt $r_s = r_p$ und $t_s = t_p$.
 Hieraus lässt sich dann der Fresnelsche Reflexionskoeffizient bestimmen.
 Dieser ist bei $\alpha_i > 3 \alpha_C$ näherungsweise gegeben als \cite{tolan_xray}
@@ -105,6 +108,7 @@ Dieser ist bei $\alpha_i > 3 \alpha_C$ näherungsweise gegeben als \cite{tolan_x
     \label{fig:subkiessig}}
 \end{figure}
 
+
 Liegt ein Multischichtsystem vor, so kommt es zu den sogenannten \enquote{Kiessig-Oszillationen}.
 Die Kiessig-Oszillationen sind in \autoref{fig:kiessig} abgebildet.
 Die Kiessig-Oszillationen entstehen aufgrund von Interferenzeffekten an der Oberfläche.
@@ -123,7 +127,8 @@ Die Rekursionsformel lautet
 \begin{equation}
     X_j=\frac{R_j}{T_j}=\exp \left(-2 \mathrm{i} k_{z, j} z_j\right) \frac{r_{j, j+1}+X_{j+1} \exp \left(2 \mathrm{i} k_{z, j+1} z_j\right)}{1+r_{j, j+1} X_{j+1} \exp \left(2 \mathrm{i} k_{z, j+1} z_j\right)} \, .
 \end{equation}
-In der Formel bezeichnet $r_{j,j+1}$ die Fresnelreflektivität an der $j$-ten Grenzfläche.
+In der Formel bezeichnet $r_{j,j+1}$ die Fresnelreflektivität an der $j$-ten Grenzfläche, $k_{z, j}$ die $z$-Komponente des Wellenvektors in der $j$-ten Schicht
+und $z$ ist die Position in der Multischicht (siehe \autoref{fig:multischicht}).
 
 Als nötige Modifikation des Parratt-Algorithmus gilt die Rauigkeit.
 Denn im Algorithmus wurde angenommen, dass die Oberflächen perfekt glatt sind.
