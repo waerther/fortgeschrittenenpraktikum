@@ -1,9 +1,12 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{kosmische Myonen}
+\label{subsec:kosmische Myonen}
+
 Myonen sind instabile Elementarteilchen der Gruppe der Leptonen. 
 Sie tragen ein negative Ladung, sind etwa 200-mal schwerer als Elektronen 
-und haben eine Lebensdauer von ca. \qty{2,2}{\micro\second}.
+und haben eine Lebensdauer von ca. \qty{2,2}{\micro\second} \cite[125]{grupen}.
 Sie entstehen durch die Wechselwirkung hochenergetischer kosmischer Strahlung
 mit den oberen Schichten der Atmosphäre,
 auch bekannt als sekundäre kosmische Strahlung.
@@ -13,6 +16,33 @@ die über die Zerfälle
     \pi^{+} \rightarrow \mu^{+}+\nu_\mu \qquad \text {und} \qquad \pi^{-} \rightarrow \mu^{-}+\bar{\nu}_\mu
 \end{equation*}
 schließlich Myonen erzeugen \cite{demtroeder4}.
+
+
+\subsection{Reichweite kosmischer Myonen}
+\label{subsec:Reichweite kosmischer Myonen}
+
+Nimmt man beispielsweise eine Energie von $E_\mu = \qty{10}{GeV}$ für kosmische Myonen 
+und eine Ruheenergie von $E_0 = \qty{150e-3}{GeV}$ an,
+so haben Myonen nach Eintreten in der Atmosphäre klassisch eine Reichweite von
+\begin{equation}
+    \begin{aligned}
+    & s_{\text {klass }}=v \cdot \tau=c \sqrt{1-\left(\frac{E_0}{E}\right)^2} \cdot \tau \approx 660 \mathrm{~m}
+    \end{aligned}
+\end{equation}
+Da sie sich jedoch mit relativistischen Geschwindigkeiten bewegen,
+besitzen sie aufgrund von Längenkontraktion eine im Vergleich deutlich größere Reichweite von 
+\begin{equation}
+    \begin{aligned}
+    & s_{\text {rel }}=v \cdot t^{\prime}=v \cdot \tau \gamma=v \cdot \tau\left(1-\left(\frac{v}{c}\right)^2\right)^{-\frac{1}{2}} \\
+    & =c \sqrt{1-\left(\frac{E_0}{E}\right)^2} \cdot \frac{E}{E_0} \cdot \tau \approx 62854 \mathrm{~km} 
+    \end{aligned}
+\end{equation}
+weswegen sie auch auf Meereshöhe mit einer Ereignisrate von $1 \, / \, 60\text{s} \, \text{cm}^2$ \cite[208]{grupen} messbar sind.
+
+
+\subsection{Zerfallsgesetz}
+\label{subsec:Zerfallsgesetz}
+
 Die Lebensdauer eines instabilen Teilchens wird durch die Anzahl der Zerfälle pro Sekunde 
 und pro Teilchen bestimmt, mit der es zerfällt. 
 Sie folgt dem Zerfallsgesetz
@@ -20,24 +50,22 @@ Sie folgt dem Zerfallsgesetz
     N(t) = N_0 \cdot \mathrm{e}^{-\lambda t} + U \, ,
 \end{equation}
 wobei $N_0$ die Anzahl der Anfangsteilchen, $\lambda$ die Zerfallskonstante
-und $U$ Anzahl der Ereignisse der Untergrundstrahlung ist.
-Diese berücksichtigt die Umgebungsradioaktivität und kosmischer Strahlung.
+und $U$ Anzahl der Ereignisse der Untergrundstrahlung ist, 
+welche hier das allgemeine Zerfallsgesetz modifizieren soll.
+Diese berücksichtigt die Umgebungsradioaktivität und kosmische Strahlung.
 Dabei stellt der Erwartungswert von $t$ die Lebensdauer $\tau$ dar und ergibt
 \begin{equation} \label{eq:tau}
     \langle t\rangle=\tau=\int_0^{\infty} \lambda t \, \mathrm{e}^{-\lambda t} \mathrm{~d} t=\frac{1}{\lambda} \, ,
 \end{equation}
 siehe \cite{demtroeder4}.
-Klassisch haben Myonen nach Eintreten der Atmosphäre eine kurze Reichweite.
-Da sie sich jedoch mit relativistischen Geschwindigkeiten bewegen,
-besitzen sie aufgrund von Längenkontraktion eine deutlich größere Reichweite,
-weswegen sie auch auf Meereshöhe mit einer Ereignisrate von $1 \, / \, 60\text{s} \, \text{cm}^2$ \cite[208]{grupen} messbar sind.
-
 
 Um die in \autoref{eq:zerfallsgesetz} stehende Modifikation der Untergrundrate $U$ anzunähern,
-wird ein Untergrundsignal als das Auftreffen einen zweiten Myons während der Suchzeit angenommen.
+wird ein Untergrundsignal als das Auftreffen eines zweiten Myons innerhalb der Suchzeit angenommen.
+Diese Untergrundrate berücksichtigt jene Ereignisse, 
+die nicht aus dem Zerfall hervorgehen und daher unerwünscht sind. 
 Dadurch wird nicht der Zerfall registriert und das Ereignis muss verworfen werden.
 Unter der weiteren Annahme, 
-dass die Wahrscheinlichkeit für dieses Ereignis poissonverteilt, 
+dass die Wahrscheinlichkeit für dieses Ereignis poissonverteilt ist, 
 ergibt sich die Anzahl der detektieren Myonen $n$ innerhalb der Suchzeit $T_\text{Such}$ zu
 \begin{equation*}
     n=\frac{N_{0}}{T_{\text{Messung}}} \, ,
@@ -48,7 +76,7 @@ Mit dem Erwartungswert der gemessenen Ereignisse $T_\text{Such} \cdot n$ ergibt 
     P(k)=\frac{\left(T_{\mathrm{Such}} \cdot n\right)^k}{k !} e^{T_{ \mathrm{Such}} \cdot n} \, .
 \end{equation*}
 Mithilfe der Wahrscheinlichkeit für ein weiteres Ereignis $P(1)$, 
-kann die Anzahl der Fehlmessungen zu
+kann die Anzahl der unerwünschten Ereignisse zu
 \begin{equation*}
     N_{\mathrm{Fehl}}=N_{\mathrm{start}} \cdot P(1)
 \end{equation*}
@@ -73,54 +101,75 @@ In dem Folgenden werden die bei dem Versuch verwendeten Komponenten in ihrer pri
 
 
 \subsubsection*{Photomultiplier}
-Ein Photomultiplier (PMT) ist ein Detektor, der in der Teilchenphysik, 
+Ein Photomultiplier (engl. \textit{hotomultiplier tube}, PMT) ist ein Detektor, der in der Teilchenphysik, 
 der Astronomie und anderen Bereichen eingesetzt wird, um einzelne Photonen zu erfassen und zu verstärken. 
-Bei der Messung der Lebensdauer kosmischer Myonen wird ein Photomultiplier (PMT) verwendet, 
+Ein Photomultiplier ist eine Vakuumröhre, die schwache Lichtsignale misst. 
+Sie enthält eine Photokathode, auf die eintreffende Photonen Elektronen auslösen. 
+Diese Elektronen werden durch eine Spannung beschleunigt und treffen auf mehrere Elektrodenserien, 
+die weitere Elektronen freisetzen. 
+Dieser Prozess führt zu einer exponentiellen Verstärkung des Signals.
+Bei der Messung der Lebensdauer kosmischer Myonen wird ein Photomultiplier verwendet, 
 um das Lichtsignal zu registrieren, das entsteht, 
 wenn ein Myon in einem Szintillationsdetektor zerfällt. 
 
 \subsubsection*{Szintillationsdetektor}
-Ein Szintillator ist ein Detektor, der in der Lage ist, 
+Im Zusammenspiel mit zwei PMTs, ist ein Szintillator ein Detektor, der in der Lage ist, 
 ionisierende Strahlung wie beispielsweise kosmische Strahlung zu detektieren. 
 Es gibt verschiedene Arten von Szintillatoren wie organische und anorganische Szintillatoren,
 die sich in ihrer Funktionsweise und ihrem Anwendungsgebiet unterscheiden.
 
-Organische Szintillatoren bestehen aus einem organischen Material.
-Die darin eindringenden Teilchen regen die Moleküle des Materials zu Schwingungen an. 
+Organische Szintillatoren bestehen aus organischen Materialen,
+wie polymeren Festkörpern und Flüssigkeiten.
+
+Die organischen Materialien funktionieren darüber, 
+dass die Moleküle innerhalb des Materials durch die eingedrungenen Teilchen angeregt werden 
+und bei Rückkehr in den Grundzustand ein Photon emittieren.
+
+Die die Moleküle innerhalb des Materials werden durch die eingedrungenen Teilchen angeregt. 
 Nach Abgabe eines Photons gehen die angeregten Moleküle wieder in den Grundzustand über.
-Der Vorteil dieses Material besteht deswegen in der Zeitauflösung, 
+Ein Vorteil dieses Materials besteht deswegen in der Zeitauflösung, 
 während eine Energieauflösung aufgrund der breiten Frequenzmodenverteilung benachteiligt ist.
+Diese Verteilung entsteht aufgrund verschiedener Schwingungsmoden im angeregten Zustand.
 
 Anorganische Szintillatoren bestehen aus anorganischen Materialien wie Kristallen oder Keramik. 
-Dabei ionisiert sich das Material und erzeugt nach Aktivierung ein Lichtsignal.
+Dabei ionisiert sich das Material und erzeugt ähnlich wie bei organischen Szintillatoren 
+nach Rückkehr in den ursprünglichen energieärmeren Zustand ein Lichtsignal.
 Anders als beim organischen Material, liegen hier diskrete Ionisationsenerigen vor,
 weswegen eine höhere Energieauflösung möglich ist.
 
 \subsubsection*{Verzögerungsleitung}
 Die Verzögerungsleitungen gleichen Unterschiede in der Signalübermittlung aus
-und werden hier anpassbare bzw. zuschaltbare Kabel realisiert.
+und werden durch anpassbare bzw. zuschaltbare Kabel realisiert.
+Sie sind nötig, um eine präzise Synchronisation von Signalen zu ermöglichen
+oder, wie in diesem Versuch, die Suchzeit durch Zeitverschiebung des Signals vorzugeben.
 
 \subsubsection*{Diskriminator}
 Das durch die Verzögerungsleitung gehende Signal wird durch Diskriminatoren geleitet.
-Dabei wird das schwankende Signale der Photomultiplier ab einer gewissen Schwelle in diskrete
+Dabei wird das schwankende Signal der Photomultiplier ab einer gewissen Schwelle in diskrete
 Ereignissignale umwandelt.
 
 \subsubsection*{Koinzidenz}
 Anschließend erreichen beide Signale eine Koinzidenzschaltung, welche ein Ausgangssignal
 erzeugt, sobald zwei Photomultiplier gleichzeitig ein Signal aussenden.
+Sie verwendet Verzögerungsleitungen, um die Signale zu synchronisieren, und eine Logikschaltung, 
+um festzustellen, ob ein Zusammenfallen stattfindet.
 
 \subsection*{Univibrator}
 Der Univibrator, oder auch Monoflop bzw. monostabile Kippstufe genannt,
-bleibt nach Eingang eines Signal nur für eine voreingestellte Zeit eingeschaltet.
+bleibt nach Eingang eines Signal nur für eine voreingestellte Zeit eingeschaltet
+und wird durch eine Schaltung von Kondensatoren und Widerständen realisiert.
 
 \subsection*{Time-Amplitude-Converter}
 Nachdem die Signale die AND-Gatter passieren, 
 gelangen sie zeitversetzt zum Time-Amplitude-Converter (TAC).
-Die Amplitude des Ausgangssignals des TACs ist hierbei proportional zur Zeitdifferenz der beiden Signale.
+Dabei wird das Eingangssignal als Startsignal verwendet, 
+um einen Ladevorgang eines Kondensators zu initiieren. 
+Die Amplitude des geladenen Kondensators wird dann als Ausgangssignal des TAC verwendet, 
+das proportional zur Dauer des Eingangssignals ist.
 
 \subsection*{Multi-Channel-Analyzer}
-Der Multi-Channel-Analyzer (MCA) oder Vielkanalanalysator ordnet die eingehenden Signale
-abhängig von ihrer Amplitude als Histogramm in Kanälen an.
-Im Rahmen dieses Versuchs wird die Energie der Myonen gegen die Anzahl der Ereignisse aufgetragen. 
+Der Multi-Channel-Analyzer (MCA) oder Vielkanalanalysator ordnet mithile eines Computerprogramms 
+die eingehenden Signale abhängig von ihrer Amplitude als Histogramm in Kanälen an.
+Im Rahmen dieses Versuchs werden die Myonenereignisse gegen die Zeit aufgetragen.
 Die erwartete Verteilung sollte eine charakteristische exponentielle Abnahme der Ereignisanzahl mit 
-zunehmender Energie aufgrund des exponentiellen Zerfalls der Myonen zeigen.
+zunehmender Zeit aufgrund des exponentiellen Zerfalls der Myonen zeigen.
