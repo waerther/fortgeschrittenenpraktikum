@@ -26,7 +26,7 @@ und eine Ruheenergie von $E_0 = \qty{150e-3}{GeV}$ an,
 so haben Myonen nach Eintreten in der Atmosphäre klassisch eine Reichweite von
 \begin{equation}
     \begin{aligned}
-    & s_{\text {klass }}=v \cdot \tau=c \sqrt{1-\left(\frac{E_0}{E}\right)^2} \cdot \tau \approx 660 \mathrm{~m}
+    & s_{\text {klass }}=v \cdot \tau=c \sqrt{1-\left(\frac{E_0}{E_\mu}\right)^2} \cdot \tau \approx 660 \mathrm{~m}
     \end{aligned}
 \end{equation}
 Da sie sich jedoch mit relativistischen Geschwindigkeiten bewegen,
@@ -34,7 +34,7 @@ besitzen sie aufgrund von Längenkontraktion eine im Vergleich deutlich größer
 \begin{equation}
     \begin{aligned}
     & s_{\text {rel }}=v \cdot t^{\prime}=v \cdot \tau \gamma=v \cdot \tau\left(1-\left(\frac{v}{c}\right)^2\right)^{-\frac{1}{2}} \\
-    & =c \sqrt{1-\left(\frac{E_0}{E}\right)^2} \cdot \frac{E}{E_0} \cdot \tau \approx 62854 \mathrm{~km} 
+    & =c \sqrt{1-\left(\frac{E_0}{E_\mu}\right)^2} \cdot \frac{E_\mu}{E_0} \cdot \tau \approx 62854 \mathrm{~km} 
     \end{aligned}
 \end{equation}
 weswegen sie auch auf Meereshöhe mit einer Ereignisrate von $1 \, / \, 60\text{s} \, \text{cm}^2$ \cite[208]{grupen} messbar sind.
@@ -57,13 +57,10 @@ Dabei stellt der Erwartungswert von $t$ die Lebensdauer $\tau$ dar und ergibt
 \begin{equation} \label{eq:tau}
     \langle t\rangle=\tau=\int_0^{\infty} \lambda t \, \mathrm{e}^{-\lambda t} \mathrm{~d} t=\frac{1}{\lambda} \, ,
 \end{equation}
-siehe \cite{demtroeder4}.
-
-Um die in \autoref{eq:zerfallsgesetz} stehende Modifikation der Untergrundrate $U$ anzunähern,
+siehe \cite{demtroeder4}. Um die in \autoref{eq:zerfallsgesetz} stehende Modifikation der Untergrundrate $U$ anzunähern,
 wird ein Untergrundsignal als das Auftreffen eines zweiten Myons innerhalb der Suchzeit angenommen.
 Diese Untergrundrate berücksichtigt jene Ereignisse, 
-die nicht aus dem Zerfall hervorgehen und daher unerwünscht sind. 
-Dadurch wird nicht der Zerfall registriert und das Ereignis muss verworfen werden.
+die nicht aus dem Zerfall hervorgehen und daher unerwünscht sind.
 Unter der weiteren Annahme, 
 dass die Wahrscheinlichkeit für dieses Ereignis poissonverteilt ist, 
 ergibt sich die Anzahl der detektieren Myonen $n$ innerhalb der Suchzeit $T_\text{Such}$ zu
@@ -101,7 +98,7 @@ In dem Folgenden werden die bei dem Versuch verwendeten Komponenten in ihrer pri
 
 
 \subsubsection*{Photomultiplier}
-Ein Photomultiplier (engl. \textit{hotomultiplier tube}, PMT) ist ein Detektor, der in der Teilchenphysik, 
+Ein Photomultiplier (engl. \textit{photomultiplier tube}, PMT) ist ein Detektor, der in der Teilchenphysik, 
 der Astronomie und anderen Bereichen eingesetzt wird, um einzelne Photonen zu erfassen und zu verstärken. 
 Ein Photomultiplier ist eine Vakuumröhre, die schwache Lichtsignale misst. 
 Sie enthält eine Photokathode, auf die eintreffende Photonen Elektronen auslösen. 
@@ -120,11 +117,9 @@ die sich in ihrer Funktionsweise und ihrem Anwendungsgebiet unterscheiden.
 
 Organische Szintillatoren bestehen aus organischen Materialen,
 wie polymeren Festkörpern und Flüssigkeiten.
-
 Die organischen Materialien funktionieren darüber, 
 dass die Moleküle innerhalb des Materials durch die eingedrungenen Teilchen angeregt werden 
 und bei Rückkehr in den Grundzustand ein Photon emittieren.
-
 Die die Moleküle innerhalb des Materials werden durch die eingedrungenen Teilchen angeregt. 
 Nach Abgabe eines Photons gehen die angeregten Moleküle wieder in den Grundzustand über.
 Ein Vorteil dieses Materials besteht deswegen in der Zeitauflösung, 
