@@ -137,7 +137,7 @@ plt.clf()
 # Plot 1
 
 def geometriefaktor(theta):
-    mask = theta > 0.223
+    mask = theta > 0.401
     result = np.zeros_like(theta, dtype=float)
 
     result[mask] = 1
