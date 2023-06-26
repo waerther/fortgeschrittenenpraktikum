@@ -132,7 +132,8 @@ def func3(bin):                 # Converts bins to time
 bounds = ([0, 0, 0], [np.inf, np.inf, np.inf])
 
 t = func3(bins)#- func(4, m, b).nominal_value * 10**-6
-params, cov = curve_fit(func2, t[4:], counts[4:], bounds=bounds)
+fitmask = (counts > 1)
+params, cov = curve_fit(func2, t[fitmask], counts[fitmask], bounds=bounds)
 N_0 = ufloat(params[0], np.sqrt(np.diag(cov))[0])
 lam = ufloat(params[1], np.sqrt(np.diag(cov))[1])
 U = ufloat(params[2], np.sqrt(np.diag(cov))[2])
@@ -145,7 +146,6 @@ print('U = ', U)
 
 x = np.arange(-0.5 *  10**(-6),10 * 10**(-6),0.1* 10**(-6))
 plt.plot(x, func2(x, *params), ls='-', c='b', zorder=1, label='Fit')
-# plt.plot(t[4:],counts[4:], 'o', alpha=0.3, c='r', zorder=0, label='Messdaten')
 plt.errorbar(x=t[4:], y=counts[4:],xerr=0, yerr=np.sqrt(counts[4:]), label="Messdaten", color='darkred',elinewidth=0.5, fmt=' ')
 plt.scatter(x=t[4:], y=counts[4:], color='darkred', s=2)
 plt.plot(t[:4],counts[:4], 'o', alpha=0.3, c='b', zorder=0, label='Ignorierte Messdaten')

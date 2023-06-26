@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Im folgenden werden die Daten analysiert, die während einer Messzeit von ungefähr $T_\text{Messung} = 4,7  \, \unit\day$ aufgenommen wurden.
+Im folgenden werden die Daten analysiert, die während einer Messzeit von ungefähr $T_\text{Messung} = 4{,}7  \, \unit\day$ aufgenommen wurden.
 Die Plots und Fits sind alle mit den Python-Bibliotheken \cite{matplotlib},\cite{numpy},\cite{scipy},\cite{uncertainties},\cite{reback2020pandas} erstellt worden.
 \subsection{Kalibrierung der Messgeräte}
 
@@ -53,7 +53,7 @@ Dafür wird der Ansatz
 gewählt.
 Der entsprechende Plot ist in \autoref{fig:zeiteinteilung} abgebildet.
 Der Fit ergibt 
-$m = (0.02257 \pm 0.00005) \, \unit{\micro\second}$ und $c = (0.148 \pm 0.006) \, \unit{\micro\second}$.
+$m = (0{,}02257 \pm 0{,}00005) \, \unit{\micro\second}$ und $c = (0{,}148 \pm 0{,}006) \, \unit{\micro\second}$.
 
 
 \begin{figure}%
@@ -120,14 +120,14 @@ angesetzt.
 Dabei wird stets beachtet, dass die Konstanten größer null sein müssen.
 Außerdem werden die ersten vier Bins nicht beachtet, da diese mit null gefüllt sind.
 Dies liegt an der vorgeschalteten Verzögerung, somit kann hier kein Ereignis gezählt werden.
-Der Fit ergibt $N_0 = 92.5 \pm 1.0$, $\lambda = (4.78 \pm 0.10) \cdot 10^5 \frac{1}{\unit{\second}}$ und $U = 0.00 \pm 0.31$.
-Es gilt $U \in [0 \, , \, 0,31]$, da der Untergrund stets positiv ist.
+Der Fit ergibt $N_0 = 90.1 \pm 1.4$, $\lambda = (4{,}75 \pm 0{,}23) \cdot 10^5 \frac{1}{\unit{\second}}$ und $U = 1 \pm 1{,}3$.
+Es gilt $U \in [0 \, ; \, 2{,}3]$, da der Untergrund stets positiv ist.
 Der entsprechende Plot ist in \autoref{fig:myonenfit} abgebildet.
 Hier wurde auch bereits mit der Formel für die Zeit aus \autoref{sec:zeiteinteilung} dem jeweiligen Bin eine Zeit zugeordnet.
 Aus $\lambda$ lässt sich nun mithilfe \autoref{eq:tau} die Lebenszeit bestimmen.
 Es ergibt sich
 \begin{equation}
-    \tau = \frac{1}{\lambda} = (2.09\pm 0.04) \, \unit{\micro\second} \, .
+    \tau = \frac{1}{\lambda} = (2{,}11\pm 0{,}1) \, \unit{\micro\second} \, .
 \end{equation}
 
 \subsection{Bestimmung des Untergrundes} \label{sec:untergrund_ausw}
@@ -135,13 +135,13 @@ Es ergibt sich
 Nachdem bereits der Untergrund gefittet wurde, soll dieser auch nach der theoretischen Formel \autoref{eq:untergrundrate} berechnet werden.
 Es ergibt sich mit
 \begin{equation*}
-    n = (26.092\pm0.008) \frac{1}{\unit\second}
+    n = (26{,}092\pm0{,}008) \frac{1}{\unit\second}
 \end{equation*}
 und
 \begin{equation*}
-    P(1) = (2.6098 \pm 0.0008) \cdot 10^{-4}
+    P(1) = (2{,}6098 \pm 0{,}0008) \cdot 10^{-4}
 \end{equation*}
 der theoretische Untergrund von
 \begin{equation*}
-    U_\text{theo} = 5.4008 \pm 0.0033 \, .
+    U_\text{theo} = 5{,}4008 \pm 0{,}0033 \, .
 \end{equation*}
