@@ -19,12 +19,12 @@ Hierfür wird die Formel
 genutzt. Sie berechnet die Verschiebung des Maximums und liefert somit die optimale Verzögerungszeit.
 Für eine Pulsdauer von $20 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
 \begin{equation*}
-    (2 \cdot 20 - 25) \, \unit{\nano\second} = 15 \, \unit{\nano\second}
+    t_\text{Verzögerung} = (2 \cdot 20 - 25) \, \unit{\nano\second} = 15 \, \unit{\nano\second}
 \end{equation*}
 ergibt.
 Für eine Pulsdauer von $30 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
 \begin{equation*}
-    (2 \cdot 30 - 37) \, \unit{\nano\second} = 23 \, \unit{\nano\second}
+    t_\text{Verzögerung} = (2 \cdot 30 - 37) \, \unit{\nano\second} = 23 \, \unit{\nano\second}
 \end{equation*}
 ergibt.
 
@@ -118,9 +118,10 @@ Als Fit wird nach Vorgabe des Zerfallsgesetzes plus Untergrund die Funktion
 \end{equation*} 
 angesetzt.
 Dabei wird stets beachtet, dass die Konstanten größer null sein müssen.
-Außerdem werden die ersten vier Bins nicht beachtet, da diese mit null gefüllt sind und dies einen systematischen Fehler andeutet, siehe \autoref{sec:Diskussion}.
+Außerdem werden die ersten vier Bins nicht beachtet, da diese mit null gefüllt sind.
+Dies liegt an der vorgeschalteten Verzögerung, somit kann hier kein Ereignis gezählt werden.
 Der Fit ergibt $N_0 = 92.5 \pm 1.0$, $\lambda = (4.78 \pm 0.10) \cdot 10^5 \frac{1}{\unit{\second}}$ und $U = 0.00 \pm 0.31$.
-Auch hier gilt dann $U \in [0 \, , \, 0,31]$, da der Untergrund stets positiv ist.
+Es gilt $U \in [0 \, , \, 0,31]$, da der Untergrund stets positiv ist.
 Der entsprechende Plot ist in \autoref{fig:myonenfit} abgebildet.
 Hier wurde auch bereits mit der Formel für die Zeit aus \autoref{sec:zeiteinteilung} dem jeweiligen Bin eine Zeit zugeordnet.
 Aus $\lambda$ lässt sich nun mithilfe \autoref{eq:tau} die Lebenszeit bestimmen.
