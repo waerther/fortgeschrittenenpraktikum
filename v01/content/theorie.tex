@@ -136,12 +136,15 @@ weswegen eine höhere Energieauflösung möglich ist.
 Die Verzögerungsleitungen gleichen Unterschiede in der Signalübermittlung aus
 und werden durch anpassbare bzw. zuschaltbare Kabel realisiert.
 Sie sind nötig, um eine präzise Synchronisation von Signalen zu ermöglichen
-oder, wie in diesem Versuch, die Suchzeit durch Zeitverschiebung des Signals vorzugeben.
+oder, wie in diesem Versuch, in Verbinfung mit dem Univibrator die Suchzeit durch Zeitverschiebung des Signals vorzugeben.
 
 \subsubsection*{Diskriminator}
 Das durch die Verzögerungsleitung gehende Signal wird durch Diskriminatoren geleitet.
 Dabei wird das schwankende Signal der Photomultiplier ab einer gewissen Schwelle in diskrete
-Ereignissignale umwandelt.
+Ereignissignale umwandelt, um für die Koinzidenzmessung ein möglochst definiertes Logiksignal zu gewinnen.
+Ein Diskriminator ist im Wesentlichen ein Komperator, 
+welcher in der Analogtechnik zwei anliegende Spannungen vergleicht und ausgibt,
+welcher der beiden die höhere ist. 
 
 \subsubsection*{Koinzidenz}
 Anschließend erreichen beide Signale eine Koinzidenzschaltung, welche ein Ausgangssignal
@@ -153,6 +156,10 @@ um festzustellen, ob ein Zusammenfallen stattfindet.
 Der Univibrator, oder auch Monoflop bzw. monostabile Kippstufe genannt,
 bleibt nach Eingang eines Signal nur für eine voreingestellte Zeit eingeschaltet
 und wird durch eine Schaltung von Kondensatoren und Widerständen realisiert.
+Nach Ende der mit der Verzögerungsleitung vorgebenen Suchzeit, 
+gibt der Univibrator ein zweites Signal aus,
+welches das zweite AND-Gatter erreicht und die Zeitmessung stoppt.
+Dadurch wird schließlich ungewünschtes Rauschen der Untergrundstrahlung unterdrückt.
 
 \subsection*{Time-Amplitude-Converter}
 Nachdem die Signale die AND-Gatter passieren, 
