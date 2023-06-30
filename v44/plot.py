@@ -137,7 +137,7 @@ plt.clf()
 # Plot 1
 
 def geometriefaktor(theta):
-    mask = theta > 0.401
+    mask = theta > 0.401 / 2 # geometriewinkel_theo = 0.401, / 2 weil 2theta auf x-achse
     result = np.zeros_like(theta, dtype=float)
 
     result[mask] = 1
@@ -155,8 +155,8 @@ def fresnelreflectivity2(theta):
     return (alpha_c / (2 * theta))**4
 
 fig, ax = plt.subplots(layout='constrained')
-ax.plot(theta,
-        R_korrektur,
+ax.plot(theta[1:],
+        R_korrektur[1:],
         linestyle='-',
         linewidth=1,
         label = r'Messwerte $R$',
@@ -168,7 +168,7 @@ ax.plot(theta[theta > 0.1],
         c='r',
         label = r'Näherung des Fresnelkoeffizienten',
         )
-R_korrektur =  R_korrektur * geometriefaktor(theta)
+R_korrektur =  R_korrektur / geometriefaktor(theta)
 ax.plot(theta[1:], R_korrektur[1:], ls='--', c='lightblue', label='Korrigiert durch Geometriefaktor',lw=1)
 
 minima_indices = argrelextrema(R_korrektur, np.less, order=5)
@@ -202,9 +202,12 @@ diff = ufloat(np.mean(diff), np.std(diff))
 d = lam / (2 * diff)
 print(f'{d=:}')
 
-d = 8.62*10**(-8)
-delta_2 = 1.3 * 10**(-6)
-delta_3 = 5.9 * 10**(-6)
+# d = 8.62*10**(-8)
+d = 8.45*10**(-8)
+# delta_2 = 1.3 * 10**(-6)
+delta_2 = 1.8* 10**(-6)
+# delta_3 = 5.9 * 10**(-6)
+delta_3 = 6.25 * 10**(-6)
 sigma_1 = 8 * 10**(-10)
 sigma_2 = 6.5 * 10**(-10)
 
@@ -214,8 +217,8 @@ def parratt_algorithm(theta, d, delta_2, delta_3, sigma_1, sigma_2):
     k = 2*np.pi/lam
 
     n_1 = 1
-    n_2 = 1 - delta_2 + 1j * delta_2 / 200
-    n_3 = 1 - delta_3 + 1j * delta_3 / 40
+    n_2 = 1 - delta_2 - 1j * delta_2 / 200
+    n_3 = 1 - delta_3 - 1j * delta_3 / 40
     
     k_z1 = k * np.sqrt(n_1**2 - np.cos(np.deg2rad(theta))**2)
     k_z2 = k * np.sqrt(n_2**2 - np.cos(np.deg2rad(theta))**2)
@@ -231,7 +234,7 @@ def parratt_algorithm(theta, d, delta_2, delta_3, sigma_1, sigma_2):
 
     return R
 
-fit_mask = (theta > 0.3)
+fit_mask = ((theta > 0.3) & (theta < 1.3))
 params_parratt, cov_parratt = curve_fit(parratt_algorithm,
                                         theta[fit_mask],
                                         R_korrektur[fit_mask],
@@ -268,7 +271,7 @@ ax.axvline(alpha_c_Si,
             label=r'$\alpha_{\text{c,Si}} = $' + f'{alpha_c_Si:=.3f}°',
             )
 ax.set(
-    xlabel = r'$\theta \, / \, °$',
+    xlabel = r'$2 \theta \, / \, °$',
     ylabel = r'$R$',
     yscale='log',
 )
