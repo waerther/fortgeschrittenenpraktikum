@@ -1,4 +1,61 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Im Folgenden findet die Auswertung der aufgenommenen Daten statt.
+Dabei wird zunächst auf die Kompensation des lokalen Magnetfelds eingegangen
+und über die Berechnung der Landé-Faktoren der Kernspin der Isotope bestimmt.
+Schließlich wird das Isotopenverhältnis ermittelt
+und schließlich die Größe des quadratischen Zeeman-Effektes abgeschätzt. 
 
+\subsection{Magnetfeld der Erde}
+\label{sec:Magnetfeld}
+
+Um die Einflüsse des lokalen Erdmagnetfelds zu kompensieren,
+wird das angelegte horizontale Magnetfeld,
+bestehend aus Sweep- und Horizontalanteil, ermittelt.
+Dies geschieht bei dem vorliegendem Helmholtzspulenpaar 
+mithilfe der Gleichung für die magnetische Flussdichte
+\begin{equation} \label{eq:helmholtz}
+    B=\mu_0 \frac{8 I N}{\sqrt{125} A} \, ,
+\end{equation}
+wobei $\mu_0$ die magnetische Feldkonstante, $N$ die Windungszahl der jeweiligen Spule und $A$ der Radius ist.
+
+Der im Frequenzbereich gemessene Strom $I$ ergibt sich dabei aus der Messung der Spannung des Sweepanteils (Startfeld) $U_\text{S}$
+und der des Horizontalanteils $U_\text{H}$.
+Aus diesen Spannungen können mithife des Ohmschen Gesetzes $U = R \cdot I$ die Ströme der Anteile berechnet werden.
+Die Sweep-Spule hat einen mittleren Radius von $A_\text{S} = \qty{0.1639}{m}$,
+eine Windungszahl von $N_\text{S} = 11$
+und einen Widerstand von  $R_\text{S} = \qty{1}{\ohm}$
+während die Horizontalanteilspule $A_\text{H} = \qty{0.1579}{m}$, $N_\text{H} = 154$ und $R_\text{H} = \qty{0.5}{\ohm}$ hat.
+Daraus lassen sich die jeweiligen Strömstärken und addierten magnetischen Flussdichten in \autoref{tab:strom} berechnen.
+\begin{table}
+    \centering
+    \caption{Die umgerechneten Stromstärken der Anteile des RF-Feldes beider Isotope.}
+    \label{tab:strom}
+    \begin{tabular}{c c c c c c c}
+        \toprule 
+        & \multicolumn{3}{c}{$\ce{^{85}_{}Rb}$} &
+        \multicolumn{3}{c}{$\ce{^{87}_{}Rb}$} \\
+        \cmidrule(lr){2-4}\cmidrule(lr){5-7}
+    
+        $f \mathbin{/} \mathrm{kHz}$ &
+        $I_\text{S} \mathbin{/} \unit{\milli\ampere}$ &
+        $I_\text{H} \mathbin{/} \unit{\milli\ampere}$ &
+        $B \mathbin{/} \unit{\micro\tesla}$ &
+        $I_\text{S} \mathbin{/} \unit{\milli\ampere}$ & 
+        $I_\text{H} \mathbin{/} \unit{\milli\ampere}$ &
+        $B \mathbin{/} \unit{\micro\tesla}$ \\
+        \midrule
+        100,0 &   660,0 &      0,0 &      39,83 &   764,0 &      0,0 &      46,11 \\
+        200,0 &   652,0 &     16,0 &      53,38 &   888,0 &     16,0 &      67,62 \\
+        300,0 &   486,0 &     44,0 &      67,92 &   842,0 &     44,0 &      89,40 \\
+        400,0 &   409,0 &     66,0 &      82,56 &   883,0 &     66,0 &     111,17 \\
+        500,0 &   375,0 &     84,0 &      96,30 &   967,0 &     84,0 &     132,02 \\
+        600,0 &   224,0 &    112,0 &     111,74 &   938,0 &    112,0 &     154,83 \\
+        700,0 &   164,0 &    132,0 &     125,66 &   993,0 &    132,0 &     175,68 \\
+        800,0 &   295,0 &    140,0 &     140,58 &   629,0 &    184,0 &     199,32 \\
+        900,0 &   269,0 &    158,0 &     154,79 &   357,0 &    226,0 &     219,74 \\
+       1000,0 &   590,0 &    158,0 &     174,17 &   586,0 &    236,0 &     242,33 \\
+        \bottomrule
+    \end{tabular}        
+\end{table}
