@@ -103,13 +103,47 @@ Dazu wird \autoref{eq:landefaktor} nach $g_\text{F}$ umgestellt:
     & \Leftrightarrow g_F=\frac{h}{\mu_B a}
     \end{aligned}
 \end{equation*}
+
 Damit ergeben sich die Landé-Faktoren sowie deren Verhältnis zu
 \begin{equation*}
     \begin{aligned}
-        g_\text{F_85} &= \num{0.486(5)} \, , \\
-        g_\text{F_87} &= \num{0.3278(10)} \, \text{und} \\
-        \frac{g_\text{F_{85}}}{g_\text{F_{87}}} &= \num{1.482(17)} \, .  
+        g_{\text{F}_{85}} &= \num{0.486(5)} \, , \\
+        g_{\text{F}_{87}} &= \num{0.3278(10)} \quad \text{und} \\
+        \frac{g_{\text{F}_{85}}}{g_{\text{F}_{87}}} &= \num{1.482(17)} \, .  
     \end{aligned}
 \end{equation*}
 
+
 \subsection{Kernspins}
+
+Für die Berechnung der Kernspins wird zunächst mithife von \autoref{eq:g_J} der Landefaktor berechnet.
+Für die Quantenzahlen $S=\frac{1}{2}$, $L=0$ und $J=L+S=\frac{1}{2}$ ergibt sich demnach $g_\text{J} = 2$ \cite{optical_pumping}.
+Nach Umstellen von \autoref{eq:g_F} ergibt sich der Kernspin zu
+\begin{equation}
+    I=\frac{g_\text{J}}{4 g_\text{F}}-1+\sqrt{\left(\frac{g_\text{J}}{4 g_\text{F}}-1\right)^2+\frac{g_\text{J}}{4 g_\text{F}}-\frac{3}{4}}
+\end{equation}
+und somit die jeweiligen Kernspins der Isotope zu
+\begin{align*}
+    I_{85} &= \num{1.559(23)} \quad \text{und} \\
+    I_{87} &= \num{2.551(9)} \, .
+\end{align*}
+
+
+\subsection{Isotopenverhältnis}
+
+Anschließend soll das Isotopenverhältnis anhand eines Fotos des typischen Verlaufs der Resonanzstellen ermittelt werden.
+\autoref{fig:ratio} zeigt ein Bild der Resonanzstellen der Istope am Ende der Messreihe bei $f = \qty{1000}{kHz}$.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{pictures/ratio.png}
+    \caption{Oszilloskopbild bei $f=\qty{1000}{\kilo\hertz}$.}
+    \label{fig:ratio}
+\end{figure}
+Um das Verhältnis der beiden Isotope zu bestimmen, werden die Tiefen der Absorptionspeaks miteinander verglichen.
+Die Tiefe der Peaks gemessen in Pixel auf der Bilddatei betragen für $\ce{^{85}_{}Rb}$ etwa 43px
+und für $\ce{^{87}_{}Rb}$ etwa 84px.
+Daraus kann das Verhältnis abgeschätzt werden zu
+\begin{equation*}
+    \frac{^{85}\symup{Rb}}{^{87}\symup{Rb}} \approx 0.51 \, .
+\end{equation*}
+
