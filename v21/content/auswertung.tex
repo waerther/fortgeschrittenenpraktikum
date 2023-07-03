@@ -59,3 +59,52 @@ Daraus lassen sich die jeweiligen Strömstärken und addierten magnetischen Flus
         \bottomrule
     \end{tabular}        
 \end{table}
+
+Um die Horizontalkompenente des lokalen Erdmagnetfelds zu bestimmen,
+werden diese gemessenenen Feldstärken in linearer Form angähert. 
+Die Auslgeichsgeraden sind in \autoref{fig:geraden} zu finden.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\linewidth]{build/geraden.pdf}
+    \caption{Die gemessenen Magnetfeldstärken sowie deren lineare Regression für beide Isotope.}
+    \label{fig:geraden}
+\end{figure}
+Die Parameter ergeben sich dabei zu 
+\begin{table}
+    \centering
+    \caption{Die Parameter der Auslgeichsrechnung für beide Isotope.}
+    \begin{tabular}{c c c}
+        \toprule 
+        Isotop &
+        $a \mathbin{/} \unit{\milli\tesla\per\kilo\hertz}$ &
+        $b \mathbin{/} \unit{\milli\tesla}$ \\
+        \midrule
+        $\ce{^{85}_{}Rb}$ & $\num{0.000147(2)}$ & $\num{0.023792(1015)}$ \\
+        $\ce{^{87}_{}Rb}$ & $\num{0.000218(1)}$ & $\num{0.023928(418)}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Die Schnittpunkte beider Regressionsgeraden mit der Y-Achse ergeben
+nach einer Mittelung das natürliche Magnetfeld der Erde zu
+\begin{equation*}
+    B_\text{H} = \qty{0.0239(5)}{\milli\tesla} \, .
+\end{equation*}
+
+
+\subsection{Landé-Faktoren}
+
+Mithilfe der ermittelten Steigungen $a$ der beiden Auslgeichsgeraden können nun
+die dazugehörigen Landé-Faktoren bestimmmt werden.
+Dazu wird \autoref{eq:landefaktor} nach $g_\text{F}$ umgestellt:
+\begin{equation}
+    \begin{aligned}
+    \omega_0=\underbrace{g_F \frac{\mu_B}{h}}_{a^{-1}} B_0 & \Rightarrow a=\frac{h}{\mu_B g_F} \\
+    & \Leftrightarrow g_F=\frac{h}{\mu_B a}
+    \end{aligned}
+\end{equation}
+Damit ergeben sich die Landé-Faktoren sowie deren Verhältnis zu
+\begin{align*}
+    g_\text{F_85} &= \num{}
+    g_\text{F_87} &= \num{} 
+\end{align*}
