@@ -85,3 +85,12 @@ c = np.mean([c1, c2]); print('mittlere Horizontalkomponente:', c, 'mT')
 plt.savefig("build/geraden.pdf")
 plt.clf()
 
+def g_F(a):
+    h = const.h
+    mu_B, _, _ = const.physical_constants['Bohr magneton']
+    return h / (mu_B * a/1e6)
+
+g_F1 = g_F(ua1); g_F2 = g_F(ua2) 
+print('g_F1 =', g_F1)
+print('g_F2 =', g_F2)
+print('g_F1/g_F2 =', g_F1/g_F2)
