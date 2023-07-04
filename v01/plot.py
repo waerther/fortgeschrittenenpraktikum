@@ -158,6 +158,9 @@ plt.clf()
 
 # Tabelle Myon
 
+def format_int(value):
+    return f"{int(value):d}"
+
 
 data1 = np.c_[bins[:40], counts[:40], bins[40:80], counts[40:80], bins[80:120], counts[80:120], bins[120:160],counts[120:160]]
 
@@ -167,14 +170,20 @@ data3 = np.c_[bins[360:398], counts[360:398], bins[398:436], counts[398:436], bi
 
 df = pd.DataFrame(data1)
 hea = list(['Bin', 'Counts','Bin', 'Counts','Bin', 'Counts','Bin', 'Counts'])
-df_table = df.to_latex(index = False, column_format= "c c c c c c c c", decimal=',', header=hea, label='tab:messdaten_myonen1', caption='Messdaten der Lebenszeitmessung der Myonen.')
+df_table = df.to_latex(index = False, column_format= "c c c c c c c c", header=hea, 
+            label='tab:messdaten_myonen1', caption='Messdaten der Lebenszeitmessung der Myonen.', 
+            formatters=[format_int, format_int, format_int, format_int, format_int, format_int, format_int, format_int])
 with open('build/messdaten_myonen_1.txt', 'w') as f:
     f.write(df_table)
 df = pd.DataFrame(data2)
-df_table = df.to_latex(index = False, column_format= "c c c c c c c c", decimal=',', header=hea, label='tab:messdaten_myonen2', caption='Messdaten der Lebenszeitmessung der Myonen.')
+df_table = df.to_latex(index = False, column_format= "c c c c c c c c", header=hea, 
+            label='tab:messdaten_myonen2', caption='Messdaten der Lebenszeitmessung der Myonen.', 
+            formatters=[format_int, format_int, format_int, format_int, format_int, format_int, format_int, format_int])
 with open('build/messdaten_myonen_2.txt', 'w') as f:
     f.write(df_table)
 df = pd.DataFrame(data3)
-df_table = df.to_latex(index = False, column_format= "c c c c c c c c", decimal=',', header=hea, label='tab:messdaten_myonen3', caption='Messdaten der Lebenszeitmessung der Myonen.')
+df_table = df.to_latex(index = False, column_format= "c c c c c c c c", header=hea, 
+            label='tab:messdaten_myonen3', caption='Messdaten der Lebenszeitmessung der Myonen.', 
+            formatters=[format_int, format_int, format_int, format_int, format_int, format_int, format_int, format_int])
 with open('build/messdaten_myonen_3.txt', 'w') as f:
     f.write(df_table)

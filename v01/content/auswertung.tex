@@ -3,30 +3,8 @@
 
 Im folgenden werden die Daten analysiert, die während einer Messzeit von ungefähr $T_\text{Messung} = 4{,}7  \, \unit\day$ aufgenommen wurden.
 Die Plots und Fits sind alle mit den Python-Bibliotheken \cite{matplotlib},\cite{numpy},\cite{scipy},\cite{uncertainties},\cite{reback2020pandas} erstellt worden.
-\subsection{Kalibrierung der Messgeräte}
 
-Bei der Kalibrierung der Geräte trat ein Problem bei der Einstellung der Pulsdauer auf.
-Aus diesem Grund wurde die Pulsdauer statt auf $10 \, \unit{\nano\second}$ und $20 \, \unit{\nano\second}$ auf $20 \, \unit{\nano\second}$ und $30 \, \unit{\nano\second}$ eingestellt.
-Die Messdaten dazu sind im Anhang in \autoref{tab:20ns_table} und \autoref{tab:30ns_table} zu finden.
-Die Plots der Daten und der entsprechenden Halbwertsbreiten sind in \autoref{fig:20ns_plot} und \autoref{fig:30ns_plot} abgebildet.
-Auch bei der Aufnahme der Daten kam es zu Problemen, siehe dafür \autoref{sec:Diskussion}.
-Hier sei allerdings angemerkt, dass die Halbwertsbreiten deshalb nur abgeschätzt werden können.
-Nun soll aus dieser Abschätzung die optimale Verzögerung ermittelt werden.
-Hierfür wird die Formel
-\begin{equation*}
-    t_\text{Verzögerung} = 2 \cdot \Delta_\text{Pulsdauer} - \Delta_\text{Breite}
-\end{equation*}
-genutzt. Sie berechnet die Verschiebung des Maximums und liefert somit die optimale Verzögerungszeit.
-Für eine Pulsdauer von $20 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
-\begin{equation*}
-    t_\text{Verzögerung} = (2 \cdot 20 - 25) \, \unit{\nano\second} = 15 \, \unit{\nano\second}
-\end{equation*}
-ergibt.
-Für eine Pulsdauer von $30 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
-\begin{equation*}
-    t_\text{Verzögerung} = (2 \cdot 30 - 37) \, \unit{\nano\second} = 23 \, \unit{\nano\second}
-\end{equation*}
-ergibt.
+\subsection{Kalibrierung der Messgeräte}
 
 \begin{figure}
     \centering
@@ -41,6 +19,41 @@ ergibt.
     \caption{Plot der Messung der Zählrate in Abhängigkeit der relativen Verzögerung bei einer Pulsdauer von $30$ ns.}
     \label{fig:30ns_plot}
 \end{figure}
+
+Bei der Kalibrierung der Geräte trat ein Problem bei der Einstellung der Pulsdauer auf.
+Aus diesem Grund wurde die Pulsdauer statt auf $10 \, \unit{\nano\second}$ und $20 \, \unit{\nano\second}$ auf $20 \, \unit{\nano\second}$ und $30 \, \unit{\nano\second}$ eingestellt.
+Die Messdaten dazu sind im Anhang in \autoref{tab:20ns_table} und \autoref{tab:30ns_table} zu finden.
+Die Plots der Daten und der entsprechenden Halbwertsbreiten sind in \autoref{fig:20ns_plot} und \autoref{fig:30ns_plot} abgebildet.
+Auch bei der Aufnahme der Daten kam es zu Problemen, siehe dafür \autoref{sec:Diskussion}.
+Hier sei allerdings angemerkt, dass die Halbwertsbreiten deshalb nur abgeschätzt werden können.
+Als Erwartung für die Halbwertsbreite ergibt sich in etwa die doppelte Pulsdauer.
+Dies hängt mit der Einstellung der Diskriminatoren zusammen.
+Hier wird erwartet, dass die Kurve zunächst wie eine um die Pulsdauer verschobene Gaußglocke ansteigt und dann ein Plateau ausbildet.
+Dieser Anstieg ist bei einer relativen Verzögerung von der negativen Pulsdauer zu erwarten.
+Dieses Plateau wird dann wieder gaußartig abfallen, sobald die relative Verzögerung wieder der Pulsdauer entspricht.
+
+Für eine Pulsdauer von $20 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \, \unit{\nano\second}$.
+Weiterhin ergibt sich für eine Pulsdauer von $30 \, \unit{\nano\second}$ eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \, \unit{\nano\second}$.
+
+
+% Nun soll aus dieser Abschätzung die optimale Verzögerung ermittelt werden.
+% Hierfür wird die Formel
+% \begin{equation*}
+%     t_\text{Verzögerung} = 2 \cdot \Delta_\text{Pulsdauer} - \Delta_\text{Breite}
+% \end{equation*}
+% genutzt. Sie berechnet die Verschiebung des Maximums und liefert somit die optimale Verzögerungszeit.
+% Für eine Pulsdauer von $20 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 25 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
+% \begin{equation*}
+%     t_\text{Verzögerung} = (2 \cdot 20 - 25) \, \unit{\nano\second} = 15 \, \unit{\nano\second}
+% \end{equation*}
+% ergibt.
+% Für eine Pulsdauer von $30 \, \unit{\nano\second}$ ergibt sich eine Halbwertsbreite von $\Delta_\text{Breite} = 37 \, \unit{\nano\second}$, woraus sich dann eine Verzögerung von
+% \begin{equation*}
+%     t_\text{Verzögerung} = (2 \cdot 30 - 37) \, \unit{\nano\second} = 23 \, \unit{\nano\second}
+% \end{equation*}
+% ergibt.
+
+
 
 \subsection{Bestimmung der Zeiteinteilung der Bins am TCA} \label{sec:zeiteinteilung}
 
