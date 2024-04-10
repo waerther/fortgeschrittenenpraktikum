@@ -21,8 +21,14 @@
 *.mtc1
 *.out
 *.synctex.gz
-**/build
-# !*/v01.pdf
+
+# Ignore all files in the build folder
+/build/*
+
+# Except for v01.pdf
+!/build/v01.pdf
+
+
 # !build/v21.pdf
 # !build/v44.pdf
 # !build/v61.pdf

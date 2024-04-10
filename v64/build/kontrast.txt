@@ -1,0 +1,22 @@
+\begin{table}
+\centering
+\caption{Messwerte zum Kontrast.}
+\label{tab:kontrast}
+\begin{tabular}{c c c | c}
+\toprule
+Winkel in ° & U\_max & U\_min & Kontrast \\
+\midrule
+       35,0 &  0,65 & 0,105 &    0,722 \\
+       37,5 &  0,65 & 0,102 &    0,729 \\
+       40,0 &  0,64 & 0,085 &    0,766 \\
+       42,5 &  0,69 & 0,080 &    0,792 \\
+       45,0 &  0,70 & 0,080 &    0,795 \\
+       47,5 &  0,72 & 0,070 &    0,823 \\
+       50,0 &  0,77 & 0,070 &    0,833 \\
+       52,5 &  0,74 & 0,110 &    0,741 \\
+       55,0 &  0,77 & 0,120 &    0,730 \\
+       57,5 &  0,82 & 0,120 &    0,745 \\
+       60,0 &  0,89 & 0,130 &    0,745 \\
+\bottomrule
+\end{tabular}
+\end{table}
