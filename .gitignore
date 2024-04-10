@@ -21,7 +21,7 @@
 *.mtc1
 *.out
 *.synctex.gz
-*/build
+**/build
 # !*/v01.pdf
 # !build/v21.pdf
 # !build/v44.pdf
