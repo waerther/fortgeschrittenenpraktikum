@@ -21,10 +21,10 @@
 *.mtc1
 *.out
 *.synctex.gz
-**/build
-!**/build/v01.pdf
-!**/build/v21.pdf
-!**/build/v44.pdf
-!**/build/v61.pdf
-!**/build/v64.pdf
+build/*
+!v01/build/v01.pdf
+!/build/v21.pdf
+!/build/v44.pdf
+!/build/v61.pdf
+!/build/v64.pdf
 .vscode
